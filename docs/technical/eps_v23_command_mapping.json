@@ -1,0 +1,253 @@
+{
+  "v23_bar": "D:\\EPS2026G\\DeskTop\\顺德基础测绘\\InterfaceSettings_玮哥宗地v23.bar",
+  "cmd_count": 41,
+  "resolved_count": 31,
+  "maps": [
+    {
+      "cmd": "$sdl,sserptools.loginerpdb",
+      "rel_vbs": null,
+      "resolved_vbs": null,
+      "resolved": false
+    },
+    {
+      "cmd": "$sdl,sserptools.logouterpdb",
+      "rel_vbs": null,
+      "resolved_vbs": null,
+      "resolved": false
+    },
+    {
+      "cmd": "$epsscript,.\\房产检查\\画圆.vbs",
+      "rel_vbs": ".\\房产检查\\画圆.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\三维测图\\Script\\房产检查\\画圆.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "'$sdl,ssdataxinterface,import.externfile",
+      "rel_vbs": null,
+      "resolved_vbs": null,
+      "resolved": false
+    },
+    {
+      "cmd": "$sdl,sserptools.newwork",
+      "rel_vbs": null,
+      "resolved_vbs": null,
+      "resolved": false
+    },
+    {
+      "cmd": "$sdl,sserptools.getworklist",
+      "rel_vbs": null,
+      "resolved_vbs": null,
+      "resolved": false
+    },
+    {
+      "cmd": "0$epsscript,.\\业务流程\\抽取业务信息到更新区域.vbs",
+      "rel_vbs": ".\\业务流程\\抽取业务信息到更新区域.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(专网)\\Script\\业务流程\\抽取业务信息到更新区域.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "&$epsscript,.\\业务流程\\提交更新区域.vbs",
+      "rel_vbs": ".\\业务流程\\提交更新区域.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(专网)\\Script\\业务流程\\提交更新区域.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "8$epsscript,.\\业务流程\\选择宗地范围获取宗地号或版本号.vbs",
+      "rel_vbs": ".\\业务流程\\选择宗地范围获取宗地号或版本号.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(专网)\\Script\\业务流程\\选择宗地范围获取宗地号或版本号.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "8$epsscript,.\\佛山市测绘\\单栋房屋分层切片的fwguid设置.vbs",
+      "rel_vbs": ".\\佛山市测绘\\单栋房屋分层切片的fwguid设置.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(专网)\\Script\\佛山市测绘\\单栋房屋分层切片的FWGUID设置.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "2$epsscript,.\\地籍处理\\选择宗地生成界址点界址线.vbs",
+      "rel_vbs": ".\\地籍处理\\选择宗地生成界址点界址线.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\内网入库专用\\Script\\地籍处理\\选择宗地生成界址点界址线.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "2$epsscript,.\\玮哥专用脚本\\界址点界址线属性填写.vbs",
+      "rel_vbs": ".\\玮哥专用脚本\\界址点界址线属性填写.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(外网)\\Script\\玮哥专用脚本\\界址点界址线属性填写.VBS",
+      "resolved": true
+    },
+    {
+      "cmd": "D$epsscript,.\\地籍处理\\宗地范围内楼层信息批量赋属性（不动产宗地）.vbs",
+      "rel_vbs": ".\\地籍处理\\宗地范围内楼层信息批量赋属性（不动产宗地）.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\内网入库专用\\Script\\地籍处理\\宗地范围内楼层信息批量赋属性（不动产宗地）.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "B$epsscript,.\\地籍处理\\根据范围内地物给宗地赋属性（不动产宗地）.vbs",
+      "rel_vbs": ".\\地籍处理\\根据范围内地物给宗地赋属性（不动产宗地）.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\内网入库专用\\Script\\地籍处理\\根据范围内地物给宗地赋属性（不动产宗地）.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "8$epsscript,.\\玮哥专用脚本\\选择宗地范围自动生成自然幢.vbs",
+      "rel_vbs": ".\\玮哥专用脚本\\选择宗地范围自动生成自然幢.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(外网)\\Script\\玮哥专用脚本\\选择宗地范围自动生成自然幢.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": ">$epsscript,.\\房产处理\\选择幢范围获取自然幢号和不动产单元号.vbs",
+      "rel_vbs": ".\\房产处理\\选择幢范围获取自然幢号和不动产单元号.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\内网入库专用\\Script\\房产处理\\选择幢范围获取自然幢号和不动产单元号.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "4$epsscript,.\\房产处理\\选择宗地范围自动生成层和户.vbs",
+      "rel_vbs": ".\\房产处理\\选择宗地范围自动生成层和户.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\内网入库专用\\Script\\房产处理\\选择宗地范围自动生成层和户.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "7$epsscript,.\\玮哥专用脚本\\设值所有地物的区域标志_sd.vbs",
+      "rel_vbs": ".\\玮哥专用脚本\\设值所有地物的区域标志_sd.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(外网)\\Script\\玮哥专用脚本\\设值所有地物的区域标志_sd.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "*$epsscript,地籍处理\\输出宗地楼幢示意图.vbs",
+      "rel_vbs": "地籍处理\\输出宗地楼幢示意图.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(专网)\\Script\\地籍处理\\输出宗地楼幢示意图.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "0$epsscript,.\\玮哥专用脚本\\宗地重新生成坐标表.vbs",
+      "rel_vbs": ".\\玮哥专用脚本\\宗地重新生成坐标表.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(专网)\\Script\\业务成果输出\\宗地重新生成坐标表.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": ",$epsscript,.\\地籍处理\\宗地重新生成坐标表.vbs",
+      "rel_vbs": ".\\地籍处理\\宗地重新生成坐标表.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(专网)\\Script\\业务成果输出\\宗地重新生成坐标表.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "($epsscript,.\\地籍处理\\房屋分栋面积表.vbs",
+      "rel_vbs": ".\\地籍处理\\房屋分栋面积表.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(专网)\\Script\\地籍处理\\房屋分栋面积表.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "$sdl,ssedit,querydistanceangle",
+      "rel_vbs": null,
+      "resolved_vbs": null,
+      "resolved": false
+    },
+    {
+      "cmd": ">$epsscript,.\\地籍处理\\宗地图廓与宗地属性同步（不动产宗地）.vbs",
+      "rel_vbs": ".\\地籍处理\\宗地图廓与宗地属性同步（不动产宗地）.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\内网入库专用\\Script\\地籍处理\\宗地图廓与宗地属性同步（不动产宗地）.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "($epsscript,.\\地籍检查\\选择集房屋回存.vbs",
+      "rel_vbs": ".\\地籍检查\\选择集房屋回存.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\内网入库专用\\Script\\地籍检查\\选择集房屋回存.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "($epsscript,.\\地籍检查\\选择集宗地回存.vbs",
+      "rel_vbs": ".\\地籍检查\\选择集宗地回存.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\内网入库专用\\Script\\地籍检查\\选择集宗地回存.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": ".$epsscript,.\\玮哥专用脚本\\宗地默认信息填写.vbs",
+      "rel_vbs": ".\\玮哥专用脚本\\宗地默认信息填写.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(专网)\\Script\\业务数据处理\\宗地默认信息填写.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "0$epsscript,.\\玮哥专用脚本\\自然幢默认信息填写.vbs",
+      "rel_vbs": ".\\玮哥专用脚本\\自然幢默认信息填写.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(外网)\\Script\\玮哥专用脚本\\自然幢默认信息填写.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": ",$epsscript,.\\玮哥专用脚本\\户默认信息填写.vbs",
+      "rel_vbs": ".\\玮哥专用脚本\\户默认信息填写.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(外网)\\Script\\玮哥专用脚本\\户默认信息填写.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "4$epsscript,.\\玮哥专用脚本\\提取当前使用权宗地坐标.vbs",
+      "rel_vbs": ".\\玮哥专用脚本\\提取当前使用权宗地坐标.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(外网)\\Script\\玮哥专用脚本\\提取当前使用权宗地坐标.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": ";$epsscript,.\\玮哥专用脚本\\输出使用权宗地国家2000114成果.vbs",
+      "rel_vbs": ".\\玮哥专用脚本\\输出使用权宗地国家2000114成果.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(外网)\\Script\\玮哥专用脚本\\输出使用权宗地国家2000114成果.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": ">$epsscript,.\\房产处理\\房地一体单宗地输出房地一体分层分户图.vbs",
+      "rel_vbs": ".\\房产处理\\房地一体单宗地输出房地一体分层分户图.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\顺德基础测绘\\Script\\房产处理\\房地一体单宗地输出房地一体分层分户图.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "($epsscript,.\\玮哥专用脚本\\单宗地转换.vbs",
+      "rel_vbs": ".\\玮哥专用脚本\\单宗地转换.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(外网)\\Script\\玮哥专用脚本\\单宗地转换.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "$sdl,ssedit,polyareachange",
+      "rel_vbs": null,
+      "resolved_vbs": null,
+      "resolved": false
+    },
+    {
+      "cmd": "$sdl,ssedit,explode",
+      "rel_vbs": null,
+      "resolved_vbs": null,
+      "resolved": false
+    },
+    {
+      "cmd": "'$sdl,ssdataxinterface,export.externfile",
+      "rel_vbs": null,
+      "resolved_vbs": null,
+      "resolved": false
+    },
+    {
+      "cmd": ".$epsscript,.\\玮哥专用脚本\\道路河流名称填写.vbs",
+      "rel_vbs": ".\\玮哥专用脚本\\道路河流名称填写.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(外网)\\Script\\玮哥专用脚本\\道路河流名称填写.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "$sdl,sscommtools,repeatobjclean",
+      "rel_vbs": null,
+      "resolved_vbs": null,
+      "resolved": false
+    },
+    {
+      "cmd": "1$epsscript,.\\玮哥专用脚本\\不改featureguid粘贴.vbs",
+      "rel_vbs": ".\\玮哥专用脚本\\不改featureguid粘贴.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(外网)\\Script\\玮哥专用脚本\\不改FeatureGUID粘贴.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "*$epsscript,.\\房产处理\\添加单家独户明细.vbs",
+      "rel_vbs": ".\\房产处理\\添加单家独户明细.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\顺德基础测绘\\Script\\房产处理\\添加单家独户明细.vbs",
+      "resolved": true
+    },
+    {
+      "cmd": "($epsscript,.\\玮哥专用脚本\\业务图打印.vbs",
+      "rel_vbs": ".\\玮哥专用脚本\\业务图打印.vbs",
+      "resolved_vbs": "D:\\EPS2026G\\DeskTop\\佛山基础地形测绘(专网)\\Script\\业务成果输出\\业务图打印.vbs",
+      "resolved": true
+    }
+  ]
+}
