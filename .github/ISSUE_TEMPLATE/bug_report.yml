@@ -1,0 +1,67 @@
+name: 🐛 Bug Report
+description: 报告 EPS 自动化系统的 bug 或故障
+title: "[Bug] "
+labels: ["bug"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🐛 Bug 描述
+        简明描述问题是什么。
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: "复现步骤"
+      description: "如何一步步复现这个 bug？"
+      placeholder: "1. 执行了 ...\n2. 然后 ...\n3. 结果 ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "预期行为"
+      description: "你期望看到什么？"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: "实际行为"
+      description: "实际发生了什么？"
+    validations:
+      required: true
+
+  - type: input
+    id: evidence
+    attributes:
+      label: "证据文件路径"
+      description: "日志/截图/报告的绝对路径（如有）"
+      placeholder: "D:\AIcode\mcpida\reports\..."
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "严重程度"
+      options:
+        - 低（功能部分受损，可绕过）
+        - 中（核心功能不可用）
+        - 高（系统崩溃或数据丢失风险）
+        - 严重（致命，必须立即修复）
+    validations:
+      required: true
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: "临时绕法（可选）"
+      description: "如果有临时解决方案，在此说明"
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        > 提交前请先搜索是否已有类似 issue。

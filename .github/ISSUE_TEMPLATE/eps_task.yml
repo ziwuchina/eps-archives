@@ -1,0 +1,60 @@
+name: 🔬 EPS 专项
+description: EPS 自动化特定任务跟踪（IDA联动 / VBS执行 / BAR触发 / 弹窗处理）
+title: "[EPS] "
+labels: ["eps-specific"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 📋 EPS 任务
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: "任务类别"
+      options:
+        - IDA MCP 联动
+        - VBS 脚本执行
+        - BAR 按钮触发
+        - 弹窗处理
+        - COM/DLL 封装
+        - Frida Hook
+        - WM_COMMAND 抓包
+        - EPS 监控
+        - 数据导出
+        - 崩溃调试
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-state
+    attributes:
+      label: "当前状态"
+      description: "现在卡在哪里？进展到哪里了？"
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: "证据"
+      description: "相关报告/日志/截图路径"
+      placeholder: "D:\AIcode\mcpida\reports\...
+        C:\Users\Administrator\.openclaw\workspace-peiqian\reports\..."
+
+  - type: textarea
+    id: next-step
+    attributes:
+      label: "下一步计划"
+      description: "打算怎么推进？"
+
+  - type: dropdown
+    id: risk
+    attributes:
+      label: "风险等级"
+      options:
+        - 🟢 低（稳定路径）
+        - 🟡 中（需进一步验证）
+        - 🔴 高（有已知崩溃风险）
+        - ⚫ 阻塞（完全卡死）
