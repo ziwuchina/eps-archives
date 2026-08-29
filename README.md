@@ -125,6 +125,11 @@ IDA MCP工具:   C:\Users\Administrator\.openclaw\skills\desktop-tool-launcher-m
 EPS技能:       C:\Users\Administrator\.openclaw\skills\eps-workspace-control\scripts\eps_session_command.ps1
 IDA别名:       ida-mcp -> http://127.0.0.1:11339/mcp
 IDA MCP配置:   C:\Users\Administrator\.mcporter\mcporter.json
+EPS2026G	\\192.168.1.233\EPS2026G
+peiqian_workspace	\\192.168.1.233\peiqian_workspace
+dtl_scripts	\\192.168.1.233\dtl_scripts
+eps_ws_scripts	\\192.168.1.233\eps_ws_scripts
+mcporter	\\192.168.1.233\mcporter
 ```
 
 ---
