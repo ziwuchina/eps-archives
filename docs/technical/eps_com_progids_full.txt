@@ -1,0 +1,240 @@
+### Eps.Database
+  default='Eps Database'
+
+### Eps.EpsApplication
+  default='Eps.EpsApplication'
+
+### EpsCom.CECDataCheck
+  default='CECDataCheck Class'
+
+### EpsCom.CECDataCheck.1
+  default='CECDataCheck Class'
+
+### EpsCom.CECDataCheckItem
+  default='CECDataCheckItem Class'
+
+### EpsCom.CECDataCheckItem.1
+  default='CECDataCheckItem Class'
+
+### EpsCom.CECImage
+  default='CECImage Class'
+
+### EpsCom.CECImage.1
+  default='CECImage Class'
+
+### EpsCOM.ECAppliction
+  default='ECAppliction Class'
+
+### EpsCOM.ECAppliction.1
+  default='ECAppliction Class'
+
+### EpsCom.ECAreaGeometry
+  default='ECAreaGeometry Class'
+
+### EpsCom.ECAreaGeometry.1
+  default='ECAreaGeometry Class'
+
+### EpsCom.ECByteArray
+  default='ECByteArray Class'
+
+### EpsCom.ECByteArray.1
+  default='ECByteArray Class'
+
+### EpsCOM.ECCheckModel
+  default='ECCheckModel Class'
+
+### EpsCOM.ECCheckModel.1
+  default='ECCheckModel Class'
+
+### EpsCOM.ECCmdBase
+  default='ECCmdBase Class'
+
+### EpsCOM.ECCmdBase.1
+  default='ECCmdBase Class'
+
+### EpsCOM.ECCmdManager
+  default='ECCmdManager Class'
+
+### EpsCOM.ECCmdManager.1
+  default='ECCmdManager Class'
+
+### EpsCOM.ECCommandBar
+  default='ECCommandBar Class'
+
+### EpsCOM.ECCommandBar.1
+  default='ECCommandBar Class'
+
+### EpsCom.ECCtrlPoint
+  default='ECCtrlPoint Class'
+
+### EpsCom.ECCtrlPoint.1
+  default='ECCtrlPoint Class'
+
+### EpsCom.ECCtrlPointArray
+  default='ECCtrlPointArray Class'
+
+### EpsCom.ECCtrlPointArray.1
+  default='ECCtrlPointArray Class'
+
+### EpsCom.ECCtrlPointCoord
+  default='ECCtrlPointCoord Class'
+
+### EpsCom.ECCtrlPointCoord.1
+  default='ECCtrlPointCoord Class'
+
+### EpsCom.ECCtrlPointCoordArray
+  default='ECCtrlPointCoordArray Class'
+
+### EpsCom.ECCtrlPointCoordArray.1
+  default='ECCtrlPointCoordArray Class'
+
+### EpsCom.ECDataSource
+  default='ECDataSource Class'
+
+### EpsCom.ECDataSource.1
+  default='ECDataSource Class'
+
+### EpsCom.ECDataSourceArray
+  default='ECDataSourceArray Class'
+
+### EpsCom.ECDataSourceArray.1
+  default='ECDataSourceArray Class'
+
+### EpsCOM.ECDataX
+  default='ECDataX Class'
+
+### EpsCOM.ECDataX.1
+  default='ECDataX Class'
+
+### EpsCom.ECDblRect
+  default='ECDblRect Class'
+
+### EpsCom.ECDblRect.1
+  default='ECDblRect Class'
+
+### EpsCOM.ECDispFilterInfo
+  default='ECDispFilterInfo Class'
+
+### EpsCOM.ECDispFilterInfo.1
+  default='ECDispFilterInfo Class'
+
+### EpsCOM.ECDlgBase
+  default='ECDlgBase Class'
+
+### EpsCOM.ECDlgBase.1
+  default='ECDlgBase Class'
+
+### EpsCOM.ECDraw
+  default='ECDraw Class'
+
+### EpsCOM.ECDraw.1
+  default='ECDraw Class'
+
+### EpsCOM.ECDrawMap
+  default='ECDrawMap Class'
+
+### EpsCOM.ECDrawMap.1
+  default='ECDrawMap Class'
+
+### EpsCom.ECFeature
+  default='ECFeature Class'
+
+### EpsCom.ECFeature.1
+  default='ECFeature Class'
+
+### EpsCom.ECFeatureManager
+  default='ECFeatureManager Class'
+
+### EpsCom.ECFeatureManager.1
+  default='ECFeatureManager Class'
+
+### EpsCom.ECFunctionItem
+  default='ECFunctionItem Class'
+
+### EpsCom.ECFunctionItem.1
+  default='ECFunctionItem Class'
+
+### EpsCom.ECGeneralDataSource
+  default='ECGeneralDataSource Class'
+
+### EpsCom.ECGeneralDataSource.1
+  default='ECGeneralDataSource Class'
+
+### EpsCom.ECGeoAttrib
+  default='ECGeoAttrib Class'
+
+### EpsCom.ECGeoAttrib.1
+  default='ECGeoAttrib Class'
+
+### EpsCom.ECGeometrys
+  default='ECGeometrys Class'
+
+### EpsCom.ECGeometrys.1
+  default='ECGeometrys Class'
+
+### EpsCom.ECLayer
+  default='ECLayer Class'
+
+### EpsCom.ECLayer.1
+  default='ECLayer Class'
+
+### EpsCom.ECLayerArray
+  default='ECLayerArray Class'
+
+### EpsCom.ECLayerArray.1
+  default='ECLayerArray Class'
+
+### EpsCom.ECLineGeometry
+  default='ECLineGeometry Class'
+
+### EpsCom.ECLineGeometry.1
+  default='ECLineGeometry Class'
+
+### EpsCom.ECMap
+  default='ECMap Class'
+
+### EpsCom.ECMap.1
+  default='ECMap Class'
+
+### EpsCom.ECMath
+  default='ECMath Class'
+
+### EpsCom.ECMath.1
+  default='ECMath Class'
+
+### EpsCom.ECNoteGeometry
+  default='ECNoteGeometry Class'
+
+### EpsCom.ECNoteGeometry.1
+  default='ECNoteGeometry Class'
+
+### EpsCom.ECPoint
+  default='ECPoint Class'
+
+### EpsCom.ECPoint.1
+  default='ECPoint Class'
+
+### EpsCom.ECPointArray
+  default='ECPointArray Class'
+
+### EpsCom.ECPointArray.1
+  default='ECPointArray Class'
+
+### EpsCom.ECPointGeometry
+  default='ECPointGeometry Class'
+
+### EpsCom.ECPointGeometry.1
+  default='ECPointGeometry Class'
+
+### EpsCOM.ECSample
+  default='ECSample Class'
+
+### EpsCOM.ECSample.1
+  default='ECSample Class'
+
+### EpsCOM.ECTriangleNet
+  default='ECTriangleNet Class'
+
+### EpsCOM.ECTriangleNet.1
+  default='ECTriangleNet Class'
+
