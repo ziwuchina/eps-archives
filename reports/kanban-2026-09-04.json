@@ -1,0 +1,239 @@
+{
+  "source": "裴谦-任务看板.xlsx",
+  "archived_at": "2026-09-04",
+  "count": 23,
+  "records": [
+    {
+      "裴谦-任务看板": "【A路线-短期】VBS自动化 — 步骤1：ExecuteFuction参数字符串捕获",
+      "状态": "已阻塞",
+      "创建时间": "2025-04-10 21:20:00",
+      "当前进展": "VBS自动化已确认不可行。Frida Hook挂载17个函数，命令发送链路正常（WM_SETTEXT→ExecFunction因果链已验证），但VBSExecute从未进入CSSProcess/SScriptCore入口。根因：EPS内部VBS引擎路由层在WM_SETTEXT上下文里静默丢弃所有VBSExecute命令（4种格式全部失败）。",
+      "下一步操作": "步骤3：SDL/ERP全链路闭环验证（LoginERPDB→GetWorkList→SubmitWork），确认是否有可替代VBS的业务自动化路径。",
+      "阻塞说明": "A路线VBS自动化确认不可行。SDL/ERP链路已验证可用（见步骤3）。建议转向B路线。",
+      "相关文件": "D:\\AIcode\\mcpida\\tools\\frida_attach_all_eps.py\nD:\\AIcode\\mcpida\\reports\\frida_all_eps_20260414_235346.json\nD:\\AIcode\\mcpida\\tools\\frida_sustained.py\nD:\\AIcode\\mcpida\\reports\\frida_sustained_20260414_234657.json"
+    },
+    {
+      "裴谦-任务看板": "【A路线-短期】VBS自动化 — 步骤2：根因确认后针对性修复",
+      "状态": "已阻塞",
+      "创建时间": "2025-04-10 21:20:00",
+      "当前进展": "VBS自动化已确认不可行。Hook SScript.dll真实C++导出（ExecuteCommand/ExecuteFuction/ExecuteSDLFunction/MapMethod/script_ExcuteFunction/GetScriptDispatch）并发送3条命令，命中次数均为0。命令发送链路正常但执行路径未经过CSSProcess导出入口，说明命令栏解析走了更早期/更底层路由。",
+      "下一步操作": "下一步切换到UI层入口：Hook CWnd::OnCommand/PreTranslateMessage 与 MFC 消息映射，按TID=21552优先做Stalker栈追踪，直接反推真正解析函数。",
+      "阻塞说明": "命令发送链路正常且字符串无损到达（stdout完整），但执行路径未经过CSSProcess导出入口。VBS自动化确认不可行。",
+      "相关文件": "D:\\AIcode\\mcpida\\tools\\frida_list_sscript_exports.py\nD:\\AIcode\\mcpida\\tools\\frida_hook_cssprocess_exports.py\nD:\\AIcode\\mcpida\\reports\\frida_cssprocess_hits_20260415_0035.json\nD:\\AIcode\\mcpida\\reports\\frida_route_probe_v2_20260415_0030.json"
+    },
+    {
+      "裴谦-任务看板": "【A路线-短期】VBS自动化 — 步骤2a：路径格式测试",
+      "状态": "已阻塞",
+      "创建时间": "2025-04-10 21:20:00",
+      "当前进展": "步骤2a完成。测试了4种VBS命令格式：(1) VBSExecute 绝对路径→发送成功但Output Edit只回显历史命令，文件未生成；(2) $sdl,vbs.execute→Output空；(3) Execute→Output空；(4) RunVBS→Output空。结论：EPS内部路由层完全屏蔽了VBSExecute，与命令格式无关。",
+      "下一步操作": "测试三种路径格式：(1) 绝对路径 D:\\...\\zzz.vbs (2) EPS相对路径 .\\Temp\\zzz.vbs (3) EDB同目录 zzz.vbs。验证VBSExecute对路径格式的敏感性。",
+      "阻塞说明": "VBS自动化不可行。根因：EPS内部VBS引擎路由层在跨进程WM_SETTEXT上下文里静默丢弃所有VBSExecute命令（4种格式全部失败：VBSExecute/Execute/RunVBS/$sdl,vbs.execute）。Output Edit只回显历史命令，无错误信息。",
+      "相关文件": "D:\\EPS2026G\\Temp\\zzz_exec_probe.vbs"
+    },
+    {
+      "裴谦-任务看板": "【A路线-短期】VBS自动化 — 步骤2b：Tab切换后命令Edit焦点测试",
+      "状态": "已阻塞",
+      "创建时间": "2025-04-10 21:20:00",
+      "当前进展": "Tab激活测试暂缓。最新发现：命令Edit（0x1c0a1e）通过WM_SETTEXT可触发SSERPTools_ExecFunction（enter事件可见，a0_ansi='getworklist'），但控件文本长度始终为0。真正阻塞点不在Tab激活状态，而在EPS调度层对WM_SETTEXT写入的文本不认可。",
+      "下一步操作": "用Frida Hook BCGP tab control，发送TCM_SETCURFOCUS切换到\"命令\"Tab，然后立即WM_SETTEXT+keybd_event，验证Tab激活状态是否是VBSExecute被静默丢弃的原因。",
+      "阻塞说明": "Tab激活状态不是VBSExecute被丢弃的原因。根因在EPS调度层对WM_SETTEXT文本的不认可。"
+    },
+    {
+      "裴谦-任务看板": "【A路线-短期】VBS自动化 — 步骤2c：真实可见桌面SendInput测试",
+      "状态": "已阻塞",
+      "创建时间": "2025-04-10 21:20:00",
+      "当前进展": "SendInput路径测试暂缓。Stalker追踪显示：GetWorkList执行路径高频落点是UI/消息循环与TextShaping（USER32/win32u），未见SScript.dll/SScriptCore.dll调用。结论强化：GetWorkList当前进入的是ERP工具层/UI泵路径，而非脚本执行路径。真正通道需从SSProject.dll调度路径下钻。",
+      "下一步操作": "若步骤1+2a+2b均失败，在真实可见桌面下用SendInput全程模拟键盘输入（替代WM_SETTEXT），验证EPS是否对软件注入的WM_SETTEXT有过滤。",
+      "阻塞说明": "跨桌面消息注入失效已确认；但真正根因是EPS内部调度不认WM_SETTEXT写入路径。SendInput路径未实际测试（因发现更根本的调度层问题）。",
+      "相关文件": "D:\\AIcode\\mcpida\\wrapper\\eps_command_bridge.py"
+    },
+    {
+      "裴谦-任务看板": "【A路线-短期】VBS自动化 — 步骤3：SDL/ERP全链路闭环验证",
+      "状态": "已完成",
+      "创建时间": "2025-04-10 21:20:00",
+      "当前进展": "SDL/ERP 全链路闭环验证完成：(1) LoginERPDB → 弹出'待登录'通知对话框（单击确定关闭，无需输入）；(2) 关闭后 GetWorkList → 弹出工序查询窗口（17条数据）；(3) SubmitWork → 弹出提交窗口。三步均可通过命令触发，SDL/ERP自动化完全可行。",
+      "下一步操作": "已无可执行下一步。SDL/ERP 链路验证完成，VBS 自动化确认不可行。建议转向 B路线（逆向工程）或结束此任务。",
+      "阻塞说明": "VBS自动化不可行，已验证3种路径格式均失败。SDL/ERP链路已验证可用。",
+      "相关文件": "D:\\AIcode\\mcpida\\reports\\bar_v23_command_catalog.json"
+    },
+    {
+      "裴谦-任务看板": "【A/B路线分水岭】VBS自动化可行性最终判定",
+      "状态": "已完成",
+      "创建时间": "2025-04-10 21:20:00",
+      "当前进展": "A路线VBS自动化已正式判定不可行（步骤1/2a/2b/2c全部失败，SDL/ERP链路验证已完成）。B路线已产出阶段1闭环证据包（OnCallBackMessage hook成功，ExecFunction同步可观测），阶段2正在进行。",
+      "下一步操作": "A路线所有步骤完成（步骤1~3）后，若仍无法自动化，则转向B路线。",
+      "相关文件": "D:\\AIcode\\mcpida\\reports\\frida_trace_vbs_args_20260414_205515.json"
+    },
+    {
+      "裴谦-任务看板": "【B路线-长期】逆向工程 — 阶段1：CSSProcess::ExecuteFuction IDA深度分析",
+      "状态": "已完成",
+      "创建时间": "2025-04-10 21:20:00",
+      "当前进展": "阶段1完成（2026-04-18 01:59）：已在运行EPS(PID 13540)稳定复现命令分发链路。`GetWorkList `可进入real_dispatch并触发OCB，弹出“获取用户待办列表”（665条/27页）。ERP/网络/上传下载证据已归档保存。",
+      "下一步操作": "按看板推进阶段2：聚焦SScriptCore.dll RunScript路径与脚本执行入口；并将ERP网络与WebFiler上传下载结论作为背景约束保留。",
+      "相关文件": "D:\\AIcode\\mcpida\\wrapper\\probe_erp_login_v37_report.json\nD:\\AIcode\\mcpida\\wrapper\\probe_worklist_net_v38_report.json\nD:\\AIcode\\mcpida\\wrapper\\memory_notes_20260418.md"
+    },
+    {
+      "裴谦-任务看板": "【B路线-长期】逆向工程 — 阶段2：SScriptCore.dll VBS引擎核心逆向",
+      "状态": "已阻塞",
+      "创建时间": "2025-04-10 21:20:00",
+      "当前进展": "【2026-05-05更新】\n\n✅ Frida spawn+attach稳定突破\n- 已验证enumerateExports()返回绝对地址(非RVA)\n- OCB this指针捕获成功(0x11d47128)\n- EXECFN hook捕获\"GetWorkList\"原始字节(UTF-16LE验证)\n\n⚠️ 阻塞：ExecFunction直调失败\n- NativeFunction调用返回NULL\n- CString构造方式错误：ATL/MFC CString是对象结构(16字节头+数据)，而非简单指针\n- 需要重新构造CStringData结构体\n\n✅ HIDDEN Edit路由已稳定\n- HIDDEN Edit发送命令完整命中OCB/EXECFN\n- 命令路由链：Edit→OnEpsCommand→OCB→EXECFN\n- PID 33420稳定运行\n\n🔧 当前策略：返回HIDDEN Edit+WM_CHAR(0x20)稳定路径，不再依赖ExecFunction直调",
+      "下一步操作": "Frida直调ExecFunction阻塞，转向：1)用正确CStringData结构重新调用；2)或回到HIDDEN Edit+WM_CHAR(0x20)稳定路径获取GetWorkList数据",
+      "阻塞说明": "现有 BM_CLICK 触发链会返回成功但未进入 ScriptEngine。需改为“真实脚本菜单点击”或调用点级追踪。",
+      "相关文件": "D:\\AIcode\\mcpida\\wrapper\\wmcmd_context_20260418_1224.json\nD:\\AIcode\\mcpida\\wrapper\\stage2_22_wmcmd_context_evidence_20260418_1224.md\nD:\\AIcode\\mcpida\\wrapper\\hook_detail_20260418_1230.json",
+      "优先级": "P0",
+      "前置依赖": "阶段1完成（rec27bNAYeVtDs）",
+      "验收标准": "完成2.1~2.4并产出阶段2闭环证据包（JSON+MD+看板回填）；至少包含一次RunScript/ssExcuteFunction有效样本。",
+      "预计工时(h)": "20"
+    },
+    {
+      "裴谦-任务看板": "【元任务】EPS VBS自动化 — 路线决策里程碑",
+      "状态": "进行中",
+      "创建时间": "2025-04-10 21:20:00",
+      "当前进展": "B路线里程碑继续推进：已从“命令入口定位”推进到“结果回调可捕获”阶段（OnCallBackMessage hook 成功，ExecFunction 同步可观测）。",
+      "下一步操作": "以 spawn+attach 为主路径完成一轮 login/getworklist 回调抓取，形成可复现实验报告并回填看板。",
+      "阻塞说明": "直接 attach 现有 EPS 进程仍存在失败概率，调试链路稳定性不足。",
+      "相关文件": "C:\\Users\\Administrator\\Desktop\\AI_Documents\\EPS2026G_VBS自动化专项分析_裴谦报告.md"
+    },
+    {
+      "裴谦-任务看板": "EPS WzExtBridge.dll 开发",
+      "状态": "进行中",
+      "创建时间": "2025-04-12 08:00:00",
+      "当前进展": "【2026-05-05进展】\n\n✅ HIDDEN Edit路由突破\n- 发现VISIBLE Edit始终0命中原因：BCGP框架拦截所有WM消息\n- HIDDEN Edit(cid=3001,vis=0)可正常路由所有命令(Pan/ZoomIn/LoginERPDB/GetWorkList)\n- PID 33420稳定运行，HIDDEN Edit=0x10bdc\n\n✅ Frida enumerateExports()返回绝对地址确认\n- 不要用base.add(address)，直接用ptr(address)\n- SSERPTools=0xe780000, SSProject=0x1280000\n\n✅ ERP登录成功\n- GetERPManager()返回非NULL(0x11c00300)\n- 已自动触发LoginERPDB并填写凭据\n\n⚠️ 当前阻塞：NativeFunction调用返回NULL\n- CString构造不正确导致ExecFunction调用失败\n- 已确认EXE路径：Edit→OnEpsCommand→OCB→EXECFN（完整命中）\n- 但直调ExecFunction返回NULL，需修正CString构造方式",
+      "下一步操作": "1. 用WM_CHAR(0x20)替换WM_SETTEXT方式发送命令，获取更稳定的路由触发\n2. 修正Frida NativeFunction调用约定（SSERPTools thiscall需要正确this指针）\n3. API恢复后完成HTTP API + Frida双验证",
+      "阻塞说明": "API服务器停机\nEPS 未连接 SDE 数据库",
+      "相关文件": "D:\\EPS2026G\\WzExtBridge.dll\nC:\\Users\\Administrator\\.openclaw\\workspace\\eps_dll\\WzExtBridge\\WzExtBridge.cpp"
+    },
+    {
+      "裴谦-任务看板": "【留档】ERP/网络/上传下载结论（2026-04-18）",
+      "状态": "已完成",
+      "当前进展": "已确认：ERP接口域名以 getnumber.shunde.gov.cn 为主；本机外网探测默认502、直连超时。运行中EPS命令链路（LoginERPDB/GetWorkList）可触发分发与回调，GetWorkList弹出待办列表(665条/27页)。",
+      "下一步操作": "暂不继续追ERP网络联通；后续按看板主线推进逆向阶段2（RunScript入口）。",
+      "阻塞说明": "无（本项为归档记录）",
+      "相关文件": "D:\\AIcode\\mcpida\\wrapper\\probe_erp_login_v37_report.json\nD:\\AIcode\\mcpida\\wrapper\\probe_worklist_net_v38_report.json\nD:\\AIcode\\mcpida\\wrapper\\memory_notes_20260418.md"
+    },
+    {
+      "裴谦-任务看板": "【B路线-阶段2】步骤2.1：链路稳定化（PID/句柄/失败落盘）",
+      "状态": "已完成",
+      "当前进展": "步骤2.1验收通过：在PID 3036上连续3次复跑同一runbook均成功产出JSON，event_count=8，且稳定命中 ExecuteSDL_dispatch。额外观察：3次均命中 ssExcuteFunction_Eps（1次/轮）。",
+      "下一步操作": "切换步骤2.2：捕获“脚本菜单/工具栏真实点击”对应 command id 与调用栈证据。",
+      "阻塞说明": "无",
+      "相关文件": "D:\\AIcode\\mcpida\\wrapper\\stage2_p0_21_stability_evidence_20260418_1102.md\nD:\\AIcode\\mcpida\\wrapper\\stage2_p0_21_run1_20260418_110231.json\nD:\\AIcode\\mcpida\\wrapper\\stage2_p0_21_run2_20260418_110231.json\nD:\\AIcode\\mcpida\\wrapper\\stage2_p0_21_run3_20260418_110231.json",
+      "优先级": "P0",
+      "前置依赖": "无",
+      "验收标准": "连续3次：启动EPS->定位主窗体/命令Edit/按钮->发送GetWorkList->产出JSON；event_count>0 且包含 ExecuteSDL_dispatch。",
+      "预计工时(h)": "4"
+    },
+    {
+      "裴谦-任务看板": "【B路线-阶段2】步骤2.2：真实UI脚本入口 command id 捕获",
+      "状态": "已完成",
+      "当前进展": "EPS ERP API 完全打通。\n- Login / GetWorkList / GetUserRoles 接口验证完成\n- Python SDK: D:\\AIcode\\mcpida\\wrapper\\eps_erp_api.py\n- 技能: ~/.openclaw/skills/eps-erp-api/\n- 四月份14条业务清单已导出\n\nB路线逆向工程主线暂停，转向API调用实现业务自动化。",
+      "下一步操作": "进入步骤2.3：向ssExcuteFunction_Eps发送有效脚本命令（GetWorkList），尝试触发RunScriptCore完整链路并采集首个非空入参样本。",
+      "阻塞说明": "解除部分阻塞。注入路径已解决，但EXECFN未触发的路由分支条件待追踪。",
+      "相关文件": "D:\\AIcode\\mcpida\\wrapper\\frida_wmcmd_context_probe.py\nD:\\AIcode\\mcpida\\wrapper\\wmcmd_context_20260418_1224.json\nD:\\AIcode\\mcpida\\wrapper\\stage2_22_wmcmd_context_evidence_20260418_1224.md",
+      "优先级": "P0",
+      "前置依赖": "步骤2.1完成并稳定复现",
+      "验收标准": "捕获>=1个真实脚本菜单/工具栏 command id，并有对应 WM_COMMAND 日志或调用栈证据。",
+      "预计工时(h)": "6"
+    },
+    {
+      "裴谦-任务看板": "【B路线-阶段2】步骤2.3：RunScript/ssExcuteFunction 首次入参样本采集",
+      "状态": "已阻塞",
+      "当前进展": "【2026-05-05 17:47】\n\n✅ EPS自动化流程完整打通\n- ERP登录成功(曾玮/******)\n- HIDDEN Edit(0x20baa)命令路由完整命中OCB×3/EXECFN\n- GetWorkList触发成功，返回\"第1页/总3页，共33条\"\n\n⚠️ 当前阻塞\n- BCGPGridCtrl数据为空，点击查询后报\"请登录OA数据库\"\n- API服务器(getnumber.shunde.gov.cn)仍不可用\n\n📸 截图已保存\n- dialog_0x9084c.png (GetWorkList窗口)\n- dialog_0x680d1a.png (OA数据库错误)",
+      "下一步操作": "四月份14条记录已导出。后续按需推进其他接口（GetUserRoles/WorkSubmit等）的调试。",
+      "阻塞说明": "API服务器停机 + OA数据库未登录",
+      "相关文件": "D:\\AIcode\\mcpida\\wrapper\\frida_send_to_edit_v2.py\nD:\\AIcode\\mcpida\\wrapper\\frida_send_to_edit_v2.json\nD:\\AIcode\\mcpida\\wrapper\\frida_send_to_edit_v3.py\nD:\\AIcode\\mcpida\\wrapper\\frida_send_to_edit_v3.json\nD:\\AIcode\\mcpida\\wrapper\\frida_rpc_v5.json",
+      "优先级": "P0",
+      "前置依赖": "步骤2.2拿到真实UI触发链",
+      "验收标准": "首次捕获 RunScript 或 ssExcuteFunction 的非空入参；产出对应 JSON + MD 证据包。",
+      "预计工时(h)": "4"
+    },
+    {
+      "裴谦-任务看板": "【B路线-阶段2】步骤2.4：调用链闭环（sub_420F8C→sub_4231F5→ssExcuteFunction→RunScript）",
+      "状态": "已阻塞",
+      "当前进展": "【04-22上午旋转checkpoint】wow64限制已确认：EnumWindows/EnumChildWindows无法穿透到32-bit EPS进程的标准控件，仅能枚举tooltip/ComboLBox。SSERPTools.dll全524个导出全是MFC内部函数，21个已知函数名与导出表无对应。GetSDLCommandInfo/ONEPS/OCB_ERP三个hook点发送命令后全部0命中。命令字符串不在目标模块内存（堆/栈）。关键发现：ONEPS(CSSView::OnEpsCommand)收到的是固定字符串\"OnEpsCommand\"而非用户命令文本，说明用户命令走独立路由不过ONEPS。",
+      "下一步操作": "优先级排序：(1)send_eps_command.ps1的SendKeys方式绕过句柄直接注入命令；(2)通过EPS UI手动触发命令后立即attach Frida观察实际触发链；(3)尝试SScriptCore!ScriptEngineFactory::RunScript直接调用；(4)研究CSSView::OnCommandMsg(SSProject+0x12dc3fe)作为命令分发总入口。",
+      "阻塞说明": "wow64兼容层限制导致无法找到命令Edit句柄；所有已知hook点0命中说明命令处理走了未知独立路由；GetScriptDispatch('SSERPTools')返回null。",
+      "相关文件": "D:\\AIcode\\mcpida\\wrapper\\frida_sserptools_probe.py\nD:\\AIcode\\mcpida\\wrapper\\probe_all_edits_process.py\nD:\\AIcode\\mcpida\\wrapper\\stage2_24_probe_all_edits_20260420_012244.txt\nD:\\AIcode\\mcpida\\wrapper\\stage2_24_workspace_probe_evidence_20260420_0125.md",
+      "优先级": "P1",
+      "前置依赖": "步骤2.3完成（已有首个入参样本）",
+      "验收标准": "动态命中链覆盖 sub_420F8C->sub_4231F5->ssExcuteFunction->RunScript，并给出静态-动态地址对齐说明。",
+      "预计工时(h)": "6"
+    },
+    {
+      "裴谦-任务看板": "【B路线-阶段3】步骤3.1：函数批量分析与模块切片（按实施方案）",
+      "状态": "待领取",
+      "当前进展": "已完成阶段2前半（入口链定位），尚未进入函数规模化覆盖。",
+      "下一步操作": "1) 按模块优先级建立函数批次（UI/脚本/命令路由/数据）；2) 每批20-30函数输出反编译摘要；3) 每批次同步动态验证点。",
+      "阻塞说明": "需先完成阶段2链路闭环再进入规模化分析。",
+      "相关文件": "D:\\AIcode\\mcpida\\EPS2026G_逆向工程文档\\EPS2026G_逆向工程实施方案.md",
+      "优先级": "P1",
+      "前置依赖": "步骤2.4闭环完成",
+      "验收标准": "至少完成1批20-30函数的分析摘要+模块切片文档，并回填看板证据。",
+      "预计工时(h)": "12"
+    },
+    {
+      "裴谦-任务看板": "【B路线-阶段4】步骤4.1：重构PoC（最小可运行脚本执行路径）",
+      "状态": "待领取",
+      "当前进展": "重构阶段尚未启动；当前仍在逆向证据积累。",
+      "下一步操作": "1) 以闭环链路为蓝本输出伪代码；2) 完成最小PoC（输入命令->脚本执行）; 3) 建立单元验证样例。",
+      "阻塞说明": "依赖阶段2/3输出的稳定调用链与参数语义。",
+      "相关文件": "D:\\AIcode\\mcpida\\EPS2026G_逆向工程文档\\EPS2026G_逆向工程快速执行指南.md",
+      "优先级": "P2",
+      "前置依赖": "步骤3.1完成并形成模块级输入",
+      "验收标准": "最小PoC可复现运行（输入命令->脚本执行路径），并附带基础验证样例。",
+      "预计工时(h)": "16"
+    },
+    {
+      "裴谦-任务看板": "【阻断性】Frida Agent 稳定性问题 — EPS 频繁崩溃",
+      "状态": "已完成",
+      "当前进展": "【2026-04-24解决】进程内 Frida SendMessageW 注入成功，突破跨进程 WM_SETTEXT 指针泄漏问题。核心方案：在 Frida JS 脚本内加载 user32.dll!SendMessageW，用 NativeFunction 调用，传入 Frida 分配的 Memory.allocUtf16String() 指针，完全避免跨进程 marshalling 问题。test_v3_inject.py 实测：attach 到 PID 3544，hook 10个函数全部OK（11/11 hooks），进程稳定，未崩溃。框架支持 findui / setText / injectcommand RPC 调用，可稳定复现命令注入链路。",
+      "下一步操作": "用正确API重写全量探针（修复hook地址获取逻辑），保持最小hook原则（ssExcuteFunction+ssExcuteFunction_Eps+RunScriptCore）。",
+      "阻塞说明": "解除。进程内 Frida SendMessageW 方案稳定可靠，已完成 test_v3_inject.py 验证。",
+      "相关文件": "D:\\AIcode\\mcpida\\wrapper\\frida_stable_full_probe.py\nD:\\AIcode\\mcpida\\wrapper\\stable_full_20260418_1200_fix.json\nD:\\AIcode\\mcpida\\wrapper\\frida_stable_probe.py",
+      "优先级": "P0",
+      "前置依赖": "无",
+      "验收标准": "Frida注入EPS后保持稳定运行>=30分钟不崩溃；或找到不依赖Frida注入的替代方案。",
+      "预计工时(h)": "8"
+    },
+    {
+      "裴谦-任务看板": "【C路线-EPA API】EPS ERP API调用 - 业务自动化",
+      "状态": "进行中",
+      "当前进展": "【2026-05-05进展】\n\n✅ HIDDEN Edit路由确认有效\n- VISIBLE Edit始终0命中\n- HIDDEN Edit(cid=3001,vis=0) → 命令路由完整命中(OCB×3/EXECFN×1)\n- 今日测试PID: 33420, HIDDEN Edit=0x10bdc\n\n✅ ERP登录成功\n- GetERPManager()返回非NULL(0x11c00300)\n- LoginERPDB触发登录对话框(Edit cid=1211/1059, Button cid=1「登录」)\n- 自动填写凭据(曾玮/******)点击登录成功\n\n✅ 命令路由链完整验证\n- Edit WM_SETTEXT → OnEpsCommand(0x4cf0a) → OCB(0x1bdf0) → EXECFN(0x1b4a0)\n- GetWorkList/IsLogin/LoginERPDB全部命中\n\n⚠️ ExecFunction直调返回null\n- 已捕获OCB this指针(0x11d47128)\n- EXECFN hook确认收到\"GetWorkList\"(UTF-16LE raw bytes验证)\n- 但NativeFunction调用返回ret=NULL，输出缓冲区未填充\n- 原因：CString构造方式不正确(MFC CString是对象而非指针)\n\n⚠️ API服务器仍停机\n- getnumber.shunde.gov.cn 连接超时\n- 等待恢复后验证HTTP API + Frida双路径",
+      "下一步操作": "1. 修正CString构造方式：MFC CString对象=16字节(指针+长度+容量)，需分配CStringData结构体\n2. 用正确CString重新调用ExecFunction(\"GetWorkList\")捕获输出\n3. API恢复后验证HTTP API + Frida UI双路径一致性\n4. 更新eps_command_v3.py默认使用HIDDEN Edit",
+      "阻塞说明": "API服务器停机维护中（2026-05-01 曾工确认）\nSSArcSDE 逆向已完成架构解析，无需继续深究"
+    },
+    {
+      "裴谦-任务看板": "【新进展】VBS菜单command ID实时捕获",
+      "状态": "进行中",
+      "当前进展": "【2026-05-07进展】\n\n✅ Ghidra静态分析完成 - BCG菜单命令路由模型确认：动态command ID注册机制（非静态资源表），范围60000~61000。三类前缀并存：$EpsCommand(0x454A30)/$EpsScript(0x454964)/SCRIPT:(0x454C18)。\n\n✅ SSScript.dll成功加载 - 佛山数据.edb打开后SScript.dll@0x12150000加载，Frida hook三个关键函数全部挂上。\n\n✅ Frida hook安装成功 - GetSDLRuntimeCmdID@0x1216d851 / RegisterPopButtonID@0x1216d8fe / ExecuteCommand@0x12194b5b，全部挂载成功，180秒监控无点击事件（用户未操作）。\n\n✅ API服务已恢复 - getnumber.shunde.gov.cn已恢复，Login/GetWorkList/GetFlowAndUser/GetUnitInfo/WorkProgressReport全部验证成功。\n\n✅ 佛山数据.edb路径确认 - D:\\佛顺数据数据\\佛山数据.edb\n\n⚠️ 当前阻塞 - Frida hook零命中因用户未操作EPS，曾工可随时点击「宗地默认信息填写」触发捕获。",
+      "下一步操作": "曾工在EPS里点一次「宗地默认信息填写」菜单，Frida hook即捕获实时command ID（范围60000~61000）。之后可用SendMessage(hwnd,WM_COMMAND,id,0)重放点击。",
+      "相关文件": "C:\\Users\\Administrator\\ghidra_scripts\\hook_foshan.py\nSScript.dll@0x12150000(GetSDLRuntimeCmdID@0x1216d851,RegisterPopButtonID@0x1216d8fe,ExecuteCommand@0x12194b5b)\nD:\\佛顺数据数据\\佛山数据.edb（EPS当前工作区）",
+      "优先级": "P0",
+      "前置依赖": "无（独立任务）",
+      "验收标准": "捕获「宗地默认信息填写」的实时command ID，并能用SendMessage(WM_COMMAND,id,0)重放成功。",
+      "预计工时(h)": "2"
+    },
+    {
+      "裴谦-任务看板": "【SDL封装路线】VBS封装为SDL/DLL模块",
+      "状态": "待领取",
+      "当前进展": "wzbridgeprobe.dll（72KB）和WzExtBridge.dll已在D:\\EPS2026G\\，是SDL auto-load模块，导出CreateInterface+ssExcuteFunction。BAR文件interfacesettings_业务专用.bar包含$sdl,wzbridgeprobe命令。理论上可把VBS封装进SDL模块通过Edit控件$sd触发。",
+      "下一步操作": "方案A（改造wzbridgeprobe.dll）：在ssExcuteFunction里加自定义分支，调用VBS引擎。方案B（新建SDL模块）：写导出CreateInterface+ssExcuteFunction的DLL，放入D:\\EPS2026G\\利用auto-load机制。方案C（Frida直接load）：Module.load后直接调用ssExcuteFunction，绕过Edit注入。",
+      "相关文件": "D:\\EPS2026G\\wzbridgeprobe.dll(72192字节)\nD:\\EPS2026G\\WzExtBridge.dll\nD:\\AIcode\\mcpida\\wrapper\\csdl_interface.py（SDL派发链分析）\nD:\\EPS2026G\\interfacesettings_业务专用.bar（含$sdl,wzbridgeprobe命令）",
+      "优先级": "P1",
+      "前置依赖": "步骤1（command ID捕获）完成后",
+      "验收标准": "通过Edit发送$sdl,wzbridgeprobe,MyCommand能触发VBS脚本执行。",
+      "预计工时(h)": "16"
+    },
+    {
+      "裴谦-任务看板": "【C路线-EPA API】（进行中）EPS HTTP API业务自动化",
+      "状态": "进行中",
+      "当前进展": "【2026-05-07 15:07确认】\n\n✅ API服务端已恢复\n- Login / GetWorkList / GetFlowAndUser / GetUnitInfo / GetUnitInfoBySD 全部验证成功\n- WorkProgressReport(erp.pro.unithelper.unitprogressreportbyzyy) ✅ 成功\n- CancelAcceptWork(erp.pro.unithelper.unitcancelaccept) ⚠️ 数据状态限制（取消未成功）\n- GetUserRoles ❌ filter_groupname参数缺失（需SSArcSDE.GetUserRoleNameList()返回值）\n\n账号：曾玮 / ******\n当前待办：3条（iid:102026050600095等）",
+      "下一步操作": "用eps_erp_api.py覆盖所有可通过API完成的操作（Login/GetWorkList/WorkProgressReport/CancelAcceptWork/GetUnitInfo）。GetUserRoles的filter_groupname问题需先通过SSArcSDEUpdate!GetUserRoleNameList()获取角色串。",
+      "相关文件": "D:\\AIcode\\mcpida\\wrapper\\eps_erp_api.py（Python SDK）\n~/.openclaw/skills/eps-erp-api/\nAPI端点：https://getnumber.shunde.gov.cn/sg_erp_sdqtqh/sg_webapi/erpsvc",
+      "优先级": "P0",
+      "前置依赖": "无（直接可用）",
+      "验收标准": "所有业务操作（提交/审批/查询）均可通过API完成，无需操作EPS界面。",
+      "预计工时(h)": "4"
+    }
+  ]
+}

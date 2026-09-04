@@ -39,6 +39,7 @@ eps-archives/
 | [2026-04-08](docs/daily-logs/2026-04-08.md) | EPS监控Phase2 / VBS脚本29/29批跑通过 / EPS导出链路 |
 | [2026-04-09](docs/daily-logs/2026-04-09.md) | IDA MCP F9联动 / WM_COMMAND抓包 / button_id=1确认 / 多次崩溃教训 |
 | [2026-04-10](docs/daily-logs/2026-04-10.md) | Frida SendMessageW hook / IDA实例端口确认 / WM_COMMAND批量捕获 |
+| [2026-09-04](docs/daily-logs/2026-09-04.md) | C路线ERP API业务自动化：HTTP 403根因修复（User-Agent）/ 只读接口全验证通过 / 50条待办盘点 |
 
 ---
 
