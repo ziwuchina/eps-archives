@@ -1,0 +1,147 @@
+{
+  "manifest_version": "v1",
+  "format": "ndjson",
+  "base_token": "QYr1bFaZnarOR6sIrmOc0AqknVM",
+  "table_id": "tblXUd9D9byrNdJZ",
+  "rev": 9,
+  "timezone": "Asia/Shanghai",
+  "query_context": {
+    "field_scope": "all_fields",
+    "record_scope": "all_records"
+  },
+  "requested_limit": 200,
+  "records_count": 27,
+  "page_count": 1,
+  "has_more": false,
+  "record_file": "C:\\Users\\Administrator\\Desktop\\AI相关\\EPS项目汇报\\eps-archives\\tblXUd9D9byrNdJZ_20260905_034651_984.ndjson",
+  "record_file_size_bytes": 23343,
+  "manifest_file": "C:\\Users\\Administrator\\Desktop\\AI相关\\EPS项目汇报\\eps-archives\\tblXUd9D9byrNdJZ_20260905_034651_984.manifest.json",
+  "columns": {
+    "record_id": {
+      "physical_type": "string",
+      "stats": {
+        "max_length": 14
+      },
+      "example": "recvufViXuCejX"
+    },
+    "下一步操作": {
+      "field_id": "fldM2UtD66",
+      "field_type": "text",
+      "physical_type": "string|null",
+      "stats": {
+        "null_count": 0,
+        "max_length": 67
+      },
+      "example": "归档。"
+    },
+    "任务名称": {
+      "field_id": "fldeABuWMB",
+      "field_type": "text",
+      "physical_type": "string|null",
+      "stats": {
+        "null_count": 0,
+        "max_length": 70
+      },
+      "example": "EPS WzExtBridge.dll 开发"
+    },
+    "优先级": {
+      "field_id": "fldpKHp5bK",
+      "field_type": "select",
+      "physical_type": "array<string>",
+      "stats": {
+        "empty_count": 12,
+        "max_length": 1,
+        "avg_length": 0.5555555555555556
+      },
+      "example": [
+        "P0"
+      ]
+    },
+    "创建时间": {
+      "field_id": "fldSuwydeQ",
+      "field_type": "datetime",
+      "physical_type": "string|null",
+      "stats": {
+        "null_count": 13,
+        "min": "2025-04-10T21:20:00.000+08:00",
+        "max": "2026-09-05T03:45:00.000+08:00"
+      },
+      "example": "2025-04-10T21:20:00.000+08:00"
+    },
+    "前置依赖": {
+      "field_id": "fldrSscHQ2",
+      "field_type": "text",
+      "physical_type": "string|null",
+      "stats": {
+        "null_count": 16,
+        "max_length": 21
+      },
+      "example": "无"
+    },
+    "当前进展": {
+      "field_id": "fldCAXcUfU",
+      "field_type": "text",
+      "physical_type": "string|null",
+      "stats": {
+        "null_count": 0,
+        "max_length": 246
+      },
+      "example": "【2026-09-05 重启】SendInput 路径未实测，已被官方 COM 通道取代，无需补测。"
+    },
+    "状态": {
+      "field_id": "fldo8cYLU1",
+      "field_type": "select",
+      "physical_type": "array<string>",
+      "stats": {
+        "empty_count": 0,
+        "max_length": 1,
+        "avg_length": 1
+      },
+      "example": [
+        "进行中"
+      ]
+    },
+    "相关文件": {
+      "field_id": "fldnJgOOLm",
+      "field_type": "text",
+      "physical_type": "string|null",
+      "stats": {
+        "null_count": 4,
+        "max_length": 265
+      },
+      "example": "D:\\EPS2026G\\Temp\\zzz_exec_probe.vbs"
+    },
+    "阻塞说明": {
+      "field_id": "fld9iLslrq",
+      "field_type": "text",
+      "physical_type": "string|null",
+      "stats": {
+        "null_count": 9,
+        "max_length": 141
+      },
+      "example": "无"
+    },
+    "预计工时(h)": {
+      "field_id": "fldcG7INHC",
+      "field_type": "number",
+      "physical_type": "number|null",
+      "stats": {
+        "null_count": 16,
+        "min": 2,
+        "max": 20,
+        "avg": 8.909090909090908
+      },
+      "example": 4
+    },
+    "验收标准": {
+      "field_id": "fldztcoWjf",
+      "field_type": "text",
+      "physical_type": "string|null",
+      "stats": {
+        "null_count": 15,
+        "max_length": 89
+      },
+      "example": "EPS2016 从 epsold.lnk 启动正常，工作区/加密狗正常"
+    }
+  }
+}
