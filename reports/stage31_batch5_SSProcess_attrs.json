@@ -1,0 +1,234 @@
+{
+  "task": "阶段3.1 第五批：SSProcess 编辑操作B（属性写/读+查询）25 函数分析摘要",
+  "date": "2026-09-09",
+  "batch": "SSProcess-编辑操作B（25 个，含本次 SetNewObjValue 17 项属性录入官方语义）",
+  "count": 25,
+  "missing": [],
+  "functions": [
+    {
+      "page": 105,
+      "name": "SetNewObjValue",
+      "class": "SSProcess",
+      "signature": "SSProcess.SetNewObjValue( attrField, attrValue)",
+      "title": "设置新图形对象属性",
+      "desc": "attrField 要设置的属性字段名称,<span",
+      "chm_snippet": " ͼζ Online Help ͼζ SetNewObjValue SetNewObjValue ͼζԡ SSProcess.SetNewObjValue( attrField, attrValue) attrField Ҫõֶ , ± SSObj_ID ID SSObj_Code SSObj_LayerName SSObj_Type ͣ POINT 㣩 LINE ߣ AREA 棩 NOTE עǣ 4 SSObj_Color ɫ 0-256 ɫšɫֵ RGB( , ̣ ) ָʽ SSObj_LineType Σ 0 㣩 1 ߣ 2 ߣ 3 ԰ 4 Բ SSObj_LineWidth ߿ͼ 0.01 Ϊλ SSObj_Name SSObj_Byname , Ϊ FeatureCodeTB е Byname SSObj_Angle Ƕ , ԻΪλ SSObj_DataMark ݱʶ SSObj_MemoData ע SSObj_CreateTime ʱ - - ʱ : : ʽ SSObj_ModifyTime ޸ʱ - - ʱ : : ʽ SSObj_FontWidth ֿͼ 0.01 Ϊλ SSObj_FontHeight ָߣͼ 0.01 Ϊλ SSObj_FontName SSObj_FontClass עǷ SSObj_FontAlignment 뷽ʽ 0 ģ 1 Ͻǣ 2 ½ǣ 3 У 4 Ͻǣ 5 У 6 ½ǣ 7 У 8 У SSObj_FontDirection ͷ򣬰 0( ) 1( ) 2( ) 3( ) 4( ߷ ) 5( ߷ ) SSObj_FontWordA"
+    },
+    {
+      "page": 106,
+      "name": "SetObjectAttr",
+      "class": "SSProcess",
+      "signature": "SSProcess.SetObjectAttr( geoID, attrField, attrValue)",
+      "title": "修改对象属性值",
+      "desc": "geoID <span",
+      "chm_snippet": " ޸Ķֵ Online Help ޸Ķֵ SetObjectAttr SetObjectAttr ޸Ķֵ SSProcess.SetObjectAttr( geoID, attrField, attrValue) geoID ID attrField Ҫȡֶ , ± attrValue Ҫ޸ֶεֵ SSObj_ID ID SSObj_Code SSObj_LayerName SSObj_Type ͣ POINT 㣩 LINE ߣ AREA 棩 NOTE עǣ 4 SSObj_Color ɫ 0-256 ɫšɫֵ RGB( , ̣ ) ָʽ SSObj_LineType Σ 0 㣩 1 ߣ 2 ߣ 3 ԰ 4 Բ SSObj_LineWidth ߿ͼ 0.01 Ϊλ SSObj_Name SSObj_Byname , Ϊ FeatureCodeTB е Byname SSObj_Angle Ƕ , ԻΪλ SSObj_DataMark ݱʶ SSObj_MemoData ע SSObj_CreateTime ʱ - - ʱ : : ʽ SSObj_ModifyTime ޸ʱ - - ʱ : : ʽ SSObj_PointCount ռ SSObj_X ռ׵ X SSObj_Y ռ׵ Y SSObj_Z ռ׵ Z SSObj_PointName ռ׵ SSObj_PointType ռ׵ͣ 0x0001 ʵĻģ 0x0002 ߳עǷ񣩡 0x0004 μӽģ񣩡 0x0008 ²ĵɵ㣩 0x0010 תһ㣩 0x0020 ϵ㣩 0x0040 ֱߣ 0x0080 ߣ 0x00c0 Բ 0"
+    },
+    {
+      "page": 109,
+      "name": "SetSelGeoValue",
+      "class": "SSProcess",
+      "signature": "SSProcess.SetSelGeoValue( index, attrField, attrValue)",
+      "title": "设置当前选择集指定地物的属性",
+      "desc": "index <span",
+      "chm_snippet": " õǰѡָ Online Help õǰѡָ SetSelGeoValue SetSelGeoValue õǰѡָԡ SSProcess.SetSelGeoValue( index, attrField, attrValue) index ѡ񼯵 , 0 ʼ attrField Ҫõֶ , ± SSObj_ID ID SSObj_Code SSObj_LayerName SSObj_Type ͣ POINT 㣩 LINE ߣ AREA 棩 NOTE עǣ 4 SSObj_Color ɫ 0-256 ɫšɫֵ RGB( , ̣ ) ָʽ SSObj_LineType Σ 0 㣩 1 ߣ 2 ߣ 3 ԰ 4 Բ SSObj_LineWidth ߿ͼ 0.01 Ϊλ SSObj_Name SSObj_Byname , Ϊ FeatureCodeTB е Byname SSObj_Angle Ƕ , ԻΪλ SSObj_DataMark ݱʶ SSObj_MemoData ע SSObj_CreateTime ʱ - - ʱ : : ʽ SSObj_ModifyTime ޸ʱ - - ʱ : : ʽ SSObj_HatchStyle ʽ 0 1 2 ɫ [ExtAttr] չֶ attrValue Ҫõֵ ˵ ִиú޸ĵǰѡ񼯵 index+1 ֶָεֵ ֻ޸Ķڴеֵ , ޸ݿ , ҪͬʱĿ , AddSelGeoToSaveGeoList SaveBufferObjToDatabase ʹ , ִֻ , Ż޸ݡ ʾ ʾ޸ĵǰѡ񼯶 Sub OnClick() SSProcess.PushU"
+    },
+    {
+      "page": null,
+      "name": "SetSelGeoPoint",
+      "class": "SSProcess",
+      "signature": "SetSelGeoPoint(index, pointindex, x, y, z, point type, name )",
+      "title": "（官方帮助目录直读）",
+      "desc": "",
+      "chm_snippet": "设置当前选择集指定地物的空间点信息 SetSelGeoPoint 函数 SetSelGeoPoint 函数 设置当前选择集指定地物的空间点信息。 SetSelGeoPoint ( index, pointindex, x, y, z, point type, name ) 参数 index 选择集地物的索引号,从0开始 pointindex 地物点索引号,从0开始 x 空间点X坐标 y 空间点Y坐标 z 空间点Z坐标 pointtype 空间点类型 name 空间点名 说明 执行该函数， 将设置当前选择集对象中指定地物第pointindex+1个空间点的信息。 如果pointindex大于已有点数，则为新加点。 下面示例设置当前选择集指定地物的空间点坐标： SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_PointCount\", \">\", \"1\" SSProcess.SetSelectCondition \"SSObj_Type\", \"==\", \"POINT\" SSProcess.SelectFilter geocount = SSProcess. GetSelGeoCount For i=0 To ge"
+    },
+    {
+      "page": 111,
+      "name": "SetSelNoteValue",
+      "class": "SSProcess",
+      "signature": "SSProcess.SetSelNoteValue( index, attrField, attrValue)",
+      "title": "设置当前选择集指定注记的属性",
+      "desc": "index <span",
+      "chm_snippet": " õǰѡָעǵ Online Help õǰѡָעǵ SetSelNoteValue SetSelNoteValue õǰѡָעǵԡ SSProcess.SetSelNoteValue( index, attrField, attrValue) index ѡעǵ , 0 ʼ attrField Ҫõֶ , ± SSObj_ID ID SSObj_Code SSObj_LayerName SSObj_Type ͣ POINT 㣩 LINE ߣ AREA 棩 NOTE עǣ 4 SSObj_Color ɫ 0-256 ɫšɫֵ RGB( , ̣ ) ָʽ SSObj_LineType Σ 0 㣩 1 ߣ 2 ߣ 3 ԰ 4 Բ SSObj_LineWidth ߿ͼ 0.01 Ϊλ SSObj_Name SSObj_Byname , Ϊ FeatureCodeTB е Byname SSObj_Angle Ƕ , ԻΪλ SSObj_DataMark ݱʶ SSObj_MemoData ע SSObj_CreateTime ʱ - - ʱ : : ʽ SSObj_ModifyTime ޸ʱ - - ʱ : : ʽ SSObj_FontWidth ֿͼ 0.01 Ϊλ SSObj_FontHeight ָߣͼ 0.01 Ϊλ SSObj_FontName SSObj_FontClass עǷ SSObj_FontAlignment 뷽ʽ 0 ģ 1 Ͻǣ 2 ½ǣ 3 У 4 Ͻǣ 5 У 6 ½ǣ 7 У 8 У SSObj_FontDirection ͷ򣬰 0( ) 1( ) 2"
+    },
+    {
+      "page": null,
+      "name": "SetSelNotePoint",
+      "class": "SSProcess",
+      "signature": "SetSelNotePoint(index, pointindex, x, y, z, point type, name )",
+      "title": "（官方帮助目录直读）",
+      "desc": "",
+      "chm_snippet": "设置当前选择集指定注记的空间点信息 SetSelNotePoint 函数 SetSelNotePoint 函数 设置当前选择集指定注记的空间点信息。 SetSelNotePoint ( index, pointindex, x, y, z, point type, name ) 参数 index 选择集注记的索引号,从0开始 pointindex 注记点索引号,从0开始 x 空间点X坐标 y 空间点Y坐标 z 空间点Z坐标 pointtype 空间点类型 name 空间点名 说明 执行该函数， 将设置当前选择集对象中指定注记第pointindex+1个空间点的信息。 如果pointindex大于已有点数，则为新加点。 下面示例设置当前选择集指定注记的空间点坐标： SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_PointCount\", \">\", \"1\" SSProcess.SetSelectCondition \"SSObj_Type\", \"==\", \"NOTE\" SSProcess.SelectFilter notecount = SSProcess. GetSelNoteCount For i=0 T"
+    },
+    {
+      "page": null,
+      "name": "UpdateObjAttrByFeatureCode",
+      "class": "SSProcess",
+      "signature": "UpdateObjAttrByFeatureCode(featureTBName，matchConditions，updateSetAttrs)",
+      "title": "（官方帮助目录直读）",
+      "desc": "",
+      "chm_snippet": "根据编码表修改选择集地物的属性 UpdateObjAttrByFeatureCode 函数 UpdateObjAttrByFeatureCode 函数 根据编码表修改选择集地物的属性。 UpdateObjAttrByFeatureCode ( featureTBName，matchConditions，updateSetAttrs) 参数 featureTBName 对照编码表FeatureCodeTB表名称 matchConditions 匹配条件参数, 格式为标准SQL语法，“ FeatureCode属性 = 地物属性 and FeatureCode属性=地物属性 and ...”,如果 Feature字段名的值是字符型, 则需要把地物属性值用''号括起来 如 Feature.Byname='SSObj_Byname' updateSetAttrs 重置地物属性参数, 格式为 \"地物属性=FeatureCode属性,地物属性=FeatureCode属性,...\" FeatureCode属性字段见下表 Feature.Code EPS编码 Feature.Byname 转换编码 Feature.LayerName 层名 Feature.ObjectName 对象名称 Feature.Type 几何类型 Feature.LineType 连接类型 Feature.LineWidth"
+    },
+    {
+      "page": null,
+      "name": "UpdateNoteAttrByNoteTemplate",
+      "class": "SSProcess",
+      "signature": "UpdateNoteAttrByNoteTemplate(notetemplateTBName，matchConditions，updateSetAttrs)",
+      "title": "（官方帮助目录直读）",
+      "desc": "",
+      "chm_snippet": "根据NoteTemplate注记模板表修改注记属性 UpdateNoteAttrByNoteTemplate函数 UpdateNoteAttrByNoteTemplate 函数 根据NoteTemplate注记模板表修改注记属性。 UpdateNoteAttrByNoteTemplate ( notetemplateTBName，matchConditions，updateSetAttrs) 参数 notetemplateTBName NoteTemplateTB注记模板表名称 matchConditions 匹配条件参数, 格式为标准SQL语法，\"NoteTemplate属性 = 注记属性 and NoteTemplate属性 = 注记属性 and ...\",如果 NoteTemplate字段名的值是字符型, 则需要把注记属性值用''号括起来 如 NoteTemplate.Byname='SSObj_Byname' updateSetAttrs 重置注记属性参数, 格式为 \"注记属性=NoteTemplate属性,注记属性=NoteTemplate属性,...\" NoteTemplate 属性字段见下表 NoteTemplate.FontClass 分类号 NoteTemplate.FontColor 文字颜色 NoteTemplate.StringAngle 字串角度 Note"
+    },
+    {
+      "page": 54,
+      "name": "GetObjectAttr",
+      "class": "SSProcess",
+      "signature": "SSProcess.GetObjectAttr( geoID, attrField)",
+      "title": "获取对象属性",
+      "desc": "geoID <span",
+      "chm_snippet": " ȡ Online Help ȡ GetObjectAttr GetObjectAttr ȡԡ SSProcess.GetObjectAttr( geoID, attrField) geoID ID attrField Ҫȡֶ , ± SSObj_ID ID SSObj_Code SSObj_LayerName SSObj_Type ͣ POINT 㣩 LINE ߣ AREA 棩 NOTE עǣ 4 SSObj_Color ɫ 0-256 ɫšɫֵ RGB( , ̣ ) ָʽ SSObj_LineType Σ 0 㣩 1 ߣ 2 ߣ 3 ԰ 4 Բ SSObj_LineWidth ߿ͼ 0.01 Ϊλ SSObj_Name SSObj_Byname , Ϊ FeatureCodeTB е Byname SSObj_Angle Ƕ , ԶΪλ SSObj_DataMark ݱʶ SSObj_MemoData ע SSObj_CreateTime ʱ - - ʱ : : ʽ SSObj_ModifyTime ޸ʱ - - ʱ : : ʽ SSObj_Area ƽΪλ SSObj_EllipsoidArea1 ( ڲ ) ƽΪλ SSObj_EllipsoidArea2 ( ڲ ) ƽΪλ SSObj_Length 2D ȣΪλ SSObj_3DLength 3D ȣΪλ SSObj_PointCount ռ SSObj_X ռ׵ X SSObj_Y ռ׵ Y SSObj_Z ռ׵ Z SSObj_PointName ռ׵ SSObj_PointType ռ׵ͣ 0x0001 ʵĻģ"
+    },
+    {
+      "page": 55,
+      "name": "GetObjectFocusPoint",
+      "class": "SSProcess",
+      "signature": "SSProcess.GetObjectFocusPoint( geoID, x, y)",
+      "title": "获取多边形的焦点",
+      "desc": "geoID 地物ID",
+      "chm_snippet": " ȡεĽ Online Help ȡεĽ GetObjectFocusPoint GetObjectFocusPoint ȡεĽ㡣 SSProcess.GetObjectFocusPoint( geoID, x, y) geoID ID x صĶν x y صĶν y ˵ ִиúȡεĽꡣ ʾ ǻȡνʾ Sub OnClick() SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Type\" , \"==\" , \"AREA\" SSProcess. SetSelectCondition \"SSObj_Code\" , \"==\" , \"2\" SSProcess.SelectFilter geocount = SSProcess.GetSelGeoCount() If geocount > 0 Then For i= 0 To geocount- 1 geoid = SSProcess.GetSelGeoValue(i, \"SSObj_ID\" ) SSProcess. GetObjectFocusPoint geoid, x, y Next End If End Sub "
+    },
+    {
+      "page": 63,
+      "name": "GetSelGeoValue",
+      "class": "SSProcess",
+      "signature": "SSProcess.GetSelGeoValue( index, attrField)",
+      "title": "获取当前选择集指定地物的属性",
+      "desc": "index <span",
+      "chm_snippet": " ȡǰѡָ Online Help ȡǰѡָ GetSelGeoValue GetSelGeoValue ȡǰѡָԡ SSProcess.GetSelGeoValue( index, attrField) index ѡ񼯵 , 0 ʼ attrField Ҫȡֶ , ± SSObj_ID ID SSObj_Code SSObj_LayerName SSObj_Type ͣ POINT 㣩 LINE ߣ AREA 棩 NOTE עǣ 4 SSObj_Color ɫ 0-256 ɫšɫֵ RGB( , ̣ ) ָʽ SSObj_LineType Σ 0 㣩 1 ߣ 2 ߣ 3 ԰ 4 Բ SSObj_LineWidth ߿ͼ 0.01 Ϊλ SSObj_Name SSObj_Byname , Ϊ FeatureCodeTB е Byname SSObj_Angle Ƕ , ԻΪλ SSObj_DataMark ݱʶ SSObj_MemoData ע SSObj_CreateTime ʱ - - ʱ : : ʽ SSObj_ModifyTime ޸ʱ - - ʱ : : ʽ SSObj_Area ƽƽΪλ SSObj_EllipsoidArea1 ( ڲ ) ƽΪλ SSObj_EllipsoidArea2 ( ڲ ) ƽΪλ SSObj_Length 2D ȣΪλ SSObj_3DLength 3D ȣΪλ SSObj_PointCount ռ SSObj_X ռ׵ X SSObj_Y ռ׵ Y SSObj_Z ռ׵ Z SSObj_PointName ռ׵ SSObj_Point"
+    },
+    {
+      "page": null,
+      "name": "GetSelGeoPoint",
+      "class": "SSProcess",
+      "signature": "GetSelGeoPoint(index, pointindex, x, y, z, point type, name )",
+      "title": "（官方帮助目录直读）",
+      "desc": "",
+      "chm_snippet": "获取当前选择集指定地物的空间点信息 GetSelGeoPoint 函数 GetSelGeoPoint 函数 获取当前选择集指定地物的空间点信息。 GetSelGeoPoint ( index, pointindex, x, y, z, point type, name ) 参数 index 选择集地物的索引号,从0开始 pointindex 地物点索引号,从0开始 x 空间点X坐标 y 空间点Y坐标 z 空间点Z坐标 pointtype 空间点类型 name 空间点名 说明 执行该函数， 将获取当前选择集对象中指定地物第pointindex+1个空间点的信息。 下面示例获取当前选择集指定地物的空间点坐标： SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_PointCount\", \">\", \"1\" SSProcess.SetSelectCondition \"SSObj_Type\", \"==\", \"POINT\" SSProcess.SelectFilter geocount = SSProcess. GetSelGeoCount For i=0 To geocount-1 pointcount = SSPr"
+    },
+    {
+      "page": 68,
+      "name": "GetSelNoteValue",
+      "class": "SSProcess",
+      "signature": "SSProcess.GetSelNoteValue( index, attrField)",
+      "title": "获取当前选择集指定注记的属性",
+      "desc": "index <span",
+      "chm_snippet": " ȡǰѡָעǵ Online Help ȡǰѡָעǵ GetSelNoteValue GetSelNoteValue ȡǰѡָעǵԡ SSProcess.GetSelNoteValue( index, attrField) index ѡעǵ , 0 ʼ attrField Ҫȡֶ , ± SSObj_ID ID SSObj_Code SSObj_LayerName SSObj_Type ͣ POINT 㣩 LINE ߣ AREA 棩 NOTE עǣ 4 SSObj_Color ɫ 0-256 ɫšɫֵ RGB( , ̣ ) ָʽ SSObj_LineType Σ 0 㣩 1 ߣ 2 ߣ 3 ԰ 4 Բ SSObj_LineWidth ߿ͼ 0.01 Ϊλ SSObj_Name SSObj_Byname , Ϊ FeatureCodeTB е Byname SSObj_Angle Ƕ , ԻΪλ SSObj_DataMark ݱʶ SSObj_MemoData ע SSObj_CreateTime ʱ - - ʱ : : ʽ SSObj_ModifyTime ޸ʱ - - ʱ : : ʽ SSObj_FontWidth ֿͼ 0.01 Ϊλ SSObj_FontHeight ָߣͼ 0.01 Ϊλ SSObj_FontName SSObj_FontClass עǷ SSObj_FontAlignment 뷽ʽ 0 ģ 1 Ͻǣ 2 ½ǣ 3 У 4 Ͻǣ 5 У 6 ½ǣ 7 У 8 У SSObj_FontDirection ͷ򣬰 0( ) 1( ) 2( ) 3( ) 4("
+    },
+    {
+      "page": null,
+      "name": "GetSelNotePoint",
+      "class": "SSProcess",
+      "signature": "GetSelNotePoint(index, pointindex, x, y, z, point type, name )",
+      "title": "（官方帮助目录直读）",
+      "desc": "",
+      "chm_snippet": "获取当前选择集指定注记的空间点信息 GetSelNotePoint 函数 GetSelNotePoint 函数 获取当前选择集指定注记的空间点信息。 GetSelNotePoint ( index, pointindex, x, y, z, point type, name ) 参数 index 选择集注记的索引号,从0开始 pointindex 注记点索引号,从0开始 x 空间点X坐标 y 空间点Y坐标 z 空间点Z坐标 pointtype 空间点类型 name 空间点名 说明 执行该函数， 将获取当前选择集对象中指定注记第pointindex+1个空间点的信息。 下面示例获取当前选择集指定注记的空间点坐标： SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_PointCount\", \">\", \"1\" SSProcess.SetSelectCondition \"SSObj_Type\", \"==\", \"NOTE\" SSProcess.SelectFilter notecount = SSProcess. GetSelNoteCount For i=0 To notecount-1 pointcount ="
+    },
+    {
+      "page": 59,
+      "name": "GetSelGeoCount",
+      "class": "SSProcess",
+      "signature": "SSProcess.GetSelGeoCount()",
+      "title": "获取当前选择集地物个数",
+      "desc": "执行该函数，将获取执行SelectFilter<span",
+      "chm_snippet": " ȡǰѡ񼯵 Online Help ȡǰѡ񼯵 GetSelGeoCount GetSelGeoCount ȡǰѡ񼯵 SSProcess.GetSelGeoCount() ˵ ִиúȡִ SelectFilter ǰѡ񼯶е ʾ ʾǰѡ񼯶е Sub OnClick() SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Type\" , \"==\" , \"POINT\" SSProcess.SelectFilter geocount = SSProcess. GetSelGeoCount End Sub "
+    },
+    {
+      "page": 62,
+      "name": "GetSelGeoPointCount",
+      "class": "SSProcess",
+      "signature": "SSProcess.GetSelGeoPointCount( index )",
+      "title": "获取当前选择集指定地物的点数",
+      "desc": "index 选择集地物的索引号,<span",
+      "chm_snippet": " ȡǰѡָĵ Online Help ȡǰѡָĵ GetSelGeoPointCount GetSelGeoPointCount ȡǰѡָĵ SSProcess.GetSelGeoPointCount( index ) index ѡ񼯵 , 0 ʼ ˵ ִиúȡǰѡ񼯶ָĿռ ʾ ʾȡǰѡ񼯶ָĿռ Sub OnClick() SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Type\" , \"==\" , \"POINT\" SSProcess.SelectFilter geocount = SSProcess.GetSelGeoCount For i= 0 To geocount- 1 pointcount = SSProcess. GetSelGeoPointCount (i) Next End Sub "
+    },
+    {
+      "page": 64,
+      "name": "GetSelNoteCount",
+      "class": "SSProcess",
+      "signature": "SSProcess.GetSelNoteCount()",
+      "title": "获取当前选择集注记个数",
+      "desc": "执行该函数，将获取执行SelectFilter<span",
+      "chm_snippet": " ȡǰѡעǸ Online Help ȡǰѡעǸ GetSelNoteCount GetSelNoteCount ȡǰѡעǸ SSProcess.GetSelNoteCount() ˵ ִиúȡִ SelectFilter ǰѡ񼯶עǶ ʾ ʾǰѡ񼯶עǶ Sub OnClick() SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_PointCount\" , \">\" , \"1\" SSProcess.SetSelectCondition \"SSObj_Type\" , \"==\" , \"NOTE\" SSProcess.SelectFilter notecount = SSProcess. GetSelNoteCount Msgbox notecount End Sub "
+    },
+    {
+      "page": 67,
+      "name": "GetSelNotePointCount",
+      "class": "SSProcess",
+      "signature": "SSProcess.GetSelNotePointCount( index )",
+      "title": "获取当前选择集指定注记的点数",
+      "desc": "index 选择集注记的索引号,<span",
+      "chm_snippet": " ȡǰѡָעǵĵ Online Help ȡǰѡָעǵĵ GetSelNotePointCount GetSelNotePointCount ȡǰѡָעǵĵ SSProcess.GetSelNotePointCount( index ) index ѡעǵ , 0 ʼ ˵ ִиúȡǰѡ񼯶ָעǵĿռ ʾ ʾȡǰѡ񼯶ָעǵĿռ Sub OnClick() SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_PointCount\" , \">\" , \"1\" SSProcess.SetSelectCondition \"SSObj_Type\" , \"==\" , \"NOTE\" SSProcess.SelectFilter notecount = SSProcess.GetSelNoteCount For i= 0 To notecount- 1 pointcount = SSProcess. GetSelNotePointCount (i) Next End Sub "
+    },
+    {
+      "page": 52,
+      "name": "GetNearPointIndex",
+      "class": "SSProcess",
+      "signature": "SSProcess.GetNearPointIndex( geoID, x, y)",
+      "title": "查找指定地物最近点索引",
+      "desc": "geoID <span",
+      "chm_snippet": " ָ Online Help ָ GetNearPointIndex GetNearPointIndex ָ SSProcess.GetNearPointIndex( geoID, x, y) geoID ID x Ҳο X y Ҳο Y ˵ ִиúȡӸοĵ ֵΪֵ , 0 ʼ ʾ Sub OnClick() PointID = 2 SSProcess.GetObjectPoint PointID, 0 , x, y, z, ptype, name geoID = 3 pnt=SSProcess. GetNearPointIndex geoID, x, y End Sub "
+    },
+    {
+      "page": 326,
+      "name": "GetFeatureCodeInfo",
+      "class": "SSProcess",
+      "signature": "SSProcess.GetFeatureCodeInfo(code, fields)",
+      "title": "获取编码信息",
+      "desc": "code <span",
+      "chm_snippet": " ȡϢ Online Help ȡϢ GetFeatureCodeInfo GetFeatureCodeInfo ʾɿضϢ SSProcess.GetFeatureCodeInfo(code, fields) code Ҫҵı fields ҪҵıϢ , жʱöŷָ , ϢƼ± Code EPS Byname ת LayerName ObjectName Type LineType LineWidth ߿ LineColor ɫ Filter Ƿ Explode Ƿɢ Reverse Ƿ Thickness Others AttrType Reference ο ExtraInfo Ϣ ˵ ִиúɻȡָĶϢ ֵΪ fields ϢӦıϢ , жʱ , öŷָ , Ϊ , ָ벻ڡ ʾ ʾȡ 2110 ıͱϢ Sub OnClick() codeinfo = SSProcess. GetFeatureCodeInfo ( \"2110\" , \"Byname,ObjectName\" ) MsgBox codeinfo End Sub "
+    },
+    {
+      "page": null,
+      "name": "GetFontClassInfo",
+      "class": "SSProcess",
+      "signature": "GetFontClassInfo(code，fields)",
+      "title": "（官方帮助目录直读）",
+      "desc": "",
+      "chm_snippet": "获取注记分类号信息 GetFontClassInfo 函数 GetFontClassInfo 函数 获取注记分类号信息。 GetFontClassInfo ( code，fields) 参数 code 要查找的分类号 fields 要查找的分类号信息名称, 有多个时用逗号分隔,分类号信息名称见下表 FontClass 分类号 FontColor 文字颜色 StringAngle 字串角度 FontName 字体名 FontWidth 字宽 NFontHeight 字高 FontInterval 字隔 FontWeight 字重 IlaticAngle 斜体 WordAngle 字角度 DownAngle 耸肩 Underline 下划线 Memo 备注 LayerName 层名 .FontByname 字体别名 Filter 是否过滤 Byname 别名 HS 对齐方式 说明 执行该函数可获取指定注记分类号的定义信息 返回值为与fields信息个数对应的分类号信息,有多个时,用逗号分隔,如果内容为空,则指定分类号不存在 下面示例 获取注记分类号0的字体名和分类名称信息。 Sub OnClick() codeinfo = SSProcess .GetFontClassInfo( \"0\" , \"Fontname,Memo\" ) MsgBox codeinfo End Sub 请参阅"
+    },
+    {
+      "page": 79,
+      "name": "IsExistentFeatureCode",
+      "class": "SSProcess",
+      "signature": "SSProcess.IsExistentFeatureCode( code )",
+      "title": "判断编码是否存在",
+      "desc": "code 要判断的编码",
+      "chm_snippet": " жϱǷ Online Help жϱǷ IsExistentFeatureCode IsExistentFeatureCode жϱǷڡ SSProcess.IsExistentFeatureCode( code ) code Ҫжϵı ˵ ִиúжָڱǷ 0 1 ʾ ʾжϱ 2110 Ƿڣ Sub OnClick() isexist = SSProcess. IsExistentFeatureCode ( \"2110\" ) If isexist = 0 Then Msgbox \" 2110 \" End If End Sub "
+    },
+    {
+      "page": 80,
+      "name": "IsExistentFontClass",
+      "class": "SSProcess",
+      "signature": "SSProcess.IsExistentFontClass( code )",
+      "title": "判断分类号是否存在",
+      "desc": "code 要判断的注记分类号",
+      "chm_snippet": " жϷǷ Online Help жϷǷ IsExistentFontClass IsExistentFontClass жעǷǷڡ SSProcess.IsExistentFontClass( code ) code ҪжϵעǷ ˵ ִиúжָעǷǷ 0 1 ʾ ʾжϷ 1 Ƿڣ Sub OnClick() isexist = SSProcess. IsExistentFontClass ( \"1\" ) If isexist = 0 Then Msgbox \" 1 \" End If End Sub "
+    },
+    {
+      "page": 26,
+      "name": "CopyAreaAttrToLabel",
+      "class": "SSProcess",
+      "signature": "SSProcess.CopyAreaAttrToLabel( areaLayer, labelLayer)",
+      "title": "面属性转换到LABEL点属性",
+      "desc": "areaLayer <span lang=ZH-CN style='font-family:",
+      "chm_snippet": " תLABEL Online Help ת LABEL CopyAreaAttrToLabel CopyAreaAttrToLabel ת LABEL ԡ SSProcess.CopyAreaAttrToLabel( areaLayer, labelLayer) areaLayer ͼ labelLayer LABEL ͼ ˵ ִиúת LABEL ԣתʱֻת LABEL ԱԱֶֶͬΡ ʾ ʾѡ ZDBZM ת \"ZDBZD\" ĵԣ Sub OnClick() SSProcess. CopyAreaAttrToLabel \"ZDBZM\" , \"ZDBZD\" End Sub "
+    },
+    {
+      "page": 27,
+      "name": "CopyLabelAttrToArea",
+      "class": "SSProcess",
+      "signature": "SSProcess.CopyLabelAttrToArea( labelLayer, areaLayer)",
+      "title": "LABEL点属性转换到面属性",
+      "desc": "labelLayer LABEL<span lang=ZH-CN style='font-family:",
+      "chm_snippet": " LABELת Online Help LABEL ת CopyLabelAttrToArea CopyLabelAttrToArea LABEL תԡ SSProcess.CopyLabelAttrToArea( labelLayer, areaLayer) labelLayer LABEL ͼ areaLayer ͼ ˵ ִиú LABEL תԣתʱֻת LABEL ԱԱֶֶͬΡ ʾ ʾ \"ZDBZD\" ĵת ZDBZM ԣ Sub OnClick() SSProcess. CopyLabelAttrToArea \"ZDBZD\" , \"ZDBZM\" End Sub "
+    }
+  ]
+}

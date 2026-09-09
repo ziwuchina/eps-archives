@@ -1,0 +1,40 @@
+{
+  "task": "ScriptCryptor 脚本加密 + 加密狗授权体系梳理",
+  "date": "2026-09-09",
+  "root": "D:\\EPS2016Shunde",
+  "encrypt_chain": {
+    "frontend": "ScriptCryptor.exe (472KB, PE32 GUI, 前端加密工具)",
+    "com_wrapper": "EncryptByPI\\EncryptByPI.dll (COM 组件: DllGetClassObject/DllRegisterServer, 32KB, 含全套 VC 工程产物 .obj/.pdb/.bsc/.ilk/.lib)",
+    "core": "PiEncrypt.dll (1MB, 27 导出: PiEncryptFile/PiDecryptFile/PiEncFileInMem/PiDecFileInMem/PiEncryptMem/PiDecryptMem + 密钥版本 PiEncFileInMemByKeyID/PiGetDefKeyVer/PiGetKeyVer/PiGetFileEncState/PiEncryptFileUseKey/PiDecryptFileWithKey)",
+    "compat_layer": "PiEncrypt1.dll (28KB, 13 导出 C++ 修饰: ?PiEncryptFile@@YGHPBD@Z 等, 简化接口给 SScript/SScriptCore)",
+    "crypto_primitive": "libcrypto-1_1.dll (OpenSSL 1.1)",
+    "key_store": "ScriptCryptor.dat (187,434B, 头 0x262aa5a5... 非明文, PiReadVerInfo/PiWriteVerInfo 读写密钥版本)"
+  },
+  "key_version_scheme": [
+    "PiGetDefKeyVer/PiSetDefKeyVer: 默认密钥版本",
+    "PiGetKeyVer/PiGetKeyVerCount: 版本枚举",
+    "PiEncFileInMemByKeyID: 按密钥 ID 加密",
+    "PiEncryptFileUseKey/PiDecryptFileWithKey: 显式密钥加密/解密",
+    "PiGetFileEncState: 文件加密状态查询（加密头含版本标识）"
+  ],
+  "license_format": {
+    "sample": "D:\\EPS2016Shunde\\License\\1500-5405-0960-6843.txt",
+    "line_format": "模块名,模块中文名,<16进制权限码>,<32hex MD5 校验>",
+    "modules_seen": [
+      "SSEdit 编辑平台",
+      "SScript 脚本处理",
+      "SSCheck 数据监理"
+    ],
+    "checksum": "行尾 32hex (如 CE4EEA1E73A4449F8917F61205BFAD1E) = MD5 校验",
+    "license_files": 17
+  },
+  "usbkey": {
+    "vendor": "SafeNet HASP (haspdinst.exe / HASPUserSetup.exe / aksmon32.exe / lmsetup.exe)",
+    "note": "HASP 加密狗驱动 + Sentinel 许可管理"
+  },
+  "conclusion": "ScriptCryptor 加密体系 = OpenSSL(1.1) 原语 + PiEncrypt 多密钥版本加密 + EncryptByPI COM 封装 + HASP 加密狗/License 按模块授权（权限码+MD5 校验）",
+  "limits": [
+    "加密脚本样例缺失：未取得加密后的 .vbs 样例，字节级解包（文件头/魔数/算法判定）未验证",
+    "License 权限码为 16 进制密文（非明文权限列表），具体位含义需对照 PiEncrypt 解密后确认"
+  ]
+}

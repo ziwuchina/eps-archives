@@ -1,0 +1,191 @@
+{
+  "task": "阶段3.1 batch9_sel_dem_ext：选择集操作+地模处理+外部函数",
+  "date": "2026-09-09",
+  "count": 23,
+  "functions": [
+    {
+      "name": "ClearSelectConditionGroups",
+      "signature": "ClearSelectConditionGroups()",
+      "desc": "执行该函数，将清空函数 SetSelectConditionGroup 设定的所有分组选择条件 下面",
+      "snippet": "清空所有分组选择条件 ClearSelectConditionGroups函数 ClearSelectConditionGroups 函数 清空函数 SetSelectConditionGroup 设定的所有分组选择条件。 ClearSelectConditionGroups ( ) 参数 说明 执行该函数，将清空函数 SetSelectConditionGroup 设定的所有分组选择条件 下面示例清空选择集所有分组选择条件： SSProcess. ClearSelectConditionGroups 请参阅",
+      "class": "SSProcess",
+      "section": "选择集操作"
+    },
+    {
+      "name": "ClearSelectConditionGroup",
+      "signature": "ClearSelectConditionGroup(groupName )",
+      "desc": "执行该函数，将清空函数 SetSelectConditionGroup 设定的分组名为groupName的选择条件 下面",
+      "snippet": "清除函数分组选择条件 ClearSelectConditionGroup函数 ClearSelectConditionGroup 函数 清除函数 SetSelectConditionGroup 设定的分组选择条件。 ClearSelectConditionGroup ( groupName ) 参数 groupName 要清除的分组条件名称 说明 执行该函数，将清空函数 SetSelectConditionGroup 设定的分组名为groupName的选择条件 下面示例清空\"房屋范围线\"分组选择条件： SSProcess. ClearSelectConditionGroup \" 房屋范围线 \" 请参阅",
+      "class": "SSProcess",
+      "section": "选择集操作"
+    },
+    {
+      "name": "ClearSelectCondition",
+      "signature": "ClearSelectCondition()",
+      "desc": "执行该函数，将清空函数 SetSelectCondition 设定的选择条件 下面",
+      "snippet": "清空选择条件 ClearSelectCondition函数 ClearSelectCondition 函数 清空函数 SetSelectCondition 设定的选择条件。 ClearSelectCondition( ) 参数 说明 执行该函数，将清空函数 SetSelectCondition 设定的选择条件 下面示例清空选择集选择条件： SSProcess. ClearSelectCondition 请参阅",
+      "class": "SSProcess",
+      "section": "选择集操作"
+    },
+    {
+      "name": "ClearSelection",
+      "signature": "ClearSelection()",
+      "desc": "执行该函数，将清空当前选择集中的所有对象 下面",
+      "snippet": "清空当前选择集中的所有对象 ClearSelection函数 ClearSelection 函数 清空当前选择集中的所有对象。 ClearSelection( ) 参数 说明 执行该函数，将清空当前选择集中的所有对象 下面示例清空选择集对象： SSProcess. ClearSelection 请参阅",
+      "class": "SSProcess",
+      "section": "选择集操作"
+    },
+    {
+      "name": "ClearSysSelection",
+      "signature": "ClearSysSelection()",
+      "desc": "执行该函数，将 清空当前系统选择集的对象。 下面",
+      "snippet": "清空系统选择集对象 ClearSysSelection 函数 ClearSysSelection 函数 清空系统选择集对象。 ClearSysSelection ( ) 参数 说明 执行该函数，将 清空当前系统选择集的对象。 下面示例清空系统选择集对象： SSProcess.ClearSysSelection 请参阅",
+      "class": "SSProcess",
+      "section": "选择集操作"
+    },
+    {
+      "name": "SelectFilter",
+      "signature": "SelectFilter()",
+      "desc": "执行该函数，将 根据 SetSelectCondition 设定的选择条件,选择对象到选择集中。 下面",
+      "snippet": "选择过滤 SelectFilter函数 SelectFilter 函数 根据 SetSelectCondition 设定的选择条件,选择对象到选择集中。 SelectFilter ( ) 参数 说明 执行该函数，将 根据 SetSelectCondition 设定的选择条件,选择对象到选择集中。 下面示例选择编码等于4410，颜色等于RGB（255,0,0）的对象： SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Code\", \"==\", \"4410\" SSProcess.SetSelectCondition \"SSObj_Color\", \"==\", \"RGB(255,0,0)\" SSProcess.SelectFilter 请参阅",
+      "class": "SSProcess",
+      "section": "选择集操作"
+    },
+    {
+      "name": "SetSelectConditionGroup",
+      "signature": "SetSelectConditionGroup(groupName, conditionName, operateMode, conditionValue )",
+      "desc": "该函数，执行一次，设定分组的一个条件，允许多次执行以设定多个分组的多个选择条件，有多个条件时，条件的关系为与的关系。函数设定的分组选择条件，只供 SetSelectCondition函数中设置拓扑关系特性时使用，在执行SelectFilter函数时，不会直接使用分组条件 。 在分组选择条件使用完成后，必须调用 ClearSelectConditionGroups函数释放空间。 下面",
+      "snippet": "设定分组选择过滤条件 SetSelectConditionGroup函数 SetSelectConditionGroup 函数 设定分组选择过滤条件。 SetSelectConditionGroup ( groupName, conditionName, operateMode, conditionValue ) 参数 groupName 选择分组名称 conditionName 条件名称 条件分SSOBJ_开头的基本属性，<>括住的几何特性, []括住的扩展属性,{}括住的拓扑关系特性,CallBackFunc_开头的回调函数方式 SSOBJ_开头的基本属性见下表 SSObj_ID 对象ID SSObj_GroupID 对象组ID SSObj_Code 编码 SSObj_LayerName 层名 SSObj_Type 对象类型，包括POINT（点）、LINE（线）、 AREA（面）和NOTE（注记）4种 SSObj_Color 颜色，分COLORNO(颜色号)、颜色值和RGB(红,绿，蓝)三种指定方式 SSObj_LineType 线形，包括0（点）、 1（线）、 2（曲线）、 3（园弧）和 4（圆） SSObj_LineWidth 线宽，以图上0.01毫米为单位 SSObj_Name 对象名称 SSObj_Byname 别名,为FeatureCodeTB表中的Byname SS",
+      "class": "SSProcess",
+      "section": "选择集操作"
+    },
+    {
+      "name": "SetSelectCondition",
+      "signature": "SetSelectCondition(conditionName, operateMode, conditionValue )",
+      "desc": "该函数，执行一次，设定一个条件，允许多次执行以设定多个选择条件，有多个条件时，条件的关系为与的关系。 函数执行只是设定选择条件，并不执行选择过滤操作，在设定完选择条件后，必须执行SelectFilter函数，才会真正的进行选择过滤操作 下面",
+      "snippet": "设定选择过滤条件 SetSelectCondition函数 SetSelectCondition函数 设定选择过滤条件。 SetSelectCondition ( conditionName, operateMode, conditionValue ) 参数 conditionName 条件名称 条件分SSOBJ_开头的基本属性，<>括住的几何特性, []括住的扩展属性,{}括住的拓扑关系特性,CallBackFunc_开头的回调函数方式 SSOBJ_开头的基本属性见下表 SSObj_ID 对象ID SSObj_GroupID 对象组ID SSObj_Code 编码 SSObj_LayerName 层名 SSObj_Type 对象类型，包括POINT（点）、LINE（线）、 AREA（面）和NOTE（注记）4种 SSObj_Color 颜色，分COLORNO(颜色号)、颜色值和RGB(红,绿，蓝)三种指定方式 SSObj_LineType 线形，包括0（点）、 1（线）、 2（曲线）、 3（园弧）和 4（圆） SSObj_LineWidth 线宽，以图上0.01毫米为单位 SSObj_Name 对象名称 SSObj_Byname 别名,为FeatureCodeTB表中的Byname SSObj_ObjectName 对象汉字名称,为FeatureCodeTB表中的ObjectNam",
+      "class": "SSProcess",
+      "section": "选择集操作"
+    },
+    {
+      "name": "UpdateSysSelection",
+      "signature": "UpdateSysSelection(flag )",
+      "desc": "执行该函数，将 实现脚本选择的对象与系统选择集的对象互转。 下面",
+      "snippet": "脚本选择的对象与系统选择集的对象互转 UpdateSysSelection 函数 UpdateSysSelection 函数 脚本选择的对象与系统选择集的对象互转。 UpdateSysSelection ( flag ) 参数 flag 选择集更新方式 0(系统选择集选择的内容更新到脚本选择集中) 1(脚本选择集选择的内容更新到系统选择集中) 说明 执行该函数，将 实现脚本选择的对象与系统选择集的对象互转。 下面示例选择编码等于4410，颜色等于RGB（255,0,0）的对象,并更新到系统选择集中： SSProcess.ClearSysSelection SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Code\", \"==\", \"4410\" SSProcess.SetSelectCondition \"SSObj_Color\", \"==\", \"RGB(255,0,0)\" SSProcess.SelectFilter SSProcess. UpdateSysSelection 1 请参阅",
+      "class": "SSProcess",
+      "section": "选择集操作"
+    },
+    {
+      "name": "CreateDem",
+      "signature": "CreateDem(triNetName, demName, ltX, ltY, cellSize, rows, cols)",
+      "desc": "执行该函数, 将根据 triNetName 指 定的三角网,自动生成以 demName 命名的格网。 下面",
+      "snippet": "创建格网 CreateDem 函数 CreateDem 函数 创建格网。 CreateDem(triNetName, demName, ltX, ltY, cellSize, rows, cols) 参数 triNetName 创建格网的三角网名称, 可以是CreateTriNet创建的三角网或系统的三角网 demName 创建格网名称 ltX 格网左上X坐标 ltY 格网左上Y坐标 cellSize 格距 rows 格网行数 cols 格网列表 说明 执行该函数, 将根据 triNetName 指 定的三角网,自动生成以 demName 命名的格网。 下面示例三角网和格网生成过程： Sub OnClick() '生成三角网 SSProcess .ClearSelection SSProcess .ClearSelectCondition SSProcess .ClearSelectConditionGroups SSProcess .SetSelectConditionGroup \"高程点\" , \"SSObj_Type\" , \"=\" , \"POINT\" SSProcess .SetSelectConditionGroup \"等高线\" , \"SSObj_Code\" , \"=\" , \"8310\" SSProcess .CreateTriNet \"等高线\" , \"三角网\" , \"\" ,",
+      "class": "SSProcess",
+      "section": "地模处理"
+    },
+    {
+      "name": "CreateDgx",
+      "signature": "CreateDgx(triNetName, dengGaoJu, jqxCode, sqxCode, minDist, maxDist, saveToDatabase)",
+      "desc": "执行该函数, 将根据triNetName三角网生成等高线。 下面",
+      "snippet": "生成等高线 CreateDgx函数 CreateDgx 函数 生成等高线。 CreateDgx ( triNetName, dengGaoJu, jqxCode, sqxCode, minDist, maxDist, saveToDatabase) 参数 triNetName 三角网名称 dengGaoJu 等高距 jqxCode 计曲线编码 sqxCode 首曲线编码 minDist 等高线点间最小距离 maxDist 等高线点间最大距离 saveToDatabase 是否保存生成图形到数据库, 0 只生成到内存 1 保存到数据库 说明 执行该函数, 将根据triNetName三角网生成等高线。 下面示例生成等高线过程： Sub OnClick() SSProcess.PushUndoMark '首先由现有等高线生成三角网,并生成三角网的外接多边形 '删除三角网外接多边形 SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Type\", \"=\", \"LINE\" SSProcess.SetSelectCondition \"SSObj_Code\", \"=\", \"1\" SSProcess.SetSelectCondition \"SSObj_LayerNam",
+      "class": "SSProcess",
+      "section": "地模处理"
+    },
+    {
+      "name": "CreateTriNetOutPolygon",
+      "signature": "CreateTriNetOutPolygon(triNetName, layerName, geoCode, saveToDatabase )",
+      "desc": "执行该函数, 将生成triNetName三角网的外接多形到指定编码和图层。 下面",
+      "snippet": "生成三角网外接多边形 CreateTriNetOutPolygon函数 CreateTriNetOutPolygon 函数 生成三角网外接多边形。 CreateTriNetOutPolygon ( triNetName, layerName, geoCode, saveToDatabase ) 参数 triNetName 三角网名称 layerName 放置新生成图形的图层名称 geoCode 新生成图形编码 saveToDatabase 是否保存生成图形到数据库, 0 只生成到内存 1 保存到数据库 说明 执行该函数, 将生成triNetName三角网的外接多形到指定编码和图层。 下面示例生成三角网外接多边形： Sub OnClick() SSProcess.PushUndoMark '首先由现有等高线生成三角网,并生成三角网的外接多边形 '删除三角网外接多边形 SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Type\", \"=\", \"LINE\" SSProcess.SetSelectCondition \"SSObj_Code\", \"=\", \"1\" SSProcess.SetSelectCondition \"SSObj_LayerName\", \"",
+      "class": "SSProcess",
+      "section": "地模处理"
+    },
+    {
+      "name": "CreateTriNet",
+      "signature": "CreateTriNet(groupName, triNetName, txxCodes, minZ, maxZ, minSideLength, maxSideLength, filterZ0, insertStep)",
+      "desc": "执行该函数, 将根据groupName选定的数据源,自动生成以triNetName命名的三角网。 下面",
+      "snippet": "创建三角网 GreateTriNet函数 GreateTriNet函数 创建三角网。 CreateTriNet ( groupName, triNetName, txxCodes, minZ, maxZ, minSideLength, maxSideLength, filterZ0, insertStep) 参数 groupName 创建三角网数据源选择组名称 triNetName 创建三角网名称 txxCodes 特性线编码, 有多个特性线编码时,用逗号分隔 minZ 最小有效高程值 maxZ 最大有效高程值 minSideLength 最小搜索边长 maxSideLength 最大搜索边长 filterZ0 是否处理0高程 1 不处理 0 处理 insertStep 加密数据源弧段的步长值,为0时,不进行加密处理 说明 执行该函数, 将根据groupName选定的数据源,自动生成以triNetName命名的三角网。 下面示例三角网和等高线生成过程： Sub OnClick() SSProcess.PushUndoMark '首先由现有等高线生成三角网,并生成三角网的外接多边形 '删除三角网外接多边形 SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSOb",
+      "class": "SSProcess",
+      "section": "地模处理"
+    },
+    {
+      "name": "DeleteDem",
+      "signature": "DeleteDem(demName )",
+      "desc": "执行该函数, 将删除名称为demName的格网。 下面",
+      "snippet": "删除格网 DeleteDem函数 DeleteDem函数 删除格网。 DeleteDem ( demName ) 参数 demName 要删除的格网名称 说明 执行该函数, 将删除名称为demName的格网。 下面示例删除格网： Sub OnClick() '生成三角网 SSProcess .ClearSelection SSProcess .ClearSelectCondition SSProcess .ClearSelectConditionGroups SSProcess .SetSelectConditionGroup \"高程点\" , \"SSObj_Type\" , \"=\" , \"POINT\" SSProcess .SetSelectConditionGroup \"等高线\" , \"SSObj_Code\" , \"=\" , \"8310\" SSProcess .CreateTriNet \"等高线\" , \"三角网\" , \"\" , 0, 200, 0.01, 200, 1, 0 '生成格网 SSProcess .CreateDem \"三角网\" , \"格网\" , 414745.000, 2517025.000, 5, 100, 100 '输出格网 SSProcess .ExportDem \"格网\" , 2, 1, \"c:\\\" '删除格网 SSProcess .DeleteDem \"格网\"",
+      "class": "SSProcess",
+      "section": "地模处理"
+    },
+    {
+      "name": "DeleteTriNet",
+      "signature": "DeleteTriNet(triNetName )",
+      "desc": "执行该函数, 将删除名称为triNetName三角网。 下面",
+      "snippet": "删除三角网 DeleteTriNet函数 DeleteTriNet 函数 删除三角网。 DeleteTriNet ( triNetName ) 参数 triNetName 要删除的三角网名称 说明 执行该函数, 将删除名称为triNetName三角网。 下面示例删除三角网： Sub OnClick() SSProcess.PushUndoMark '首先由现有等高线生成三角网,并生成三角网的外接多边形 '删除三角网外接多边形 SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Type\", \"=\", \"LINE\" SSProcess.SetSelectCondition \"SSObj_Code\", \"=\", \"1\" SSProcess.SetSelectCondition \"SSObj_LayerName\", \"=\", \"三角网外接多边形\" SSProcess.SelectFilter SSProcess.DeleteSelectionObj '生成三角网 SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.ClearSelectConditionGroups SSProc",
+      "class": "SSProcess",
+      "section": "地模处理"
+    },
+    {
+      "name": "ExportDem",
+      "signature": "ExportDem(demName, fileType, stretch, pathName)",
+      "desc": "执行该函数, 将输出名称为demName的格网数据到指定格式的文件。 下面",
+      "snippet": "输出格网 ExportDem函数 ExportDem 函数 输出格网。 ExportDem ( demName, fileType, stretch, pathName) 参数 demName 要输出的格网名称 fileType 格网文件格式 0(DEM) 1(BIL) 2(ASC) 3(GRD) 4(SGD) stretch 高程放大倍数 pathName 输出格网文件的路径 说明 执行该函数, 将输出名称为demName的格网数据到指定格式的文件。 下面示例删除格网： Sub OnClick() '生成三角网 SSProcess .ClearSelection SSProcess .ClearSelectCondition SSProcess .ClearSelectConditionGroups SSProcess .SetSelectConditionGroup \"高程点\" , \"SSObj_Type\" , \"=\" , \"POINT\" SSProcess .SetSelectConditionGroup \"等高线\" , \"SSObj_Code\" , \"=\" , \"8310\" SSProcess .CreateTriNet \"等高线\" , \"三角网\" , \"\" , 0, 200, 0.01, 200, 1, 0 '生成格网 SSProcess .CreateDem \"三角网\"",
+      "class": "SSProcess",
+      "section": "地模处理"
+    },
+    {
+      "name": "TransTriNetToGeo",
+      "signature": "TransTriNetToGeo(triNetName, layerName, geoCode, saveToDatabase )",
+      "desc": "执行该函数, 将把名称为triNetName的三角网转换为指定编码的图形。 下面",
+      "snippet": "转换三角网为图形 TransTriNetToGeo函数 TransTriNetToGeo 函数 转换三角网为图形。 TransTriNetToGeo ( triNetName, layerName, geoCode, saveToDatabase ) 参数 triNetName 三角网名称 layerName 放置新生成图形的图层名称 geoCode 新生成图形编码 saveToDatabase 是否保存生成图形到数据库, 0 只生成到内存 1 保存到数据库 说明 执行该函数, 将把名称为triNetName的三角网转换为指定编码的图形。 下面示例三角网转换为图形的过程： Sub OnClick() SSProcess.PushUndoMark '首先由现有等高线生成三角网,并生成三角网的外接多边形 '删除三角网外接多边形 SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Type\", \"=\", \"LINE\" SSProcess.SetSelectCondition \"SSObj_Code\", \"=\", \"1\" SSProcess.SetSelectCondition \"SSObj_LayerName\", \"=\", \"三角网外接多边形\" SSProc",
+      "class": "SSProcess",
+      "section": "地模处理"
+    },
+    {
+      "name": "AddFunctionParameter",
+      "signature": "AddFunctionParameter(parameter )",
+      "desc": "执行该函数，可设置外部函数调用所需的参数,可以连续执行该函数实现设置多组参数值 下面",
+      "snippet": "设置外部模块函数参数 AddFunctionParameter函数 AddFunctionParameter 函数 设置外部模块函数参数。 AddFunctionParameter ( parameter ) 参数 parameter 由外部函数约定的参数值,如\"code=2110,color=RGB(255,0,0)\" 说明 执行该函数，可设置外部函数调用所需的参数,可以连续执行该函数实现设置多组参数值 下面示例设置外部模块函数参数值： SSProcess. AddFunctionParameter \"code=2110,color=RGB(255,0,0)\" 请参阅",
+      "class": "SSProcess",
+      "section": "外部函数"
+    },
+    {
+      "name": "ClearFunctionParameter",
+      "signature": "ClearFunctionParameter()",
+      "desc": "执行该函数，将清空由函数AddFunctionParameter设置的外部函数参数列表 下面",
+      "snippet": "清空外部模块函数参数列表 ClearFunctionParameter函数 ClearFunctionParameter 函数 清空外部模块函数参数列表。 ClearFunctionParameter ( ) 参数 说明 执行该函数，将清空由函数AddFunctionParameter设置的外部函数参数列表 下面示例清空外部模块函数参数列表： SSProcess. ClearFunctionParameter 请参阅",
+      "class": "SSProcess",
+      "section": "外部函数"
+    },
+    {
+      "name": "ExecuteCommand",
+      "signature": "ExecuteCommand(libFileName, procName, commandDescription, transSelection)",
+      "desc": "当前调用函数正在处理的事件,如果为空,则不显示进程条 transSelection 是否传递当前选择集对象到外部函数， 0（不传递）1（传递） 说明 执行该函数，可调用在外部模块实现的函数,并把由脚本设置的外部函数参数传递到外部函数。 当 transSelection为1时，外部函数的定义为如下格式 extern \"C\" __declspec(dllexport) BOOL procName (CStringArray *, CGeObjList *, CProgressCtrl*); 当 transSelection为0时，外部函数的定义为如下格式 extern \"C\" __declspec",
+      "snippet": "调用外部模块函数 ExecuteCommand函数 ExecuteCommand 函数 调用外部模块函数。 ExecuteCommand ( libFileName, procName, commandDescription, transSelection) 参数 libFileName 外部模块名称,如果没有指定路径，则认为是放在EPS执行目录下,如\"MyFunction.DLL\" procName 外部模块函数名称,如\"ChangeObjColor\" commandDescription 进程条显示题头,用于说明当前调用函数正在处理的事件,如果为空,则不显示进程条 transSelection 是否传递当前选择集对象到外部函数， 0（不传递）1（传递） 说明 执行该函数，可调用在外部模块实现的函数,并把由脚本设置的外部函数参数传递到外部函数。 当 transSelection为1时，外部函数的定义为如下格式 extern \"C\" __declspec(dllexport) BOOL procName (CStringArray *, CGeObjList *, CProgressCtrl*); 当 transSelection为0时，外部函数的定义为如下格式 extern \"C\" __declspec(dllexport) BOOL procName (CStringArray",
+      "class": "SSProcess",
+      "section": "外部函数"
+    },
+    {
+      "name": "LoadXLibrary",
+      "signature": "LoadXLibrary(libFileName )",
+      "desc": "执行该函数，可 加载外部模块到内存。 当使用ExecuteCommand同时执行多个同一模块内的函数时，可使用 LoadXLibrary先加载模块，再调用 ExecuteCommand，可加快程序运行速度，在 ExecuteCommand执行完后，需调用Un LoadXLibrary 卸载模块。 下面",
+      "snippet": "加载外部模块 LoadXLibrary函数 LoadXLibrary 函数 加载外部模块。 LoadXLibrary ( libFileName ) 参数 libFileName 外部模块名称,如果没有指定路径，则认为是放在EPS执行目录下,如\"MyFunction.DLL\" 说明 执行该函数，可 加载外部模块到内存。 当使用ExecuteCommand同时执行多个同一模块内的函数时，可使用 LoadXLibrary先加载模块，再调用 ExecuteCommand，可加快程序运行速度，在 ExecuteCommand执行完后，需调用Un LoadXLibrary 卸载模块。 下面示例加载外部模块： SSProcess. LoadXLibrary \" MyFunction.DLL \" 请参阅",
+      "class": "SSProcess",
+      "section": "外部函数"
+    },
+    {
+      "name": "UnLoadXLibrary",
+      "signature": "UnLoadXLibrary(libFileName )",
+      "desc": "执行该函数，可 卸载由函数 LoadXLibrary加载的外部模块 。 下面",
+      "snippet": "卸载外部模块 UnLoadXLibrary函数 UnLoadXLibrary 函数 卸载外部模块。 UnLoadXLibrary ( libFileName ) 参数 libFileName 外部模块名称,如果没有指定路径，则认为是放在EPS执行目录下,如\"MyFunction.DLL\" 说明 执行该函数，可 卸载由函数 LoadXLibrary加载的外部模块 。 下面示例卸载外部模块： SSProcess. UnLoadXLibrary \" MyFunction.DLL \" 请参阅",
+      "class": "SSProcess",
+      "section": "外部函数"
+    },
+    {
+      "name": "外部",
+      "signature": "外部(...)",
+      "desc": "",
+      "snippet": "外部函数 外部函数 清空外部模块函数参数列表 ClearFunctionParameter 设置外部模块函数参数 AddFunctionParameter 调用外部模块函数 ExecuteCommand 加载外部模块 LoadXLibrary 卸载外部模块 UnLoadXLibrary",
+      "class": "SSProcess",
+      "section": "外部函数"
+    }
+  ]
+}

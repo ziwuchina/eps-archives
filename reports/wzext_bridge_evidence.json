@@ -1,0 +1,53 @@
+{
+  "task": "WzExtBridge 调用链验证（静态）",
+  "date": "2026-09-09",
+  "target": "D:\\EPS2016Shunde\\WzExtBridge.SDL",
+  "file_type": "PE32 executable (GUI), disguised as .SDL",
+  "pe": {
+    "machine": "0x14c (i386)",
+    "image_base": "0x10000000",
+    "dll_characteristics": "0x140 (ASLR + NX)",
+    "subsystem": 2,
+    "timestamp": "2026-04-12 08:19:29 UTC",
+    "size": 299520
+  },
+  "exports_12": [
+    "CreateInterface",
+    "ExecFunction",
+    "ExecuteCommand",
+    "ExecuteCommandLine",
+    "ExecuteSDLFunction",
+    "GetSDLCommandInfo",
+    "RegisterCmd",
+    "SDLFunctionExecute",
+    "SSInterfaceHandle",
+    "SetModulName",
+    "WzExtProbe",
+    "WzExtProbeWithSelection"
+  ],
+  "wzextprobe": {
+    "rva": "0x4cc0",
+    "prologue": "push ebp; mov ebp,esp; sub esp,0x20",
+    "stack_args": {
+      "[ebp+0x08]": "arg1 -> CStringArray* (匹配官方第一参)",
+      "[ebp+0x0c]": "arg2 -> CGeObjList* (匹配官方第二参)",
+      "[ebp+0x10]": "arg3 -> CProgressCtrl* (匹配官方第三参)"
+    },
+    "dispatch_call": "0x10004380 (4 参调用: arg3,arg2,arg1+this)",
+    "strings": [
+      "WzExtBridge Probe Report",
+      "WzExtProbe(dispatch)",
+      "WzExtProbeWithSelection(dispatch)"
+    ]
+  },
+  "callchain_alignment": {
+    "ssproject": "SSProject.dll ExecuteSDLCommand(0x1004D5B6) -> ExecuteFunction -> IsRegisterCmd(0x1005F6C8)",
+    "dispatch": "CSDLInterface vtable[0x40] 虚调用 -> LoadModule -> SetModulName/GetModulName",
+    "external_module": "ExecuteCommand(libFileName='WzExtBridge.SDL', procName='WzExtProbe', desc, transSelection) -> GetProcAddress -> 3 参 proc",
+    "signature_match": "WzExtProbe 3 栈参 (ebp+8/+0xc/+0x10) == 官方 extern \"C\" BOOL proc(CStringArray*, CGeObjList*, CProgressCtrl*)"
+  },
+  "limits": [
+    "动态加载验证需 EPS 运行环境 + 真实 ExecuteCommand 调用，未实机执行（受限于不得在用户生产环境注入外部模块）",
+    "WzExtBridge.SDL 启用 ASLR，运行时基址随机；导出表按名解析不受影响"
+  ]
+}

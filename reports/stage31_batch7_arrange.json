@@ -1,0 +1,231 @@
+{
+  "task": "阶段3.1 batch7_arrange：数据整理",
+  "date": "2026-09-09",
+  "count": 28,
+  "functions": [
+    {
+      "name": "ChangeCodeCopySelectionObj",
+      "signature": "ChangeCodeCopySelectionObj(code )",
+      "desc": "执行该函数， 将换码复制选择集对象。 如果选择集对象为注记,指定的编码为点对象时，生成新对象的点位取注记的中心点。 如果选择集对象为注记,指定的编码为线或面对象时，生成新对象的点位取注记的外接矩形。 如果选择集对象为线或面,指定的编码为点对象时，生成新对象的点位取线或面中心点。 下面",
+      "snippet": "换码复制选择集对象 ChangeCodeCopySelectionObj 函数 ChangeCodeCopySelectionObj函数 换码复制选择集对象。 ChangeCodeCopySelectionObj ( code ) 参数 code 转换新编码 说明 执行该函数， 将换码复制选择集对象。 如果选择集对象为注记,指定的编码为点对象时，生成新对象的点位取注记的中心点。 如果选择集对象为注记,指定的编码为线或面对象时，生成新对象的点位取注记的外接矩形。 如果选择集对象为线或面,指定的编码为点对象时，生成新对象的点位取线或面中心点。 下面示例把编码为8521的地物 换码复制为2110 SSProcess. PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Code\", \"==\", \"8521\" SSProcess.SelectFilter SSProcess. ChangeCodeCopySelectionObj 2110 请参阅",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "ClearSelectionObjNodeSymbol",
+      "signature": "ClearSelectionObjNodeSymbol(dealLinkToFrame, dealInvalidAngle )",
+      "desc": "执行该函数， 将对符合条件的地物自动进行节点取舍处理。 下面",
+      "snippet": "自动节点取舍处理 ClearSelectionObjNodeSymbol 函数 ClearSelectionObjNodeSymbol 函数 自动节点取舍处理。 ClearSelectionObjNodeSymbol ( dealLinkToFrame, dealInvalidAngle ) 参数 dealLinkToFrame 与图廓相接点自动 节 点取舍处理, 0不处理, 1处理 dealInvalidAngle 不合理顶点夹角 自动 节 点取舍处理, 0不处理, 1处理, 取舍夹角范围为<30度,>120度 说明 执行该函数， 将对符合条件的地物自动进行节点取舍处理。 下面示例对棚房进行节点取舍处理 SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Code\", \"==\", \"2150\" SSProcess.SelectFilter SSProcess.ClearSelectionObjNodeSymbol 1, 1 请参阅",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "CloseSelectionObj",
+      "signature": "CloseSelectionObj(closeMode, hangDist)",
+      "desc": "执行该函数， 将对选择集对象作封闭处理。 下面",
+      "snippet": "选择集对象闭合处理 CloseSelectionObj 函数 CloseSelectionObj 函数 选择集对象闭合处理。 CloseSelectionObj ( closeMode, hangDist) 参数 closeMode 闭合方式，0（尾部加入首点）、1（满足悬距要求时，粘合首尾点） 2（满足悬距要求时，粘合首尾点，否则尾部加入首点） hangDist 首尾点允许悬挂距离，以米为单位 说明 执行该函数， 将对选择集对象作封闭处理。 下面示例把编码为8521的地物 作封闭处理。 SSProcess. PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Code\", \"==\", \"8521\" SSProcess.SelectFilter SSProcess. CloseSelectionObj 1,0.01 请参阅",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "CreateHouseHeightNote",
+      "signature": "CreateHouseHeightNote(getLandHeightMode, noteClass, dec)",
+      "desc": "执行该函数， 将根据房屋中心点从DEM或DTM中内插高程,自动计算楼高,并生成楼高注记 下面",
+      "snippet": "生成楼高注记 CreateHouseHeightNote 函数 CreateHouseHeightNote函数 生成楼高注记。 CreateHouseHeightNote ( getLandHeightMode, noteClass, dec) 参数 getLandHeightMode 获取地面高程方式, 0 从DEM中获取 1从DTM中获取 noteClass 生成楼高注记使用的分类号 dec 注记小数位 说明 执行该函数， 将根据房屋中心点从DEM或DTM中内插高程,自动计算楼高,并生成楼高注记 下面示例根据DTM内插高程生成楼高注记 SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Type\", \"==\", \"LINE\" SSProcess.SetSelectCondition \"SSObj_Code\", \"==\", \"2010\" SSProcess.SelectFilter SSProcess. CreateHouseHeightNote 1, \"0\", 1 请参阅",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "CreateHouseHeightPoint",
+      "signature": "CreateHouseHeightPoint(getLandHeightMode, code)",
+      "desc": "执行该函数， 将根据房屋中心点从DEM或DTM中内插高程,自动计算楼高,并生成楼高注记点 下面",
+      "snippet": "生成楼高注记点 CreateHouseHeightPoint 函数 CreateHouseHeightPoint 函数 生成楼高注记点。 CreateHouseHeightPoint( getLandHeightMode, code) 参数 getLandHeightMode 获取地面高程方式, 0 从DEM中获取 1从DTM中获取 code 生成楼高注记点的编码 说明 执行该函数， 将根据房屋中心点从DEM或DTM中内插高程,自动计算楼高,并生成楼高注记点 下面示例根据DTM内插高程生成楼高注记点8310 SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Type\", \"==\", \"LINE\" SSProcess.SetSelectCondition \"SSObj_Code\", \"==\", \"2010\" SSProcess.SelectFilter SSProcess. CreateHouseHeightPoint 1, \"8310\" 请参阅",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "ExecuteSql",
+      "signature": "ExecuteSql(sqlString )",
+      "desc": "执行该函数， 可实现对EPS MDB数据库中数据表的更新查询。 请参阅",
+      "snippet": "执行Sql更新查询语句 ExecuteSql 函数 ExecuteSql函数 执行Sql更新查询语句。 ExecuteSql ( sqlString ) 参数 sqlString SQL语句 说明 执行该函数， 可实现对EPS MDB数据库中数据表的更新查询。 请参阅",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "IdentifySelectionObj",
+      "signature": "IdentifySelectionObj(symbolIndex, objCode, deleteSrcObj, parameter)",
+      "desc": "说明 执行该函数， 将对选择集中对象进行符号识别。 下面",
+      "snippet": "选择集对象符号识别 IdentifySelectionObj 函数 IdentifySelectionObj 函数 选择集对象符号识别。 IdentifySelectionObj ( symbolIndex, objCode, deleteSrcObj, parameter) 参数 symbolIndex 识别符号索引，见下表 symbolIndex 索引号 符号名称 parameter 参数列表 参数说明 1 虚线 数值误差,落笔距离,抬笔距离 2 点线 数值误差,小圆半径(为0认为是点),抬笔距离 3 点划线 数值误差,0,抬笔距离1,落笔距离1,... 4 未加固坎 数值误差,坎毛短线长度,短线间隔,符号方向(0 正向 1反向) 5 加固坎 数值误差,坎毛短线长度,短线间隔,坎点与坎顶距离,符号方向(0 正向 1反向) 6 规则过街楼 数值误差 7 不规则过街楼 数值误差,边线编码,交叉线编码 8 围墙 数值误差,围墙宽度,符号方向(0 正向 1反向) 9 栅栏 数值误差,小圆半径,短线长度,长线长度,符号方向(0 正向 1反向) 10 棚房 数值误差,棚房短线长度,符号方向(0 正向 1反向) 11 雨水污水检修井 数值误差,外圆半径 12 圆形下水篦子 数值误差,外圆半径,横线间隔 13 方形下水篦子 数值误差,外框长度,外框宽度 14 简单楼梯 数值误差,平台最小宽度 ",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "ImportMdbTable",
+      "signature": "ImportMdbTable(mdbName, srcTable, destTable, mode)",
+      "desc": "执行该函数， 可实现导入指定MDB数据库的指定表到当前工程文件中。 下面",
+      "snippet": "导入MDB数据库表 ImportMdbTable 函数 ImportMdbTable 函数 导入MDB数据库表。 ImportMdbTable ( mdbName, srcTable, destTable, mode) 参数 mdbName MDB数据库文件名 srcTable 要导入的 MDB数据库表名 destTable 导入到工程文件的新表名 mode 数据表导入方式, 0(只导入表结构) 1(同时导入表结构和表数据) 说明 执行该函数， 可实现导入指定MDB数据库的指定表到当前工程文件中。 下面示例导入数据表 Dim mdbFile mdbFile = SSProcess.SelectFileName ( 1 , \"选择MDB文件\" , 0 , \"MDB Files(*.mdb)|*.mdb|All Files (*.*)|*.*||\" ) SSProcess.ImportMdbTable mdbFile, \"building\" , \"DGNbuilding\" , 0 SSProcess.ExecuteSql \"delete * from DGNbuilding\" SSProcess.ImportMdbTable mdbFile, \"building\" , \"DGNbuilding\" , 1 SSProcess.ImportMdbTable mdbFile, \"waters",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "InsertWaterLevelPoint",
+      "signature": "InsertWaterLevelPoint(waterAreaSelectGroup, referenceHeightSelectGroup, searchRange, height, heightPointCode )",
+      "desc": "执行该函数， 将根据自动内插水面高程点。 下面",
+      "snippet": "自动内插水面高程点 InsertWaterLevelPoint 函数 InsertWaterLevelPoint 函数 自动内插水面高程点。 InsertWaterLevelPoint ( waterAreaSelectGroup, referenceHeightSelectGroup, searchRange, height, heightPointCode ) 参数 waterAreaSelectGroup 水面边界面选择组名称 referenceHeightSelectGroup 参考高程选择组名称 searchRange 搜索参考高程点范围 height 水面到地面的高度 heightPointCode 水面高程点编码 说明 执行该函数， 将根据自动内插水面高程点。 下面示例构面过程 Sub OnClick() SSProcess.PushUndoMark SSProcess .ClearSelection SSProcess .ClearSelectCondition SSProcess .ClearSelectConditionGroups SSProcess .SetSelectConditionGroup \"水面线\" , \"SSObj_Type\" , \"=\" , \"AREA\" SSProcess .SetSelectConditionGroup \"水面线\" , \"S",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "LinkNearNoteObj",
+      "signature": "LinkNearNoteObj(mainCondition, subCondition, searchRange, fieldName, fieldValue)",
+      "desc": "执行该函数， 将合并两个相近的注记。 下面",
+      "snippet": "合并相近的两个注记 LinkNearNoteObj 函数 LinkNearNoteObj函数 合并相近的两个注记。 LinkNearNoteObj( mainCondition, subCondition, searchRange, fieldName, fieldValue) 参数 mainCondition 注记选择条件分组名，由SetSelectConditionGroup函数设定 subCondition 合并注记选择条件分组名，由SetSelectConditionGroup函数设定 searchRange 以注记为中心搜索合并注记的范围，以米为单位 fieldName 要修改注记的字段名称 fieldValue 要修改注记的值方式, 支持回调函数方式,由脚本定义处理函数来控制获取内容的方式，格式为： CallBackFunc_函数名称，（如：\"CallBackFunc_LinkText( SSObj_FontString, SSSubObj_FontString )\"） 说明 执行该函数， 将合并两个相近的注记。 下面示例结构注记\"砖\"与层数合并 Function CallBackFunc_LinkText(string1, string2) CallBackFunc_LinkText = string1&string2 End Function Sub OnClick",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "MapMethod",
+      "signature": "MapMethod(methodName, parameters )",
+      "desc": "LoadData 图层名称列表（多个时用逗号分隔，为空时代表所有图层） 装层指定图层数据到内存 UnloadData 图层名称列表（多个时用逗号分隔，为空时代表所有图层） 从内存释放指定图层数据 MoveScreen X坐标,Y坐标 移动图形到指定窗口位置 ZoomWindow 左下角X坐标,左下角Y坐标,右上角X坐标,右上角Y坐标, 缩放图形到指定窗口范围 ZoomIn 无参数 放大窗口 ZoomOut 无参数 缩小窗口 FreeGraphicInfoFile 无参数 释放图形特征缓存 FreeMemoDataFile 无参数 释放外部信息缓存 说明 请参阅",
+      "snippet": "调用Map方法 MapMethod函数 MapMethod函数 调用Map方法。 MapMethod( methodName, parameters ) 参数 methodName 方法名称 parameters 参数列表 常用方法列表 方法名称 方法参数 说明 LoadData 图层名称列表（多个时用逗号分隔，为空时代表所有图层） 装层指定图层数据到内存 UnloadData 图层名称列表（多个时用逗号分隔，为空时代表所有图层） 从内存释放指定图层数据 MoveScreen X坐标,Y坐标 移动图形到指定窗口位置 ZoomWindow 左下角X坐标,左下角Y坐标,右上角X坐标,右上角Y坐标, 缩放图形到指定窗口范围 ZoomIn 无参数 放大窗口 ZoomOut 无参数 缩小窗口 FreeGraphicInfoFile 无参数 释放图形特征缓存 FreeMemoDataFile 无参数 释放外部信息缓存 说明 请参阅",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "MergeIslandAreaObj",
+      "signature": "MergeIslandAreaObj()",
+      "desc": "执行该函数， 将合并选择集中包含岛的面。 下面",
+      "snippet": "合并带岛面 MergeIslandAreaObj 函数 MergeIslandAreaObj 函数 合并带岛面。 MergeIslandAreaObj () 参数 说明 执行该函数， 将合并选择集中包含岛的面。 下面示例合并房屋层岛面 SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Type\", \"==\", \"AREA\" SSProcess.SetSelectCondition \"SSObj_LayerName\", \"==\", \"房屋面\" SSProcess.SelectFilter SSProcess. MergeIslandAreaObj 请参阅",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "MergeNearGeoObj",
+      "signature": "MergeNearGeoObj(mainCondition, mergeCondition, searchRange, insertPointCount， pointDirection， deleteMainObj)",
+      "desc": "执行该函数， 将合并相近的两地物的空间点列。 下面",
+      "snippet": "合并相近的两地物 MergeNearGeoObj 函数 MergeNearGeoObj函数 合并相近的两地物。 MergeNearGeoObj ( mainCondition, mergeCondition, searchRange, insertPointCount， pointDirection， deleteMainObj) 参数 mainCondition 主地物选择条件分组名，由SetSelectConditionGroup函数设定 mergeCondition 合并地物选择条件分组名，由SetSelectConditionGroup函数设定 searchRange 以主地物为中心搜索合并地物的范围，以米为单位 insertPointCount 从主地物中插入点数，0是所有点，其它为实际指定值 pointDirection 边接方向类型，0与主地物头连接，1与主地物尾连接 2 自动判断最近点连接 deleteMainObj 是否同时删除主地物,0（不删除）、1（删除） 说明 执行该函数， 将合并相近的两地物的空间点列。 下面示例把编码为8360地物的空间点合并到与其相近的编码为8310的地物,并删除8360地物 SSProcess. PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectConditionGr",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "MergeNearLineObj",
+      "signature": "MergeNearLineObj(mainCondition, mergeCondition, searchRange, insertPointRange, deleteMainObj)",
+      "desc": "执行该函数， 将合并与线地物相近的点地物的空间点点列。 下面",
+      "snippet": "合并与线相近的点地物 MergeNearLineObj 函数 MergeNearLineObj 函数 合并与线相近的点地物。 MergeNearLineObj ( mainCondition, mergeCondition, searchRange, insertPointRange, deleteMainObj) 参数 mainCondition 主地物选择条件分组名，由SetSelectConditionGroup函数设定 mergeCondition 合并地物选择条件分组名，由SetSelectConditionGroup函数设定 searchRange 以主地物为中心搜索合并地物的范围，以米为单位 insertPointRange 插入点与主点的最大距离，当点地物与线上点的距离小于该值时，只替换最近点，否则新插入一点 deleteMainObj 是否同时删除主地物,0（不删除）、1（删除） 说明 执行该函数， 将合并与线地物相近的点地物的空间点点列。 下面示例把编码为8360点地物的空间点合并到与其相近的编码为2110的线地物,并删除8360地物 SSProcess. PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectConditionGroups SSProcess.SetSelectConditionG",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "MergeNearNoteObj",
+      "signature": "MergeNearNoteObj(mainCondition, mergeCondition, searchRange, insertPoint， objAttrField， getTextParameter， deleteMainObj)",
+      "desc": "getTextParameter 取注记内容格式，支持RIGHT(字符数)，LEFT(字符数),MID(起始字符索引，字符数）三个取位函数的一个或多个的组合,如LEFT(2)+MID(4,2)+RIGHT(1),如果为空，则直接取注记内容。 同时支持回调函数方式,由脚本定义处理函数来控制获取内容的方式，格式为： CallBackFunc_函数名称，（如：\"CallBackFunc_TrimString( SSObj_FontString )\"） deleteMainObj 是否同时删除注记,0（不删除）、1（删除） 说明 执行该函数， 将合并与地物相近的注记内容到地物的指定属性字段中。 下面",
+      "snippet": "合并与地物相近的注记 MergeNearNoteObj 函数 MergeNearNoteObj 函数 合并与地物相近的注记。 MergeNearNoteObj ( mainCondition, mergeCondition, searchRange, insertPoint， objAttrField， getTextParameter， deleteMainObj) 参数 mainCondition 注记选择条件分组名，由SetSelectConditionGroup函数设定 mergeCondition 合并地物选择条件分组名，由SetSelectConditionGroup函数设定 searchRange 以注记为中心搜索合并地物的范围，以米为单位 insertPoint 是否把注记的左中点加入合并地物，0不加，1加入 objAttrField 更新合并地物的属性名称，见ChangeSelectionObjAttr函数中的attrField参数说明 getTextParameter 取注记内容格式，支持RIGHT(字符数)，LEFT(字符数),MID(起始字符索引，字符数）三个取位函数的一个或多个的组合,如LEFT(2)+MID(4,2)+RIGHT(1),如果为空，则直接取注记内容。 同时支持回调函数方式,由脚本定义处理函数来控制获取内容的方式，格式为： CallBackF",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "MergeNearPointObj",
+      "signature": "MergeNearPointObj(mainCondition, mergeCondition, searchRange, deleteMainObj)",
+      "desc": "执行该函数， 将合并相近的两个点物的空间点列。 下面",
+      "snippet": "合并相近的两个点地物 MergeNearPointObj 函数 MergeNearPointObj 函数 合并相近的两个点地物。 MergeNearPointObj ( mainCondition, mergeCondition, searchRange, deleteMainObj) 参数 mainCondition 主地物选择条件分组名，由SetSelectConditionGroup函数设定 mergeCondition 合并地物选择条件分组名，由SetSelectConditionGroup函数设定 searchRange 以主地物为中心搜索合并地物的范围，以米为单位 deleteMainObj 是否同时删除主地物,0（不删除）、1（删除） 说明 执行该函数， 将合并相近的两个点物的空间点列。 下面示例把编码为8360点地物的空间点合并到与其相近的编码为8310的点地物,并删除8360地物 SSProcess. PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectConditionGroups SSProcess.SetSelectConditionGroup \"8310地物\", \"SSObj_Code\", \"==\", \"8310\" SSProcess.SetSelectConditionGroup \"352",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "MergeObjPointList",
+      "signature": "MergeObjPointList(objIDs, limit, delLinkObj )",
+      "desc": "执行该函数， 将合并指定ID列表的地物为一新地物。 请参阅",
+      "snippet": "合并指定ID列表地物 MergeObjPointList函数 MergeObjPointList函数 合并指定ID列表地物。 MergeObjPointList( objIDs, limit, delLinkObj ) 参数 objIDs 要合并的地物ID列表，用逗号分隔 limit 间隙最小距，米为单位 delLinkObj 是否删除原地物 说明 执行该函数， 将合并指定ID列表的地物为一新地物。 请参阅",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "ObjectDeal",
+      "signature": "ObjectDeal(objID, methodName, parameters, result )",
+      "desc": "GotoPoints 折线化指定对象点列 Reverse 反向指定对象点列 ClearNodeSymbol 要取舍地物的编码列表，多个时用逗号分隔 节点自动取舍 SetSelectionObjectToNavigation 选择集对象加入导航器 AddToSelection 指定ID对象加入到选择集 FreeDisplayList 释放指定ID的显示列表 FreeSelectionObjectDisplayList 释放选择集对象显示列表 GetHouseFunctionDef 获取房产功能区定义信息 GetHouseApportionTree 获取房产分摊树信息 RepairAllHatc",
+      "snippet": "对象处理器 ObjectDeal函数 ObjectDeal函数 对象处理器。 ObjectDeal( objID, methodName, parameters, result ) 参数 objID 处理对象ID methodName 方法名称 parameters 参数列表 result 返回值 常用方法列表 方法名称 方法参数 返回值 说明 GotoPoints 折线化指定对象点列 Reverse 反向指定对象点列 ClearNodeSymbol 要取舍地物的编码列表，多个时用逗号分隔 节点自动取舍 SetSelectionObjectToNavigation 选择集对象加入导航器 AddToSelection 指定ID对象加入到选择集 FreeDisplayList 释放指定ID的显示列表 FreeSelectionObjectDisplayList 释放选择集对象显示列表 GetHouseFunctionDef 获取房产功能区定义信息 GetHouseApportionTree 获取房产分摊树信息 RepairAllHatchSymbol 按旧算法重置面填充符号 OrderAreaLoops 0 ArcGIS方式， 外环顺, 内环逆 1 Oracle方式，外环逆, 内环 重排面环顺逆时针方向 说明 请参阅",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "RepairDGXHeight",
+      "signature": "RepairDGXHeight()",
+      "desc": "执行该函数， 将自动修改选择对象中各点高程值与主高程值不一致的情况,认为0或大于等于9000的高程值为非法高程。 下面",
+      "snippet": "修复选择集对象的非法高程值 RepairDGXHeight 函数 RepairDGXHeight函数 修复选择集对象的非法高程值。 RepairDGXHeight( ) 参数 说明 执行该函数， 将自动修改选择对象中各点高程值与主高程值不一致的情况,认为0或大于等于9000的高程值为非法高程。 下面示例修复8111编码对象的非法高程值 SSProcess. PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Code\", \"==\", \"8111\" SSProcess.SelectFilter SSProcess. RepairDGXHeight 请参阅",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "RepairSelectionObjPointList",
+      "signature": "RepairSelectionObjPointList(miniDist )",
+      "desc": "执行该函数， 将自动修改选择对象中的非法空间点，包括回头线，相邻重复点。 下面",
+      "snippet": "修复选择集对象的非法空间点 RepairSelectionObjPointList 函数 RepairSelectionObjPointList函数 修复选择集对象的非法空间点。 RepairSelectionObjPointList( miniDist ) 参数 miniDist 相邻点允许最小距离,以米为单位 说明 执行该函数， 将自动修改选择对象中的非法空间点，包括回头线，相邻重复点。 下面示例修复选择集空间点 SSProcess. PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SelectFilter SSProcess. RepairSelectionObjPointList 0.001 请参阅",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "SearchCityPartAttr",
+      "signature": "SearchCityPartAttr(partCondition, partFieldName, roadCondition, roadFieldName, courtyardCondition, courtyardFieldName, courtyardFieldName , interespointConditio",
+      "desc": "执行该函数， 将搜索与部件最近的道路、院落、兴趣点之间的关系，并把关系描述内容填充到相应的属性字段中。 下面",
+      "snippet": "查找城市部件关联属性 SearchCityPartAttr 函数 SearchCityPartAttr函数 查找城市部件关联属性。 SearchCityPartAttr( partCondition, partFieldName, roadCondition, roadFieldName, courtyardCondition, courtyardFieldName, courtyardFieldName , interespointCondition , interespointFieldName, interespointCount) 参数 partCondition 部件选择条件组名称 partFieldName 部件属性字段名 roadCondition 道路选择条件组名称 roadFieldName 道路属性字段名 courtyardCondition 院落选择条件组名称 courtyardFieldName 院落属性字段名 interespointCondition 兴趣点选择条件组名称 interespointFieldName 兴趣点属性字段名 interespointCount 搜索兴趣点个数 说明 执行该函数， 将搜索与部件最近的道路、院落、兴趣点之间的关系，并把关系描述内容填充到相应的属性字段中。 下面示例更新部件的[WZMS]属性字段 SSProcess.P",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "SearchInnerObjIDs",
+      "signature": "SearchInnerObjIDs(polygonID, objecType, codes, innerObjGetPointMode )",
+      "desc": "执行该函数， 将搜索给定多边形内,指定搜索对象类型和编码的对象。 返回符合搜索条件的对象ID值,有多个时,用,号分隔 下面",
+      "snippet": "查找被指定地物包含的对象 SearchInnerObjIDs函数 SearchInnerObjIDs 函数 查找被指定地物包含的对象。 SearchInnerObjIDs ( polygonID, objecType, codes, innerObjGetPointMode ) 参数 polygonID 多边形对象ID objecType 搜索对象类型(0 点 1 线 2 面 3注记 10 所有) codes 搜索对象编码,有多个时,用,号分隔 ,为空时,则搜索所有编码 innerObjGetPointMode 被包含对象取点方式, 0(判断所有点) 1(只判断焦点) 说明 执行该函数， 将搜索给定多边形内,指定搜索对象类型和编码的对象。 返回符合搜索条件的对象ID值,有多个时,用,号分隔 下面示例搜索落在指定多边形内的地物,并修改其高程值 '分解字符串 Function ScanString(ByVal str, ByVal sep, ByRef strs(), ByRef count) Dim sepidx1, sepidx2, strtemp count = 0 sepidx1 = 1 sepidx2 = InStr(sepidx1 , str, sep, 1) While (sepidx2 > 0) strs(count) = Mid( str, sepidx1, sepi",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "SearchNearObjIDs",
+      "signature": "SearchNearObjIDs(x, y, searchRange, objecType, codes, filterID )",
+      "desc": "执行该函数， 将按给定的坐标点,搜索范围,搜索对象类型和编码搜索与坐标点相近的对象。 返回符合搜索条件的对象ID值,有多个时,用,号分隔 下面",
+      "snippet": "查找与指定坐标点相近的地物 SearchNearObjIDs函数 SearchNearObjIDs 函数 查找与指定坐标点相近的地物。 SearchNearObjIDs ( x, y, searchRange, objecType, codes, filterID ) 参数 x 查找坐标点X坐标 y 查找坐标点Y坐标 searchRange 搜索范围(米为单位) objecType 搜索对象类型(0 点 1 线 2 面 3注记 10 所有) codes 搜索对象编码,有多个时,用,号分隔,为空时,则搜索所有编码 filterID 不包含在返回结果中的对象ID 说明 执行该函数， 将按给定的坐标点,搜索范围,搜索对象类型和编码搜索与坐标点相近的对象。 返回符合搜索条件的对象ID值,有多个时,用,号分隔 下面示例搜索与指定地物节点相近的高程点 '分解字符串 Function ScanString(ByVal str, ByVal sep, ByRef strs(), ByRef count) Dim sepidx1, sepidx2, strtemp count = 0 sepidx1 = 1 sepidx2 = InStr(sepidx1 , str, sep, 1) While (sepidx2 > 0) strs(count) = Mid( str, sepidx1, sepid",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "SearchOuterObjIDs",
+      "signature": "SearchOuterObjIDs(innerObjID, objecType, codes, innerObjGetPointMode )",
+      "desc": "执行该函数， 将搜索包含给定地物的多边形,指定搜索对象类型和编码的对象。 返回符合搜索条件的对象ID值,有多个时,用,号分隔,返回结果按面积从小到大排序 下面",
+      "snippet": "查找包含指定地物的对象 SearchOuterObjIDs函数 SearchOuterObjIDs 函数 查找包含指定地物的对象。 SearchOuterObjIDs ( innerObjID, objecType, codes, innerObjGetPointMode ) 参数 innerObjID 被包含对象ID objecType 搜索对象类型(0 点 1 线 2 面 3注记 10 所有) codes 搜索对象编码,有多个时,用,号分隔 ,为空时,则搜索所有编码 innerObjGetPointMode 被包含对象取点方式, 0(判断所有点) 1(只判断焦点) 说明 执行该函数， 将搜索包含给定地物的多边形,指定搜索对象类型和编码的对象。 返回符合搜索条件的对象ID值,有多个时,用,号分隔,返回结果按面积从小到大排序 下面示例搜索包含指定地物的多边形内列表,并修改其高程值 '分解字符串 Function ScanString(ByVal str, ByVal sep, ByRef strs(), ByRef count) Dim sepidx1, sepidx2, strtemp count = 0 sepidx1 = 1 sepidx2 = InStr(sepidx1 , str, sep, 1) While (sepidx2 > 0) strs(count) = Mid",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "SelectionObjInnerInsertPoint",
+      "signature": "SelectionObjInnerInsertPoint(step )",
+      "desc": "执行该函数， 将对当前选择集中点数大于1的线或面地物按指定的步距进行内插点。 下面",
+      "snippet": "选择集对象等距内插点 SelectionObjInnerInsertPoint函数 SelectionObjInnerInsertPoint函数 选择集对象等距内插点。 SelectionObjInnerInsertPoint ( step ) 参数 step 内插步距(米为单位) 说明 执行该函数， 将对当前选择集中点数大于1的线或面地物按指定的步距进行内插点。 下面示例内插过程 Sub OnClick() SSProcess .PushUndoMark SSProcess .ClearSelection SSProcess .ClearSelectCondition SSProcess .SetSelectCondition \"SSObj_Type\" , \"=\" , \"LINE\" SSProcess .SetSelectCondition \"SSObj_Code\" , \"=\" , \"1\" '根据设定的选择条件,选择对象到选择集中 SSProcess .SelectFilter '按3米步距进行内插 SSProcess .SelectionObjInnerInsertPoint 3.0 End Sub 请参阅",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "SelectionObjMerge",
+      "signature": "SelectionObjMerge(anewAreaCode, newAreaLayer, miniDist, delOldObj )",
+      "desc": "执行该函数， 将对当前选择集中有共边的面进行合并处理。 下面",
+      "snippet": "选择集对象相邻面合并处理 SelectionObjMerge 函数 SelectionObjMerge 函数 选择集对象相邻面合并处理。 SelectionObjMerge ( anewAreaCode, newAreaLayer, miniDist, delOldObj ) 参数 anewAreaCode 合并后新面编码,等于0时,使用合并前的面编码 newAreaLayer 合并后新面放置图层,等于空时, 使用合并前的面图层 miniDist 最小悬距,米为单位 delOldObj 是否删除原地物, 0 不删除 1 删除 说明 执行该函数， 将对当前选择集中有共边的面进行合并处理。 下面示例面合并过程 Sub OnClick() SSProcess .PushUndoMark SSProcess .ClearSelection SSProcess .ClearSelectCondition SSProcess .SetSelectCondition \"SSObj_Type\" , \"=\" , \"AREA\" SSProcess .SetSelectCondition \"SSObj_LayerName\" , \"=\" , \"工矿面\" SSProcess .SelectFilter SSProcess .SelectionObjMerge 2 , \"DEFAULT\" , 0.001 , ",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "SelectionObjPartZ",
+      "signature": "SelectionObjPartZ()",
+      "desc": "执行该函数， 将对当前选择集中地物的无效高程点进行插值处理,要求地物至少保证起终点有有效高程值。 下面",
+      "snippet": "选择集对象内插节点高程 SelectionObjPartZ函数 SelectionObjPartZ 函数 选择集对象内插节点高程。 SelectionObjPartZ ( ) 参数 step 内插步距(米为单位) 说明 执行该函数， 将对当前选择集中地物的无效高程点进行插值处理,要求地物至少保证起终点有有效高程值。 下面示例内插过程 Sub OnClick() SSProcess .PushUndoMark SSProcess .ClearSelection SSProcess .ClearSelectCondition SSProcess .SetSelectCondition \"SSObj_Type\" , \"=\" , \"LINE\" SSProcess .SetSelectCondition \"SSObj_Code\" , \"=\" , \"1\" '根据设定的选择条件,选择对象到选择集中 SSProcess .SelectFilter SSProcess .SelectionObjPartZ End Sub 请参阅",
+      "class": "SSProcess",
+      "section": "数据整理"
+    },
+    {
+      "name": "SelectionObjTopProcess",
+      "signature": "SelectionObjTopProcess(areaCode, areaLayer, miniDist, delArc )",
+      "desc": "执行该函数， 将根据当前选择集中的弧段拓扑构面。 下面",
+      "snippet": "选择集对象拓扑处理 SelectionObjTopProcess 函数 SelectionObjTopProcess 函数 选择集对象拓扑处理。 SelectionObjTopProcess ( areaCode, areaLayer, miniDist, delArc ) 参数 areaCode 生成面编码 areaLayer 生成面放置图层 miniDist 最小悬距,米为单位 delArc 是否删除拓扑弧段 0 删除 1 保留 说明 执行该函数， 将根据当前选择集中的弧段拓扑构面。 下面示例构面过程 Sub OnClick() SSProcess .ClearSelection SSProcess .ClearSelectCondition SSProcess .SetSelectCondition \"SSObj_Type\" , \"=\" , \"LINE\" SSProcess .SetSelectCondition \"SSObj_LayerName\" , \"=\" , \"LAF\" SSProcess .SelectFilter SSProcess .SelectionObjTopProcess 2 , \"Default\" , 0.001 , 1 End Sub 请参阅",
+      "class": "SSProcess",
+      "section": "数据整理"
+    }
+  ]
+}

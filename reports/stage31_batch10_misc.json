@@ -1,0 +1,159 @@
+{
+  "task": "阶段3.1 batch10_misc：工程管理+数据转换+数据检查+坐标转换+角度函数",
+  "date": "2026-09-09",
+  "count": 19,
+  "functions": [
+    {
+      "name": "CloseDatabase",
+      "signature": "CloseDatabase()",
+      "desc": "执行该函数，将关闭当前打开的工程，并把软件启动时打开的工程做为当前工程。 函数执行成功，返回1，失败返回0。 下面",
+      "snippet": "关闭当前打开的EPS MDB数据库 CloseDatabase函数 CloseDatabase 函数 关闭当前打开 的 EPS MDB数据库。 CloseDatabase( ) 参数 说明 执行该函数，将关闭当前打开的工程，并把软件启动时打开的工程做为当前工程。 函数执行成功，返回1，失败返回0。 下面示例关闭当前打开的工程文件： SSProcess.CloseDatabase 请参阅",
+      "class": "SSProcess",
+      "section": "工程管理"
+    },
+    {
+      "name": "CreateDatabase",
+      "signature": "CreateDatabase(templateName, fileName )",
+      "desc": "templateName 应为EPS执行目录下的Templates目录下的模板文件，文件名应同时包含路径，如\"C:\\Program Files\\EPS2005\\Templates\\GB_500.MDT\"。 fileName，应包含路径和文件名，如\" c:\\epsmdb\\new.mdb \"， 执行该函数，将自动关闭当前打开的工程，把新建的工程做为当前工程。 函数执行成功，返回1，失败返回0。 下面",
+      "snippet": "创建EPS MDB数据库 CreateDatabase函数 CreateDatabase 函数 创建EPS MDB数据库。 CreateDatabase( templateName, fileName ) 参数 templateName 为新建工程使用的模板文件全路径名。 fileName 为新建MDB数据的全路径文件名。 说明 templateName 应为EPS执行目录下的Templates目录下的模板文件，文件名应同时包含路径，如\"C:\\Program Files\\EPS2005\\Templates\\GB_500.MDT\"。 fileName，应包含路径和文件名，如\" c:\\epsmdb\\new.mdb \"， 执行该函数，将自动关闭当前打开的工程，把新建的工程做为当前工程。 函数执行成功，返回1，失败返回0。 下面示例使用GB_500.MDT模板创建名为new.mdb的工程文件： SSProcess.CreateDatabase \" C:\\Program Files\\EPS2005\\Templates\\GB_500.MDT \" , \" c:\\epsmdb\\new.mdb \" 请参阅",
+      "class": "SSProcess",
+      "section": "工程管理"
+    },
+    {
+      "name": "OpenDatabase",
+      "signature": "OpenDatabase(fileName )",
+      "desc": "fileName，应包含路径和文件名，如\" c:\\epsmdb\\new.mdb \"， 执行该函数，将自动关闭当前打开的工程，把打开的工程做为当前工程。 函数执行成功，返回1，失败返回0。 下面",
+      "snippet": "打开已存在的EPS MDB数据库 OpenDatabase函数 CreateDatabase 函数 打开已存在的 EPS MDB数据库。 OpenDatabase( fileName ) 参数 fileName 为要打开的EPS MDB数据的全路径文件名。 说明 fileName，应包含路径和文件名，如\" c:\\epsmdb\\new.mdb \"， 执行该函数，将自动关闭当前打开的工程，把打开的工程做为当前工程。 函数执行成功，返回1，失败返回0。 下面示例使打开名为new.mdb的工程文件： SSProcess.OpenDatabase \" c:\\epsmdb\\new.mdb \" 请参阅",
+      "class": "SSProcess",
+      "section": "工程管理"
+    },
+    {
+      "name": "SelectFileName",
+      "signature": "SelectFileName(status, title, flags, filter )",
+      "desc": "执行该函数，将弹出文件选择对话框，以选择文件名。 函数执行成功，返回选择的文件名，失败返回空字符串，如果文件选择对话框为多选择状态，则同时返回多个文件名，用“，”。分隔文件名。 下面",
+      "snippet": "打开文件选择对话框，选择文件名 SelectFileName函数函数 SelectFileName函数 打开文件选择对话框，选择文件名。 SelectFileName( status, title, flags, filter ) 参数 status 文件对话框选择状态，等于0时，为新建文件对话框，等于1时为选择文件对话框。 title 为文件对话框的缺省选择文件名，如果不指定缺省文件名，允许为空字符串。 flags 文件选择方式，等于0时，为单选文件，等于1时为多选文件。 filter 为文件对话框的过滤条件，如\"Chart Files (*.xlc)|*.xlc|Worksheet Files (*.xls)|*.xls|Data Files (*.xlc;*.xls)|*.xlc; *.xls|All Files (*.*)|*.*||\"。 说明 执行该函数，将弹出文件选择对话框，以选择文件名。 函数执行成功，返回选择的文件名，失败返回空字符串，如果文件选择对话框为多选择状态，则同时返回多个文件名，用“，”。分隔文件名。 下面示例选择扩展名为mdb的单个文件名： Dim fileName fileName = SSProcess. SelectFileName(1,\"\",0,\"EPS MDB Files(*.mdb)|*.mdb |All Files (*.*)|*.*|| ",
+      "class": "SSProcess",
+      "section": "工程管理"
+    },
+    {
+      "name": "SelectPathName",
+      "signature": "SelectPathName()",
+      "desc": "执行该函数，将弹出文件目录选择对话框，以选择目录名。 函数执行成功，返回选择的路径名，失败返回空字符串。 下面",
+      "snippet": "打开文件目录选择对话框，选择目录名 SelectPathName函数 SelectPathName 函数 打开文件目录选择对话框，选择目录名。 SelectPathName( ) 参数 说明 执行该函数，将弹出文件目录选择对话框，以选择目录名。 函数执行成功，返回选择的路径名，失败返回空字符串。 下面示例选择目录： Dim pathName pathName = SSProcess. SelectPathName() 请参阅",
+      "class": "SSProcess",
+      "section": "工程管理"
+    },
+    {
+      "name": "ClearDataXParameter",
+      "signature": "ClearDataXParameter()",
+      "desc": "执行该函数，将清除由SetDataXParameter函数设置的转换参数列表。 下面",
+      "snippet": "清除数据转换参数列表 ClearDataXParameter函数 ClearDataXParameter 函数 清除数据转换参数列表。 ClearDataXParameter () 参数 说明 执行该函数，将清除由SetDataXParameter函数设置的转换参数列表。 下面示例 清除数据转换参数列表。 SSProcess. ClearDataXParameter 请参阅",
+      "class": "SSProcess",
+      "section": "数据转换"
+    },
+    {
+      "name": "ExportData",
+      "signature": "ExportData()",
+      "desc": "执行该函数，将 根据SetDataXParameter 设定的转换参数进行数据输出。 在数据导出到指定格式前,将会把转换数据加入到脚本的选择集中,并自动调用脚本回调函数BeforeExportData(),通过BeforeExportData函数可实现导出前的数据整理(如:属性修改,换码,换层,坐标换算等) 如果 转换参数设置TransCoordStatus为1,则在导出前,会执行回调函数 TransCoordXYZ( ByVal planeSysName, ByVal heightSysName, ByVal reverse, ByVal transxy, ByVal transz, ByR",
+      "snippet": "执行数据输出 ExportData 函数 ExportData 函数 执行数据输出 。 ExportData ( ) 参数 说明 执行该函数，将 根据SetDataXParameter 设定的转换参数进行数据输出。 在数据导出到指定格式前,将会把转换数据加入到脚本的选择集中,并自动调用脚本回调函数BeforeExportData(),通过BeforeExportData函数可实现导出前的数据整理(如:属性修改,换码,换层,坐标换算等) 如果 转换参数设置TransCoordStatus为1,则在导出前,会执行回调函数 TransCoordXYZ( ByVal planeSysName, ByVal heightSysName, ByVal reverse, ByVal transxy, ByVal transz, ByRef x, ByRef y, ByRef z )实施坐标转换处理 下面示例SHP格式输出： SSProcess.ClearDataXParameter SSProcess.SetDataXParameter \"DataType\", \"5\" SSProcess.SetDataXParameter \"FeatureCodeTBName\", \"FeatureCodeTB_SHP\" SSProcess.SetDataXParameter \"SymbolScriptTBNam",
+      "class": "SSProcess",
+      "section": "数据转换"
+    },
+    {
+      "name": "GetImportFileName",
+      "signature": "GetImportFileName()",
+      "desc": "执行该函数，将 返回当前正在转换的数据文件名。 下面",
+      "snippet": "获取当前转换的文件名 GetImportFileName 函数 GetImportFileName 函数 获取当前转换的文件名。 GetImportFileName ( ) 参数 返回值 返回当前正在转换的文件名,包含全路径 说明 执行该函数，将 返回当前正在转换的数据文件名。 下面示例调入DWG文件时,把数据源文件名设置为图形对象的数据标识： '数据转换过程中,在保存图形对象到数据库前调入的函数 Function BeforeSaveImportData() Dim filename, datamark '获取转换文件名 filename = SSProcess .GetImportFileName() index = InStrRev(filename, \"\" , - 1 , 1 ) datamark = Right(filename, len(filename)-index ) count = SSProcess .GetSelGeoCount() For i= 0 To count- 1 SSProcess .SetSelGeoValue i, \"SSObj_DataMark\" , datamark Next count = SSProcess .GetSelNoteCount() For i= 0 To count- 1 SSProcess .SetSelNoteValu",
+      "class": "SSProcess",
+      "section": "数据转换"
+    },
+    {
+      "name": "ImportData",
+      "signature": "ImportData()",
+      "desc": "执行该函数，将 根据SetDataXParameter 设定的转换参数进行数据导入。 在数据存入数据库前,将会把转换数据加入到脚本的选择集中,并自动调用脚本回调函数BeforeSaveImportData(),通过BeforeSaveImportData函数可实现数据存库前的数据整理(如:属性修改,换码,换层,坐标换算等) 如果 转换参数设置TransCoordStatus为1,则在存库前,会执行回调函数 TransCoordXYZ( ByVal planeSysName, ByVal heightSysName, ByVal reverse, ByVal transxy, ByVal tra",
+      "snippet": "执行数据导入 ImportData 函数 ImportData 函数 执行数据导入。 ImportData ( ) 参数 说明 执行该函数，将 根据SetDataXParameter 设定的转换参数进行数据导入。 在数据存入数据库前,将会把转换数据加入到脚本的选择集中,并自动调用脚本回调函数BeforeSaveImportData(),通过BeforeSaveImportData函数可实现数据存库前的数据整理(如:属性修改,换码,换层,坐标换算等) 如果 转换参数设置TransCoordStatus为1,则在存库前,会执行回调函数 TransCoordXYZ( ByVal planeSysName, ByVal heightSysName, ByVal reverse, ByVal transxy, ByVal transz, ByRef x, ByRef y, ByRef z )实施坐标转换处理 下面示例DWG格式导入： '清空转换参数 SSProcess.ClearDataXParameter '设置导入文件格式为DWG SSProcess.SetDataXParameter \"DataType\", \"1\" '设置扩展属性存储在MemoData中 SSProcess.SetDataXParameter \"SaveAttrToMemoData\", \"1\" '开始导入数据 SSPr",
+      "class": "SSProcess",
+      "section": "数据转换"
+    },
+    {
+      "name": "SetDataXParameter",
+      "signature": "SetDataXParameter(parameterName, parameterValue )",
+      "desc": "该函数，执行一次，设定一个参数，允许多次执行以设定多个参数。该函数并不实际进行数据转换操作，只有在执行数据输出 ExportData 或ImportData函数后，才会真正的进行数据转换。 下面",
+      "snippet": "设定数据转换参数 SetDataXParameter函数 SetDataXParameter 函数 设定数据转换参数。 SetDataXParameter ( parameterName, parameterValue ) 参数 parameterName 转换参数名称 转换参数定义见下表 DataType 数据格式格式。0(ArcGIS SDE)、 1(DWG)、2(DXF)、 3(E00)、 4(Coverage)、 5(Shp)、 6(Tab)、 7(Mif)、8(MGE Txt)、 9(Dgn)、 10(WtWlWp)、 11(WatWalWap)、 12(Xyz)、 13(Vtr)、 14(Ebf)、 15(Svf)、 16(Cas)、 17(Wex)、18(Eps Exf)、19(Eps Exx)、20(Eps Mdb)、21(Eps Edb)、22(ArcGIS Mdb)、23(国标 Vct)、24(Eps Cor/Not)、25 (Eps Cef)、26(国土农村VCT)、27(国土城镇VCT)、28(上海MDO) 、29(上航天远景XML) Version 版本号: AutoCad数据版本号。12,14,2000,2004,2006 Exf 1(1.0) 2(2.0) FeatureCodeTBName 输出使用编码对照表名称 SymbolScriptTBName",
+      "class": "SSProcess",
+      "section": "数据转换"
+    },
+    {
+      "name": "AddCheckRecord",
+      "signature": "AddCheckRecord(group, check, checkmodel, description, x, y, z, objtype, geoids, noteids )",
+      "desc": "执行该函数， 将往系统检查记录列表中增加检查记录。 下面",
+      "snippet": "保存检查记录 AddCheckRecord 函数 AddCheckRecord 函数 添加检查记录。 AddCheckRecord ( group, check, checkmodel, description, x, y, z, objtype, geoids, noteids ) 参数 group 检查组名 check 检查项名 checkmodel 检查模型名称,如\"脚本检查类->地物编码合法性检查\" description 检查错误描述 x 错误位置X坐标 y 错误位置Y坐标 z 错误位置Z坐标 objtype 错误对象类型 0 点 1 线 2 面 3 注记 geoids 错误相关地物ID列表,多个时用,号分隔 noteids 错误相关注记ID列表, 多个时用,号分隔 说明 执行该函数， 将往系统检查记录列表中增加检查记录。 下面示例检查图中编码不等于6位的对象 Sub OnClick() SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Type\", \"=\", \"POINT,LINE,AREA\" SSProcess.SetSelectCondition \"SSObj_Code\", \"<\", \"100000\" SSProcess.SetSel",
+      "class": "SSProcess",
+      "section": "数据检查"
+    },
+    {
+      "name": "LoadCheckRecord",
+      "signature": "LoadCheckRecord()",
+      "desc": "执行该函数， 将从数据库中读取所有检查记录到内存 。 请参阅",
+      "snippet": "读取检查记录 LoadCheckRecord 函数 LoadCheckRecord 函数 读取检查记录。 LoadCheckRecord ( ) 参数 说明 执行该函数， 将从数据库中读取所有检查记录到内存 。 请参阅",
+      "class": "SSProcess",
+      "section": "数据检查"
+    },
+    {
+      "name": "RemoveCheckRecord",
+      "signature": "RemoveCheckRecord(...)",
+      "desc": "执行该函数， 将从保存内存中的所有检查记录到数据库。 请参阅",
+      "snippet": "保存检查记录 SaveCheckRecord 函数 SaveCheckRecord 函数 保存检查记录。 SaveCheckRecord ( ) 参数 说明 执行该函数， 将从保存内存中的所有检查记录到数据库。 请参阅",
+      "class": "SSProcess",
+      "section": "数据检查"
+    },
+    {
+      "name": "SaveCheckRecord",
+      "signature": "SaveCheckRecord(...)",
+      "desc": "执行该函数， 将删除指定检查组名和检查项名的检查记录。 请参阅",
+      "snippet": "删除检查记录 RemoveCheckRecord 函数 RemoveCheckRecord 函数 删除检查记录。 RemoveCheckRecord ( group, check ) 参数 group 检查组名, 为空时,删除所有组检查记录 check 检查项名, 为空时,删除组内所有检查项检查记录 说明 执行该函数， 将删除指定检查组名和检查项名的检查记录。 请参阅",
+      "class": "SSProcess",
+      "section": "数据检查"
+    },
+    {
+      "name": "ShowCheckOutput",
+      "signature": "ShowCheckOutput()",
+      "desc": "执行该函数， 将弹出检查记录输出对话框。 请参阅",
+      "snippet": "显示检查结果 ShowCheckOutput 函数 ShowCheckOutput 函数 显示检查结果。 ShowCheckOutput ( ) 参数 说明 执行该函数， 将弹出检查记录输出对话框。 请参阅",
+      "class": "SSProcess",
+      "section": "数据检查"
+    },
+    {
+      "name": "TransCoordXYZ",
+      "signature": "TransCoordXYZ(ByVal planeSysName, ByVal heightSysName, ByVal reverse, ByVal transxy, ByVal transz, ByRef x, ByRef y, ByRef z )",
+      "desc": "该函数是EPS的系统消息函数，在执行 SSProcess. TransSelectionObjCoord函数后，将会自动激活该函数进行坐标换算处理。 在进行坐标换算处理时，必须在脚本中同时定义该函数，并在函数中实现坐标换算模型。 下面",
+      "snippet": "坐标体系转换计算主函数 TransCoordXYZ函数 TransCoordXYZ 函数 坐标体系转换计算主函数。 Function TransCoordXYZ ( ByVal planeSysName, ByVal heightSysName, ByVal reverse, ByVal transxy, ByVal transz, ByRef x, ByRef y, ByRef z ) 参数 planeSysName 平面坐标系名称 heightSysName 高程基准名称 reverse 是否反向换算，0（正向换算），1（反向换算） transXY 是否进行平面坐标换算，0（不进行平面坐标换算），1（进行平面坐标换算） transz 是否进行高程换算，0（不进行高程换算），1（进行高程换算） x,y,z 转换源坐标，参数为引用方式传递， 说明 该函数是EPS的系统消息函数，在执行 SSProcess. TransSelectionObjCoord函数后，将会自动激活该函数进行坐标换算处理。 在进行坐标换算处理时，必须在脚本中同时定义该函数，并在函数中实现坐标换算模型。 下面示例 把选择集对象进行四参数转换。 Function TransCoordXYZ(ByVal planeSysName, ByVal heightSysName, ByVal reverse, ByVal t",
+      "class": "SSProcess",
+      "section": "坐标转换"
+    },
+    {
+      "name": "TransSelectionObjCoord",
+      "signature": "TransSelectionObjCoord(planeSysName，heightSysName，reverse,transXY,transZ)",
+      "desc": "执行该函数，将会激活系统消息函数TransCoordXYZ，具体的转换模型在TransCoordXYZ函数中指定，因此必须同时定义TransCoordXYZ。 下面",
+      "snippet": "对选择集对象作坐标体系换算 TransSelectionObjCoord函数 TransSelectionObjCoord 函数 对选择集对象作坐标体系换算。 TransSelectionObjCoord ( planeSysName，heightSysName，reverse,transXY,transZ) 参数 planeSysName 平面坐标系名称 heightSysName 高程基准名称 reverse 是否反向换算，0（正向换算），1（反向换算） transXY 是否进行平面坐标换算，0（不进行平面坐标换算），1（进行平面坐标换算） transz 是否进行高程换算，0（不进行高程换算），1（进行高程换算） 说明 执行该函数，将会激活系统消息函数TransCoordXYZ，具体的转换模型在TransCoordXYZ函数中指定，因此必须同时定义TransCoordXYZ。 下面示例 把选择集对象进行四参数转换。 Function TransCoordXYZ(ByVal planeSysName, ByVal heightSysName, ByVal reverse, ByVal transxy, ByVal transz, ByRef x, ByRef y, ByRef z) Dim dx,dy,m,a dx = 123.5 dy = 57.33 m = 1.0000000",
+      "class": "SSProcess",
+      "section": "坐标转换"
+    },
+    {
+      "name": "XYSA",
+      "signature": "XYSA(x0, y0, x1, y1, dist, angle, flag)",
+      "desc": "执行该函数，可实现坐标的正反算。 正算时，flag为1，x0、y0、dist、angle为已知值，x1、y1为返回值。 反算时，flag为0，x0、y0、x1、y1为已知值，dist、angle为返回值。 下面",
+      "snippet": "坐标正反算函数 XYSA函数 XYSA函数 坐标正反算函数。 XYSA(x0, y0, x1, y1, dist, angle, flag) 参数 x0 第1点X坐标 y0 第1点Y坐标 x1 第2点X坐标 y1 第2点Y坐标 dist 第1到第2点距离，米为单位 angle 第1到第2点方位角,弧算为单位 flag 正反算方式，0(反算) 1(正算) 说明 执行该函数，可实现坐标的正反算。 正算时，flag为1，x0、y0、dist、angle为已知值，x1、y1为返回值。 反算时，flag为0，x0、y0、x1、y1为已知值，dist、angle为返回值。 下面示例 坐标正算： dim x0, y0, x1, y1, dist, angle, flag x0 = 100 y0 = 200 dist = 50 angle = 90/180*3.1415926 flag = 1 SSProcess.XYSA x0,y0,x1,y1,dist,angle,flag 下面示例 坐标反算： dim x0, y0, x1, y1, dist, angle, flag x0 = 100 y0 = 200 x1 = 500 y1 = 800 flag = 0 SSProcess.XYSA x0,y0,x1,y1,dist,angle,flag",
+      "class": "SSProcess",
+      "section": "角度函数"
+    },
+    {
+      "name": "角度转换",
+      "signature": "角度转换(...)",
+      "desc": "",
+      "snippet": "角度转换函数 角度转换函数 角度转换函数 度分秒转弧度 DmsToRadian(dms) 弧度转度分秒 RadianToDms(radian) 度转度分秒 DegToDms(deg) 度分秒转度 DmsToDeg(dms) 度分秒转秒 DmsToSec(dms) 秒转度分秒 SecToDms(sec) 度转弧度 DegToRadian(deg) 弧度转度 RadianToDeg(radian) 调整弧度在0-2PI间 AdjustAngle(radian) 调整度分秒在0-360间 AdjustDmsAngle(dms) 调整度在0-360间 AdjustDegAngle(deg) 度分分转度 DmmToDeg(dmm) 度转度分分 DegToDmm(deg) 请参阅",
+      "class": "SSProcess",
+      "section": "角度函数"
+    }
+  ]
+}

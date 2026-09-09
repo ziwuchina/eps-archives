@@ -1,0 +1,223 @@
+{
+  "task": "阶段3.1 batch8_sys_print：系统设置+图幅与打印",
+  "date": "2026-09-09",
+  "count": 27,
+  "functions": [
+    {
+      "name": "AddDispFilterInfo",
+      "signature": "AddDispFilterInfo(type, reverse, visible, colorvalid, color, values)",
+      "desc": "执行该函数， 可实现根据对象的属性特征分类分组显示控制,包括对象的可见性，动态显示颜色 下面",
+      "snippet": "增加显示可控对象条件信息 AddDispFilterInfo 函数 AddDispFilterInfo 函数 增加显示可控对象条件信息。 AddDispFilterInfo (type, reverse, visible, colorvalid, color, values) 参数 type 控制类型 0(编码)、1(创建时间)、2(修改时间)、3(被修改对象)、4(选择集对象)、5(数据标识)、6(图层) reverse 是否反向选择 0（正向）、1（反向） visible 本条设置指定的对象集合的可见与否 0（不可见）、1（可见） colorvalid 是否重新配色 0（不配）、1（配） color 重新配色的颜色值, 分COLORNO(颜色号)、颜色值和RGB(红,绿，蓝)三种指定方式 values 条件列表 类型 值方式 0(编码) 编码1,编码2,... 1(创建时间) 时间格式任意, 如： 2004-1-1-9:10 , 2005-05-05-10:15 一段时间 2004, 2005-05-05 分时秒可顺次前省略 2004-1-1-9:10, 某一时间以后 , 2005-05-05 截止到某一时间 2(修改时间) 同上 3(被修改对象) 是创建时间与修改时间不等的对象，值域不填 4(选择集对象) 可以指定对象的ID(如 ID1,ID2,...)或指选择条件组名(如 ",
+      "class": "SSProcess",
+      "section": "系统设置"
+    },
+    {
+      "name": "ClearDispFilterInfo",
+      "signature": "ClearDispFilterInfo()",
+      "desc": "执行该函数， 将清空由 AddDispFilterInfo设置的 可控对象条件信息 下面",
+      "snippet": "清空显示可控对象条件信息 ClearDispFilterInfo 函数 ClearDispFilterInfo 函数 清空显示可控对象条件信息。 ClearDispFilterInfo () 参数 说明 执行该函数， 将清空由 AddDispFilterInfo设置的 可控对象条件信息 下面示例清空显示可控对象条件信息： SSProcess. ClearDispFilterInfo SSProcess. AddDispFilterInfo 0, 0, 1, 0, \"RGB(255,0,0)\", \"2010,3010\" 请参阅",
+      "class": "SSProcess",
+      "section": "系统设置"
+    },
+    {
+      "name": "GetFeatureCodeTB",
+      "signature": "GetFeatureCodeTB()",
+      "desc": "执行该函数，将 返回当前系统使用的编码表名称。 下面",
+      "snippet": "获取系统编码表名称 GetFeatureCodeTB 函数 GetFeatureCodeTB 函数 获取系统编码表名称。 GetFeatureCodeTB () 参数 说明 执行该函数，将 返回当前系统使用的编码表名称。 下面示例获取当前使用的编码模板表名称： Dim featureName featureName = SSProcess. GetFeatureCodeTB () 请参阅",
+      "class": "SSProcess",
+      "section": "系统设置"
+    },
+    {
+      "name": "GetLayerCount",
+      "signature": "GetLayerCount()",
+      "desc": "执行该函数， 返回系统图层个数 。 下面 获取系统图层个数 ： Dim count count = SSProcess. GetLayerCount 请参阅",
+      "snippet": "获取图层数 GetLayerCount 函数 GetLayerCount 函数 获取图层数。 GetLayerCount () 参数 参数 返回系统图层个数 说明 执行该函数， 返回系统图层个数 。 下面 获取系统图层个数 ： Dim count count = SSProcess. GetLayerCount 请参阅",
+      "class": "SSProcess",
+      "section": "系统设置"
+    },
+    {
+      "name": "GetLayerName",
+      "signature": "GetLayerName(index)",
+      "desc": "执行该函数， 将返回指定索引的图层名称。 下面",
+      "snippet": "获取图层名称 GetLayerName 函数 GetLayerName 函数 获取图层名称。 GetLayerName (index) 参数 index 要返回层名的索引号,从0到层数-1 返回 返回图层名,如果索引号超出范围,则返回空字符串 说明 执行该函数， 将返回指定索引的图层名称。 下面示例获取指定索引的图层名称： Dim layerName layerName = SSProcess. GetLayerName 5 请参阅",
+      "class": "SSProcess",
+      "section": "系统设置"
+    },
+    {
+      "name": "GetLayerStatus",
+      "signature": "GetLayerStatus(layername, type)",
+      "desc": "执行该函数， 可以获取 指定用户层的状态 。 返回 0为未锁定， 返回 1为锁定。 下面",
+      "snippet": "获取用户层状态 GetLayerStatus 函数 GetLayerStatus 函数 获取用户层状态。 GetLayerStatus (layername, type) 参数 layername 要查看的用户层名 type 用户层状态 1(是否可见) 2（是否锁定编辑）、4（是否锁定索引）、8（是否已拓扑）、16（是否已做悬挂点处理） 说明 执行该函数， 可以获取 指定用户层的状态 。 返回 0为未锁定， 返回 1为锁定。 下面示例获取用户层开关状态： Dim status status = SSProcess. GetLayerStatus （\"控制点\", 1） 请参阅",
+      "class": "SSProcess",
+      "section": "系统设置"
+    },
+    {
+      "name": "GetMapStatus",
+      "signature": "GetMapStatus(type)",
+      "desc": "执行该函数， 可以获取数据库的 数据库锁定状态、地物显示列表锁定状态、标注显示列表锁定状态和索引锁定状态 。 返回 0为未锁定， 返回 1为锁定。 下面",
+      "snippet": "获取数据库状态 GetMapStatus 函数 GetMapStatus 函数 获取数据库状态。 GetMapStatus (type) 参数 type 数据库状态 2（锁定数据库）、4（锁定地物显示列表）、8（锁定标注显示列表）、16（锁定索引）、32(锁定Undo栈) 说明 执行该函数， 可以获取数据库的 数据库锁定状态、地物显示列表锁定状态、标注显示列表锁定状态和索引锁定状态 。 返回 0为未锁定， 返回 1为锁定。 下面示例获取数据库锁定状态： Dim status status = SSProcess. GetMapStatus （2） 下面示例获取 地物显示列表锁定 状态： status = SSProcess. GetMapStatus （4） 请参阅",
+      "class": "SSProcess",
+      "section": "系统设置"
+    },
+    {
+      "name": "GetNoteTemplateTB",
+      "signature": "GetNoteTemplateTB()",
+      "desc": "执行该函数，将 返回当前系统使用的注记分类表名称。 下面",
+      "snippet": "获取系统注记模板表名称 GetNoteTemplateTB 函数 GetNoteTemplateTB 函数 获取系统注记模板表名称。 GetNoteTemplateTB () 参数 说明 执行该函数，将 返回当前系统使用的注记分类表名称。 下面示例获取当前使用的注记分类表名称： Dim templateName templateName = SSProcess. GetNoteTemplateTB () 请参阅",
+      "class": "SSProcess",
+      "section": "系统设置"
+    },
+    {
+      "name": "GetSymbolScriptTB",
+      "signature": "GetSymbolScriptTB()",
+      "desc": "执行该函数，将 返回当前系统使用的符号描述表名称。 下面",
+      "snippet": "获取系统符号描述表名称 GetSymbolScriptTB 函数 GetSymbolScriptTB 函数 获取系统符号描述表名称。 GetSymbolScriptTB () 参数 说明 执行该函数，将 返回当前系统使用的符号描述表名称。 下面示例获取当前使用的符号描述表名称： Dim symbolName symbolName = SSProcess. GetSymbolScriptTB () 请参阅",
+      "class": "SSProcess",
+      "section": "系统设置"
+    },
+    {
+      "name": "RefreshView",
+      "signature": "RefreshView()",
+      "desc": "执行该函数， 可以刷新当前图形窗口。 请参阅",
+      "snippet": "刷新图形窗口 RefreshView 函数 RefreshView 函数 刷新图形窗口。 RefreshView () 参数 说明 执行该函数， 可以刷新当前图形窗口。 请参阅",
+      "class": "SSProcess",
+      "section": "系统设置"
+    },
+    {
+      "name": "SetFeatureCodeTB",
+      "signature": "SetFeatureCodeTB(featureTB,symbolscriptTB )",
+      "desc": "执行该函数，将 把指定的编码表和符号描述表设为当前系统使用的编码模板表。 下面",
+      "snippet": "设置系统编码表 SetFeatureCodeTB 函数 SetFeatureCodeTB 函数 设置系统编码表。 SetFeatureCodeTB (featureTB,symbolscriptTB ) 参数 featureTB 编码表名称 symbolscriptTB 符号描述表名称 说明 执行该函数，将 把指定的编码表和符号描述表设为当前系统使用的编码模板表。 下面示例设置FeatureCodeTB_500和SymbolScriptTB_500为当前使用的编码模板表： SSProcess. SetFeatureCodeTB \" FeatureCodeTB_500 \", \"SymbolScriptTB_500\" 请参阅",
+      "class": "SSProcess",
+      "section": "系统设置"
+    },
+    {
+      "name": "SetLayerStatus",
+      "signature": "SetLayerStatus(layername,flags,type)",
+      "desc": "执行该函数， 可以设置或取消用户层的各种状态。 下面",
+      "snippet": "设置用户层状态 SetLayerStatus 函数 SetLayerStatus 函数 设置用户层状态。 SetLayerStatus (layername,flags,type) 参数 layername 要设置的层名 flags 设置或取消状态 0（取消状态）、1（ 设置状态） type 用户层状态 1(是否可见) 2（是否锁定编辑）、4（是否锁定索引）、8（是否已拓扑）、16（是否已做悬挂点处理） 说明 执行该函数， 可以设置或取消用户层的各种状态。 下面示例关闭指定用户层： SSProcess. SetLayerStatus \"控制点\", 0 , 1 下面示例打开指定用户层： SSProcess. SetLayerStatus \"控制点\", 1 , 1 请参阅",
+      "class": "SSProcess",
+      "section": "系统设置"
+    },
+    {
+      "name": "SetMapStatus",
+      "signature": "SetMapStatus(flags,type)",
+      "desc": "执行该函数， 可以设置或取消数据库的 数据库锁定状态、地物显示列表锁定状态、标注显示列表锁定状态和索引锁定状态 。 下面",
+      "snippet": "设置数据库状态 SetMapStatus 函数 SetMapStatus 函数 设置数据库状态。 SetMapStatus (flags,type) 参数 flags 设置或取消状态 0（取消状态）、1（ 设置状态） type 数据库状态 2（锁定数据库）、4（锁定地物显示列表）、8（锁定标注显示列表）、16（锁定索引）、32(锁定Undo栈) 说明 执行该函数， 可以设置或取消数据库的 数据库锁定状态、地物显示列表锁定状态、标注显示列表锁定状态和索引锁定状态 。 下面示例设置取消数据库锁定状态： SSProcess. SetMapStatus 0 , 2 下面示例设置数据库锁定状态： SSProcess. SetMapStatus 1 , 2 请参阅",
+      "class": "SSProcess",
+      "section": "系统设置"
+    },
+    {
+      "name": "SetNotetemplateTB",
+      "signature": "SetNotetemplateTB(notetemplateTB )",
+      "desc": "执行该函数，将 把指定的 注记分类表 设为当前系统使用的注记模板表。 下面",
+      "snippet": "设置系统注记分类表 SetNotetemplateTB 函数 SetNotetemplateTB 函数 设置系统注记分类表。 SetNotetemplateTB (notetemplateTB ) 参数 notetemplateTB 注记分类表名称 说明 执行该函数，将 把指定的 注记分类表 设为当前系统使用的注记模板表。 下面示例设置 NoteTemplateTB_500 为当前使用注记模板表： SSProcess. SetNotetemplateTB \" NoteTemplateTB_500 \" 请参阅",
+      "class": "SSProcess",
+      "section": "系统设置"
+    },
+    {
+      "name": "SetUnfilterObjColor",
+      "signature": "SetUnfilterObjColor(flag, color)",
+      "desc": "执行该函数， 可实现不在有效设置控制之内的对象集合重新配色显示 下面",
+      "snippet": "设置不在有效设置控制之内的对象集合的显示颜色 SetUnfilterObjColor 函数 SetUnfilterObjColor 函数 设置不在有效设置控制之内的对象集合的显示颜色。 SetUnfilterObjColor (flag, color) 参数 flag 是否对 不在有效设置控制之内的对象集合 重配色 0（不配）、1（配） color 重新配色的颜色值, 分COLORNO(颜色号)、颜色值和RGB(红,绿，蓝)三种指定方式 说明 执行该函数， 可实现不在有效设置控制之内的对象集合重新配色显示 下面示例设置不在有效设置控制之内的对象集合的显示颜色： SSProcess. ClearDispFilterInfo SSProcess. AddDispFilterInfo 0, 0, 1, 0, \"RGB(255,0,0)\", \"2010,3010\" SSProcess. SetUnfilterObjColor 1, \" RGB(0,255,0) \" 请参阅",
+      "class": "SSProcess",
+      "section": "系统设置"
+    },
+    {
+      "name": "CreateMapFrameByCenterLine",
+      "signature": "CreateMapFrameByCenterLine(centerLineCode, paperWidth, paperHeight, marginDist )",
+      "desc": "执行该函数， 将创建指定编码中心线的图幅缓存, 图幅将沿指定中心线按斜分幅方式布设。 通过方法 GetMapFrameCount 可获取缓存图幅的个数 通过方法 GetMapFramePoint 可获取指定缓存图幅的坐标 使用完成后需执行FreeMapFrame释放图幅缓存数据.",
+      "snippet": "创建指定编码中心线的图幅缓存 CreateMapFrameByCenterLine 函数 CreateMapFrameByCenterLine 函数 创建指定编码中心线的图幅缓存。 CreateMapFrameByCenterLine ( centerLineCode, paperWidth, paperHeight, marginDist ) 参数 centerLineCode 要生成图幅缓存的中心线编码 paperWidth 图纸有效打印范围宽度,米为单位 paperHeight 图纸有效打印范围高度,米为单位 marginDist 图幅间接边重叠区域宽度,米为单位 说明 执行该函数， 将创建指定编码中心线的图幅缓存, 图幅将沿指定中心线按斜分幅方式布设。 通过方法 GetMapFrameCount 可获取缓存图幅的个数 通过方法 GetMapFramePoint 可获取指定缓存图幅的坐标 使用完成后需执行FreeMapFrame释放图幅缓存数据. 示例 自动生成带状图幅 Sub OnClick() SSProcess .PushUndoMark SSProcess .CreateMapFrameByCenterLine 1, 250, 200, 0 frameCount = SSProcess .GetMapFrameCount() For i=0 To frameCount",
+      "class": "SSProcess",
+      "section": "图幅与打印"
+    },
+    {
+      "name": "CreateMapFrameByRegion",
+      "signature": "CreateMapFrameByRegion(code )",
+      "desc": "执行该函数， 将创建创建指定编码区域内的图幅缓存。 通过方法 GetMapFrameCount 可获取缓存图幅的个数 通过方法 GetMapFramePoint 可获取指定缓存图幅的坐标 使用完成后需执行FreeMapFrame释放图幅缓存数据.",
+      "snippet": "创建指定编码区域内的图幅缓存 CreateMapFrameByRegion 函数 CreateMapFrameByRegion 函数 创建指定编码区域内的图幅缓存。 CreateMapFrameByRegion ( code ) 参数 code 要生图幅缓存的区域编码 说明 执行该函数， 将创建创建指定编码区域内的图幅缓存。 通过方法 GetMapFrameCount 可获取缓存图幅的个数 通过方法 GetMapFramePoint 可获取指定缓存图幅的坐标 使用完成后需执行FreeMapFrame释放图幅缓存数据. 示例 自动生成测区接合表 Sub OnClick() SSProcess .CreateMapFrameByRegion 1 frameCount = SSProcess .GetMapFrameCount() For i=0 To frameCount-1 SSProcess .GetMapFrameCenterPoint i, x, y SSProcess .SetCurMapFrame x, y, 1, \"1:500图幅接合表\" Next SSProcess .FreeMapFrame End Sub 请参阅",
+      "class": "SSProcess",
+      "section": "图幅与打印"
+    },
+    {
+      "name": "CreateMapFrame",
+      "signature": "CreateMapFrame()",
+      "desc": "执行该函数， 将创建有数据图幅的图幅缓存。 通过方法 GetMapFrameCount 可获取缓存图幅 的个数 通过方法 GetMapFramePoint 可获取指定缓存图幅的坐标 使用完成后需执行FreeMapFrame释放图幅缓存数据.",
+      "snippet": "创建当前数据涉及图幅缓存 CreateMapFrame 函数 CreateMapFrame 函数 创建当前数据涉及图幅缓存。 CreateMapFrame ( ) 参数 说明 执行该函数， 将创建有数据图幅的图幅缓存。 通过方法 GetMapFrameCount 可获取缓存图幅 的个数 通过方法 GetMapFramePoint 可获取指定缓存图幅的坐标 使用完成后需执行FreeMapFrame释放图幅缓存数据. 示例 自动生成有数据图幅接合表 Sub OnClick() SSProcess .CreateMapFrame frameCount = SSProcess .GetMapFrameCount() For i=0 To frameCount-1 SSProcess .GetMapFrameCenterPoint i, x, y SSProcess .SetCurMapFrame x, y, 1, \"1:500图幅接合表\" Next SSProcess .FreeMapFrame End Sub 批量分幅输出DWG数据 Function ExportDwg( fileName ) '清空转换参数 SSProcess .ClearDataXParameter SSProcess .SetDataXParameter \"DataType\" , \"1\" SSProcess .Se",
+      "class": "SSProcess",
+      "section": "图幅与打印"
+    },
+    {
+      "name": "CreateOneMapFrame",
+      "signature": "CreateOneMapFrame(frameIndex, frameCode )",
+      "desc": "执行该函数， 将在指定缓存图幅处创建一个图廓对象。 请参阅",
+      "snippet": "创建一个图廓对象 CreateOneMapFrame 函数 CreateOneMapFrame 函数 创建一个图廓对象。 CreateOneMapFrame ( frameIndex, frameCode ) 参数 frameIndex 缓存图幅索引号,从0开始 frameCode 创建图廓对象的编码 说明 执行该函数， 将在指定缓存图幅处创建一个图廓对象。 请参阅",
+      "class": "SSProcess",
+      "section": "图幅与打印"
+    },
+    {
+      "name": "FreeMapFrame",
+      "signature": "FreeMapFrame()",
+      "desc": "执行该函数， 将释放所有图幅缓存, 与CreateMapFrame或CreateMapFrameByRegion或CreateMapFrameByCenterLine配对使用。 请参阅",
+      "snippet": "释放所有图幅缓存 FreeMapFrame 函数 FreeMapFrame 函数 释放所有图幅缓存。 FreeMapFrame ( ) 参数 说明 执行该函数， 将释放所有图幅缓存, 与CreateMapFrame或CreateMapFrameByRegion或CreateMapFrameByCenterLine配对使用。 请参阅",
+      "class": "SSProcess",
+      "section": "图幅与打印"
+    },
+    {
+      "name": "GetCurMapFrame",
+      "signature": "GetCurMapFrame()",
+      "desc": "执行该函数， 将获取当前图幅ID。 请参阅",
+      "snippet": "获取当前图幅ID GetCurMapFrame 函数 GetCurMapFrame 函数 获取当前图幅ID。 GetCurMapFrame ( ) 参数 说明 执行该函数， 将获取当前图幅ID。 请参阅",
+      "class": "SSProcess",
+      "section": "图幅与打印"
+    },
+    {
+      "name": "GetMapFrameCenterPoint",
+      "signature": "GetMapFrameCenterPoint(frameIndex, x, y)",
+      "desc": "执行该函数， 将获取指定缓存图幅的指定中心点的坐标值。 请参阅",
+      "snippet": "获取指定缓存图幅的中心坐标 GetMapFrameCenterPoint 函数 GetMapFrameCenterPoint 函数 获取指定缓存图幅的中心坐标。 GetMapFrameCenterPoint ( frameIndex, x, y) 参数 frameIndex 缓存图幅索引号,从0开始 x 缓存图幅中心点X坐标 y 缓存图幅中心点Y坐标 说明 执行该函数， 将获取指定缓存图幅的指定中心点的坐标值。 请参阅",
+      "class": "SSProcess",
+      "section": "图幅与打印"
+    },
+    {
+      "name": "GetMapFrameCount",
+      "signature": "GetMapFrameCount()",
+      "desc": "执行该函数， 将获取缓存图幅的个数。 请参阅",
+      "snippet": "获取缓存图幅的个数 GetMapFrameCount 函数 GetMapFrameCount 函数 获取缓存图幅的个数。 GetMapFrameCount ( ) 参数 说明 执行该函数， 将获取缓存图幅的个数。 请参阅",
+      "class": "SSProcess",
+      "section": "图幅与打印"
+    },
+    {
+      "name": "GetMapFramePoint",
+      "signature": "GetMapFramePoint(frameIndex, pIndex, x, y)",
+      "desc": "执行该函数， 将获取指定缓存图幅的指定角点的坐标值。 请参阅",
+      "snippet": "获取指定缓存图幅的坐标 GetMapFramePoint 函数 GetMapFramePoint 函数 获取指定缓存图幅的坐标。 GetMapFramePoint ( frameIndex, pIndex, x, y) 参数 frameIndex 缓存图幅索引号,从0开始 pIndex 一个缓存图幅的角点索引,从0开始, 最大为 3 3-----------2 | | 0-----------1 x 缓存图幅角点X坐标 y 缓存图幅角点Y坐标 说明 执行该函数， 将获取指定缓存图幅的指定角点的坐标值。 请参阅",
+      "class": "SSProcess",
+      "section": "图幅与打印"
+    },
+    {
+      "name": "PrintCurFrameMap",
+      "signature": "PrintCurFrameMap()",
+      "desc": "执行该函数， 将打印当前图幅的地图数据。 请参阅",
+      "snippet": "打印当前图幅 PrintCurFrameMap 函数 PrintCurFrameMap 函数 打印当前图幅。 PrintCurFrameMap () 参数 说明 执行该函数， 将打印当前图幅的地图数据。 请参阅",
+      "class": "SSProcess",
+      "section": "图幅与打印"
+    },
+    {
+      "name": "PrintMap",
+      "signature": "PrintMap(frameIndex )",
+      "desc": "执行该函数， 将打印指定缓存图幅的地图数据。 请参阅",
+      "snippet": "打印指定图幅 PrintMap 函数 PrintMap 函数 打印指定图幅 。 PrintMap ( frameIndex ) 参数 frameIndex 缓存图幅索引号,从0开始 说明 执行该函数， 将打印指定缓存图幅的地图数据。 请参阅",
+      "class": "SSProcess",
+      "section": "图幅与打印"
+    },
+    {
+      "name": "SetCurMapFrame",
+      "signature": "SetCurMapFrame(x, y, addToMapLink, mapLinkTable)",
+      "desc": "执行该函数， 将设置指定坐标处为当前图幅。 请参阅",
+      "snippet": "设置指定坐标处为当前图幅 SetCurMapFrame 函数 SetCurMapFrame 函数 设置指定坐标处为当前图幅。 SetCurMapFrame ( x, y, addToMapLink, mapLinkTable) 参数 x 要设定图幅的中心点X坐标 y 要设定图幅的中心点Y坐标 addToMapLink 是否把图幅加入接口表, 0不加 1 加入 mapLinkTable 图幅接合表名称 说明 执行该函数， 将设置指定坐标处为当前图幅。 请参阅",
+      "class": "SSProcess",
+      "section": "图幅与打印"
+    }
+  ]
+}

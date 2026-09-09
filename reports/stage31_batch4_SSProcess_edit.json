@@ -1,0 +1,254 @@
+{
+  "task": "阶段3.1 第四批：SSProcess 编辑操作类（创建/保存/删除/撤销/变换）28 函数分析摘要",
+  "date": "2026-09-09",
+  "batch": "SSProcess-编辑操作A（28 个，含本次宗地绘制全部已用 API）",
+  "count": 28,
+  "missing_in_csv": [
+    "DeltetNewObj",
+    "SetChangeSelectionParameter",
+    "ExplodeSelectionObj",
+    "FilterSelectionObjVertex",
+    "LockGeoPointsInMemory"
+  ],
+  "functions": [
+    {
+      "page": 28,
+      "name": "CreateNewObj",
+      "class": "SSProcess",
+      "signature": "SSProcess.CreateNewObj( type )",
+      "title": "创建新图形对象",
+      "desc": "type 创建新对象类型，包括",
+      "chm_snippet": " ͼζ Online Help ͼζ CreateNewObj CreateNewObj ͼζ SSProcess.CreateNewObj( type ) type ¶ͣ 0 㣩 1 ߣ 2 棩 3 עǣ ˵ ִиúһָ͵ͼζΪǰĶִ SetNewObjValue ¶ִֵ AddNewObjPoint ¶Ŀռ㣬ִ AddNewObjToSaveObjList ¶ӵбִ SaveBufferObjToDatabase бݿ⡣ ʾ Sub OnClick() SSProcess.PushUndoMark SSProcess. CreateNewObj 0 SSProcess.SetNewObjValue \"SSObj_Code\" , \"0\" SSProcess.SetNewObjValue \"SSObj_LayerName\" , \"DEFAULT\" SSProcess.SetNewObjValue \"SSObj_Color\" , \"RGB(255,0,0)\" SSProcess.SetNewObjValue \"SSObj_LineType\" , \"0\" SSProcess.AddNewObjPoint 1020.01 , 1030.34 , 22.45 , 0 , \"\" SSProcess.AddNewObjToSaveObjList SSProcess.SaveBufferObjToDatabase End Sub "
+    },
+    {
+      "page": 29,
+      "name": "CreateNewObjByClass",
+      "class": "SSProcess",
+      "signature": "SSProcess.CreateNewObjByClass( fontclass )",
+      "title": "根据注记分类号创建新图形对象",
+      "desc": "fontclass 创建注记的分类号",
+      "chm_snippet": " עǷŴͼζ Online Help עǷŴͼζ CreateNewObjByClass CreateNewObjByClass עǷŴͼζ SSProcess.CreateNewObjByClass( fontclass ) fontclass עǵķ ˵ ִиúһָŵעǶΪǰĶ½עǻ Notetemplate עǷŶԶɫָߡֿԡִ SetNewObjValue ¶ִֵ AddNewObjPoint ¶Ŀռ㣬ִ AddNewObjToSaveObjList ¶ӵбִ SaveBufferObjToDatabase бݿ⡣ ʾ Sub OnClick() SSProcess.PushUndoMark SSProcess. CreateNewObjByClass \"1\" SSProcess.SetNewObjValue \"SSObj_FontString\" , \" ϵ· \" SSProcess.AddNewObjPoint 1000.01 , 1000.34 , 22.45 , 0 , \"\" SSProcess.AddNewObjToSaveObjList SSProcess.SaveBufferObjToDatabase End Sub "
+    },
+    {
+      "page": 30,
+      "name": "CreateNewObjByCode",
+      "class": "SSProcess",
+      "signature": "SSProcess.CreateNewObjByCode( code )",
+      "title": "根据地物编码创建新图形对象",
+      "desc": "code 创建地物的编码",
+      "chm_snippet": " ݵ봴ͼζ Online Help ݵ봴ͼζ CreateNewObjByCode CreateNewObjByCode ݵ봴ͼζ SSProcess.CreateNewObjByCode( code ) code ı ˵ ִиúһָͼζΪǰĶ½Ķ FeatureCode ı붨Զɫ͡߿ԡִ SetNewObjValue ¶ִֵ AddNewObjPoint ¶Ŀռ㣬ִ AddNewObjToSaveObjList ¶ӵбִ SaveBufferObjToDatabase бݿ⡣ ʾ Sub OnClick() SSProcess.PushUndoMark SSProcess. CreateNewObjByCode 0 SSProcess.AddNewObjPoint 1000.01 , 1000.34 , 22.45 , 0 , \"\" SSProcess.AddNewObjToSaveObjList SSProcess.SaveBufferObjToDatabase End Sub "
+    },
+    {
+      "page": 14,
+      "name": "AddNewObjPoint",
+      "class": "SSProcess",
+      "signature": "SSProcess.AddNewObjPoint( x, y, z, point type, name )",
+      "title": "添加空间点到新图形对象",
+      "desc": "x <span lang=ZH-CN",
+      "chm_snippet": " ӿռ㵽ͼζ Online Help ӿռ㵽ͼζ AddNewObjPoint AddNewObjPoint ӿռ㵽ͼζ SSProcess.AddNewObjPoint( x, y, z, point type, name ) x ռ X y ռ Y z ռ Z pointtype ռ 0 ͨ 1 ʵ 2 ע 4 ģ 16 ת 32 ϵ 64 ֱ 130 192 Բе 2048 ֶε 4096 16384 ƽ -32768 name ռ ˵ ִиúӿռ㵽ǰĶ ʾ Sub OnClick() SSProcess.PushUndoMark SSProcess.CreateNewObj 0 SSProcess.SetNewObjValue \"SSObj_Code\" , \"0\" SSProcess.SetNewObjValue \"SSObj_LayerName\" , \"DEFAULT\" SSProcess.SetNewObjValue \"SSObj_Color\" , \"RGB(255,0,0)\" SSProcess.SetNewObjValue \"SSObj_LineType\" , \"0\" SSProcess. AddNewObjPoint 1000.01 , 1020.34 , 23.45 , 0 , \"\" SSProcess.AddNewObjToSaveObjList SSProcess.SaveBufferObjToDatabase End Sub "
+    },
+    {
+      "page": 15,
+      "name": "AddNewObjToSaveObjList",
+      "class": "SSProcess",
+      "signature": "SSProcess.AddNewObjToSaveObjList()",
+      "title": "添加新创建图形对象到存库列表",
+      "desc": "执行该函数，将把当前新创建对象添加到存库地物列表中。执行该函数后,<span",
+      "chm_snippet": " ´ͼζ󵽴б Online Help ´ͼζ󵽴б AddNewObjToSaveObjList AddNewObjToSaveObjList ´ͼζ󵽴б SSProcess.AddNewObjToSaveObjList() ˵ ִиúѵǰ´ӵбСִиú , SaveBufferObjToDatabase , ܰ´󱣴浽ݿ⡣ ʾ Sub OnClick() SSProcess.PushUndoMark SSProcess.CreateNewObjByClass \"0\" SSProcess.SetNewObjValue \"SSObj_FontString\" , \" ϵ· \" SSProcess.AddNewObjPoint 1000.01 , 1000.34 , 22.45 , 0 , \"\" SSProcess. AddNewObjToSaveObjList SSProcess.SaveBufferObjToDatabase End Sub "
+    },
+    {
+      "page": 17,
+      "name": "AddSelGeoToSaveGeoList",
+      "class": "SSProcess",
+      "signature": "SSProcess.AddSelGeoToSaveGeoList( index )",
+      "title": "添加当前选择集指定地物到存库列表",
+      "desc": "index 选择集地物的索引号,<span",
+      "chm_snippet": " ӵǰѡָﵽб Online Help ӵǰѡָﵽб AddSelGeoToSaveGeoList AddSelGeoToSaveGeoList ӵǰѡָﵽб SSProcess.AddSelGeoToSaveGeoList( index ) index ѡ񼯵 , 0 ʼ ˵ ִиúѱ༭޸Ĺѡ񼯶ӵбС ʾ Sub OnClick() SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Type\" , \"=\" , \"POINT\" SSProcess.SelectFilter geocount = SSProcess.GetSelGeoCount() If geocount > 0 Then ' ݿ SSProcess.SetMapStatus 1 , 2 Dim x, y, z, pointtype, name For i= 0 To geocount- 1 ' ޸ĻϢ SSProcess.SetSelGeoValue i, \"SSObj_Code\", \"0\" SSProcess.SetSelGeoValue i, \"SSObj_LayerName\",\"DEFAULT\" ' б SSProcess. AddSelGeoToSaveGeoList i Next ' ݿ SSProcess.SetMapStatus 0 , 2 ' б浽ݿ SSProcess.SaveBufferObjToDatabase E"
+    },
+    {
+      "page": 18,
+      "name": "AddSelNoteToSaveNoteList",
+      "class": "SSProcess",
+      "signature": "SSProcess.AddSelNoteToSaveNoteList( index )",
+      "title": "添加当前选择集指定注记到存库列表",
+      "desc": "index 选择集注记的索引号,<span",
+      "chm_snippet": " ӵǰѡָעǵб Online Help ӵǰѡָעǵб AddSelNoteToSaveNoteList AddSelNoteToSaveNoteList ӵǰѡָעǵб SSProcess.AddSelNoteToSaveNoteList( index ) index ѡעǵ , 0 ʼ ˵ ִиúѱ༭޸ĹѡעӵעбС ʾ Sub OnClick() SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Type\" , \"=\" , \"NOTE\" SSProcess.SelectFilter notecount = SSProcess.GetSelNoteCount() If notecount > 0 Then ' ݿ SSProcess.SetMapStatus 1 , 2 For i= 0 To notecount- 1 ' ޸ĻϢ SSProcess.SetSelNoteValue i, \"SSObj_FontClass\", \"0\" SSProcess.SetSelNoteValue i, \"SSObj_LayerName\",\"DEFAULT\" ' б SSProcess. AddSelNoteToSaveNoteList i Next ' ݿ SSProcess.SetMapStatus 0 , 2 ' б浽ݿ SSProcess.SaveBufferObjToDatabase End If "
+    },
+    {
+      "page": 96,
+      "name": "SaveBufferObjToDatabase",
+      "class": "SSProcess",
+      "signature": "SSProcess.SaveBufferObjToDatabase()",
+      "title": "保存存库列表对象到数据库",
+      "desc": "执行该函数，将把当前存库列表中的地物和注记对象保存到数据库中。",
+      "chm_snippet": " бݿ Online Help бݿ SaveBufferObjToDatabase SaveBufferObjToDatabase бݿ⡣ SSProcess.SaveBufferObjToDatabase() ˵ ִиúѵǰбеĵעǶ󱣴浽ݿС ʾ ʾбݿ⣺ Sub OnClick() SSProcess.PushUndoMark SSProcess.CreateNewObjByClass \"1\" SSProcess.SetNewObjValue \"SSObj_FontString\" , \" ϵ· \" SSProcess.AddNewObjPoint 1000.01 , 1000.34 , 22.45 , 0 , \"\" SSProcess.AddNewObjToSaveObjList SSProcess. SaveBufferObjToDatabase End Sub "
+    },
+    {
+      "page": 90,
+      "name": "PushUndoMark",
+      "class": "SSProcess",
+      "signature": "SSProcess.PushUndoMark()",
+      "title": "设置Undo标志",
+      "desc": "执行该函数，将为往后的编辑操作设置Undo<span",
+      "chm_snippet": " Undo־ Online Help Undo ־ PushUndoMark PushUndoMark Undo ־ SSProcess.PushUndoMark() ˵ ִиúΪı༭ Undo ־ֺ֧Ļˡ "
+    },
+    {
+      "page": 33,
+      "name": "DeleteObject",
+      "class": "SSProcess",
+      "signature": "SSProcess.DeleteObject (geoID)",
+      "title": "删除图形对象",
+      "desc": "geoID 要删除的图形ID",
+      "chm_snippet": " ɾͼζ Online Help ɾͼζ DeleteObject DeleteObject ɾͼζ SSProcess.DeleteObject (geoID) geoID Ҫɾͼ ID ˵ ִиúɾָ ID ĵ ʾ Sub OnClick() SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Code\" , \"==\" , \"1\" SSProcess.SelectFilter geocount = SSProcess.GetSelGeoCount() If geocount > 0 Then For i= 0 To geocount- 1 ids = SSProcess.GetSelGeoValue(i, \"SSObj_ID\" ) SSProcess. DeleteObject ids SSProcess.RefreshView Next End If End Sub "
+    },
+    {
+      "page": 35,
+      "name": "DeleteSelectionObj",
+      "class": "SSProcess",
+      "signature": "SSProcess.DeleteSelectionObj()",
+      "title": "删除选择集对象",
+      "desc": "执行该函数，将删除选择集内的所有对象。",
+      "chm_snippet": " ɾѡ񼯶 Online Help ɾѡ񼯶 DeleteSelectionObj DeleteSelectionObj ɾѡڵж SSProcess.DeleteSelectionObj() ˵ ִиúɾѡڵж ʾ ʾɾ 0 ҵ 2 Ķ Sub OnClick() SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Code\" , \"==\" , \"0\" SSProcess.SetSelectCondition \"SSObj_PointCount\" , \"<\" , \"2\" SSProcess.SelectFilter SSProcess. DeleteSelectionObj End Sub "
+    },
+    {
+      "page": 31,
+      "name": "DeleteLayer",
+      "class": "SSProcess",
+      "signature": "SSProcess.DeleteLayer(layerName)",
+      "title": "删除图层",
+      "desc": "layerName 要删除的图层名称",
+      "chm_snippet": " ɾͼ Online Help ɾͼ DeleteLayer DeleteLayer ɾͼ㡣 SSProcess.DeleteLayer(layerName) layerName Ҫɾͼ ˵ ִиúɾͼڵж󣬺ɾͼ㡣 ʾ ʾɾ \" \" ͼ㣺 Sub OnClick() SSProcess. DeleteLayer \" \" End Sub "
+    },
+    {
+      "page": 39,
+      "name": "DelSelGeo",
+      "class": "SSProcess",
+      "signature": "SSProcess.DelSelGeo(index)",
+      "title": "删除当前选择集指定地物",
+      "desc": "index 选择集地物的索引号,<span",
+      "chm_snippet": " ɾǰѡָ Online Help ɾǰѡָ DelSelGeo DelSelGeo ɾǰѡָ SSProcess.DelSelGeo(index) index ѡ񼯵 , 0 ʼ ˵ ִиúɾǰѡָĵ ʾ ʾɾǰѡָ Sub OnClick() SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_PointCount\" , \">\" , \"1\" SSProcess.SetSelectCondition \"SSObj_Type\" , \"==\" , \"POINT\" SSProcess.SelectFilter geocount = SSProcess.GetSelGeoCount For i= 0 To geocount- 1 SSProcess. DelSelGeo i Next SSProcess.ClearSelection End Sub "
+    },
+    {
+      "page": 40,
+      "name": "DelSelNote",
+      "class": "SSProcess",
+      "signature": "SSProcess.DelSelNote( index )",
+      "title": "删除当前选择集指定注记",
+      "desc": "index 选择集注记的索引号,<span",
+      "chm_snippet": " ɾǰѡָע Online Help ɾǰѡָע DelSelNote DelSelNote ɾǰѡָעǡ SSProcess.DelSelNote( index ) index ѡעǵ , 0 ʼ ˵ ִиúɾǰѡָעǡ ʾ ʾɾǰѡָעǣ Sub OnClick() SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_PointCount\" , \">\" , \"1\" SSProcess.SetSelectCondition \"SSObj_Type\" , \"==\" , \"NOTE\" SSProcess.SelectFilter notecount = SSProcess.GetSelNoteCount For i= 0 To notecount- 1 SSProcess. DelSelNote i Next End Sub "
+    },
+    {
+      "page": 36,
+      "name": "DeleteSelGeoPoint",
+      "class": "SSProcess",
+      "signature": "SSProcess.DeleteSelGeoPoint( index,pointindex)",
+      "title": "删除当前选择集指定地物的空间点",
+      "desc": "index <span lang=ZH-CN",
+      "chm_snippet": " ɾǰѡָĿռ Online Help ɾǰѡָĿռ DeleteSelGeoPoint DeleteSelGeoPoint ɾǰѡָĿռ㡣 SSProcess.DeleteSelGeoPoint( index,pointindex) index ѡ񼯵 , 0 ʼ pointindex õռţ 0 ʼ ˵ ִиúɾǰѡ񼯶ָĵ index+1 ռ㡣 ʾ ʾɾǰѡ񼯶ָĵ 2 ռ㣺 Sub OnClick() SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_PointCount\" , \">\" , \"1\" SSProcess.SetSelectCondition \"SSObj_Type\" , \"==\" , \"LINE\" SSProcess.SelectFilter geocount = SSProcess.GetSelGeoCount For i= 0 To geocount- 1 pointcount = SSProcess. DeleteSelGeoPoint (i, 1 ) Next End Sub "
+    },
+    {
+      "page": 37,
+      "name": "DeleteSelNotePoint",
+      "class": "SSProcess",
+      "signature": "SSProcess.DeleteSelNotePoint( index,pointindex )",
+      "title": "删除当前选择集指定注记的空间点",
+      "desc": "index <span lang=ZH-CN",
+      "chm_snippet": " ɾǰѡָעǵĿռ Online Help ɾǰѡָעǵĿռ DeleteSelNotePoint DeleteSelNotePoint ɾǰѡָעǵĿռ㡣 SSProcess.DeleteSelNotePoint( index,pointindex ) index ѡעǵ , 0 ʼ pointindex עǵĿռ ˵ ִиúɾǰѡ񼯶ָעǵĵ index+1 ռ㡣 ʾ ʾɾǰѡ񼯶ָעǵĵ 2 ռ㣺 Sub OnClick() SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_PointCount\" , \">\" , \"1\" SSProcess.SetSelectCondition \"SSObj_Type\" , \"==\" , \"NOTE\" SSProcess.SelectFilter Notecount = SSProcess.GetSelNoteCount For i= 0 To Notecount - 1 SSProcess. DeleteSelNotePoint i , 1 Next End Sub "
+    },
+    {
+      "page": 20,
+      "name": "ChangeSelectionObj",
+      "class": "SSProcess",
+      "signature": "SSProcess.ChangeSelectionObj()",
+      "title": "执行修改选择集操作",
+      "desc": "该函数根据SetChangeSelectionParameter<span",
+      "chm_snippet": " ִ޸ѡ񼯲 Online Help ִ޸ѡ񼯲 ChangeSelectionObj ChangeSelectionObj ִ޸ѡ񼯲 SSProcess.ChangeSelectionObj() ˵ ú SetChangeSelectionParameter 趨ѡ޸ִʵ޸Ĳ ChangeSelectionObjAttr һֻ޸һֶΣ ChangeSelectionObj һִжֶε޸ģִЧҪ ChangeSelectionObjAttr ʾ ʾѡ [ ṹ ]=11,[ ]=12 ĶɫΪ 3 ɫ [ ṹ ]=10,[ ]=11 ĶɫΪ 2 ɫ [ ṹ ]=8,[ ]=9 ĶɫΪ 5 ɫ Sub OnClick() SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SelectFilter SSProcess.ClearChangeSelectionParameter SSProcess.SetChangeSelectionObjParameter \"[ ṹ ]=11,[ ]=12\" , \"SSObj_Color= COLORNO(3)\" SSProcess.SetChangeSelectionObjParameter \"[ ṹ ]=10,[ ]=11\" , \"SSObj_Color= COLORNO(2)\" SSProcess.SetChangeSelectionObjParameter \"[ ṹ ]=8,[ ]=9\" , \"SSObj_Color= COLORNO(5)\" SSProcess. Ch"
+    },
+    {
+      "page": 21,
+      "name": "ChangeSelectionObjAttr",
+      "class": "SSProcess",
+      "signature": "SSProcess.ChangeSelectionObjAttr( attrField, attrValue)",
+      "title": "修改选择集内对象的属性",
+      "desc": "attrField 要修改的属性名称，见下表，如果要修改关联地物的属性，则用SSSubObj_<span",
+      "chm_snippet": " ޸ѡڶ Online Help ޸ѡڶ ChangeSelectionObjAttr ChangeSelectionObjAttr ޸ѡڶԡ SSProcess.ChangeSelectionObjAttr( attrField, attrValue) attrField Ҫ޸ĵƣ±Ҫ޸Ĺԣ SSSubObj_ SSSubExtAttr ʾ磨 SSSubObj_Code,[SSSubExtAttr_ ] SSObj_ID ID SSObj_GroupID ID SSObj_Code SSObj_LayerName SSObj_Type ͣ POINT 㣩 LINE ߣ AREA 棩 NOTE עǣ 4 SSObj_Color ɫ 0-256 ɫšɫֵ RGB( , ̣ ) ָʽ SSObj_LineType Σ 0 㣩 1 ߣ 2 ߣ 3 ԰ 4 Բ SSObj_LineWidth ߿ͼ 0.01 Ϊλ SSObj_Name SSObj_Byname , Ϊ FeatureCodeTB е Byname SSObj_Angle Ƕ , ԻΪλ SSObj_DataMark ݱʶ SSObj_MemoData ע SSObj_CreateTime ʱ - - ʱ : : ʽ SSObj_ModifyTime ޸ʱ - - ʱ : : ʽ SSObj_FontWidth ֿͼ 0.01 Ϊλ SSObj_FontHeight ָߣͼ 0.01 Ϊλ SSObj_FontName SSObj_FontClass עǷ SSObj_FontAlignment 뷽ʽ 0 ģ 1 Ͻǣ "
+    },
+    {
+      "page": 22,
+      "name": "ClearChangeSelectionParameter",
+      "class": "SSProcess",
+      "signature": "SSProcess.ClearChangeSelectionParameter()",
+      "title": "清空选择集修改参数",
+      "desc": "执行该函数，将清空由函数SetChangeSelectionObjParameter<span",
+      "chm_snippet": " ѡ޸Ĳ Online Help ѡ޸Ĳ ClearChangeSelectionParameter ClearChangeSelectionParameter ѡ޸Ĳ SSProcess.ClearChangeSelectionParameter() ˵ ִиúɺ SetChangeSelectionObjParameter õ޸Ĳ "
+    },
+    {
+      "page": 89,
+      "name": "OffsetSelectionObj",
+      "class": "SSProcess",
+      "signature": "SSProcess.OffsetSelectionObj( x, y, z)",
+      "title": "平移选择集对象",
+      "desc": "x X坐标平移量",
+      "chm_snippet": " ƽѡ񼯶 Online Help ƽѡ񼯶 OffsetSelectionObj OffsetSelectionObj ƽѡڵж SSProcess.OffsetSelectionObj( x, y, z) x X ƽ y Y ƽ z Z ƽ ˵ ִиúƽƶѡڵжƽΪѧϵ X Ϊ Y Ϊ ʾ ʾƽƱ 0 Ķ Sub OnClick() SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Code\" , \"==\" , \"1\" SSProcess.SelectFilter SSProcess. OffsetSelectionObj 10 , 20 , 1.2 End Sub "
+    },
+    {
+      "page": 91,
+      "name": "RemoveSelectionObjPoint",
+      "class": "SSProcess",
+      "signature": "SSProcess.RemoveSelectionObjPoint( index, count)",
+      "title": "删除选择集对象的空间点",
+      "desc": "index <span",
+      "chm_snippet": " ɾѡ񼯶Ŀռ Online Help ɾѡ񼯶Ŀռ RemoveSelectionObjPoint RemoveSelectionObjPoint ɾѡ񼯶Ŀռ㡣 SSProcess.RemoveSelectionObjPoint( index, count) index ռţ 0 ʼ count ɾ ˵ ִиúɾѡ񼯶еָռ㡣 ʾ ʾɾѡ񼯶ĵڶռ㣺 Sub OnClick() SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_PointCount\" , \">\" , \"1\" SSProcess.SetSelectCondition \"SSObj_Type\" , \"==\" , \"POINT\" SSProcess.SelectFilter SSProcess. RemoveSelectionObjPoint 1 , 1 End Sub "
+    },
+    {
+      "page": 85,
+      "name": "LockSelGeoPoint",
+      "class": "SSProcess",
+      "signature": "SSProcess.LockSelGeoPoint( index, status )",
+      "title": "锁定(解锁)当前选择集指定地物的点列",
+      "desc": "index 选择集地物的索引号,<span",
+      "chm_snippet": " ()ǰѡָĵ Online Help ( ) ǰѡָĵ LockSelGeoPoint LockSelGeoPoint ( ) ǰѡָĵС SSProcess.LockSelGeoPoint( index, status ) index ѡ񼯵 , 0 ʼ status ״̬ 0 ڴ 1 ڴ ˵ ִиúǰѡĵеڴ , ߶ѡеı༭Чʡ ͽִ , һ״̬ , ڱ༭ , ִһν . ʾ Sub OnClick() SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.ClearSelectConditionGroups SSProcess.SetSelectCondition \"SSObj_Type\" , \"==\" , \"POINT\" SSProcess.SelectFilter geocount = SSProcess.GetSelGeoCount For i = 0 To geocount - 1 SSProcess. LockSelGeoPoint i , 1 SSProcess.GetSelGeoPoint i , 0 , y , x , z , pointtype , name xx = x+10:yy=y+10 SSProcess.SetSelGeoPoint i , 0 , yy , xx , z , pointtype , name SSProcess.UpdateSelGeoPoint i SSProcess. LockSelGeoPoint "
+    },
+    {
+      "page": 86,
+      "name": "LockSelNotePoint",
+      "class": "SSProcess",
+      "signature": "SSProcess.LockSelNotePoint(index, status)",
+      "title": "锁定(解锁)当前选择集指定注记的点列",
+      "desc": "index 选择集注记的索引号,<span",
+      "chm_snippet": " ()ǰѡָעǵĵ Online Help ( ) ǰѡָעǵĵ LockSelNotePoint LockSelNotePoint ( ) ǰѡָעǵĵС SSProcess.LockSelNotePoint(index, status) index ѡעǵ , 0 ʼ status ״̬ 0 ڴ 1 ڴ ˵ ִиúǰѡעǵĵеڴ , ߶ѡеı༭Чʡ ͽִ , һ״̬ , ڱ༭ , ִһν . ʾ Sub OnClick() SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.ClearSelectConditionGroups SSProcess.SetSelectCondition \"SSObj_ PointCount \" , \"<\" , \"2\" SSProcess.SetSelectCondition \"SSObj_Type\" , \"==\" , \"Note\" SSProcess.SelectFilter notecount = SSProcess.GetSelnoteCount For i = 0 To notecount - 1 SSProcess. LockSelNotePoint i , 1 SSProcess.GetSelNotePoint i , 0 , y , x , z , pointtype , name xx = x+ 10 :yy=y+ 10 SSProcess.SetSelNotePoint i , 0 , yy , xx "
+    },
+    {
+      "name": "DeltetNewObj",
+      "signature": "DeltetNewObj()",
+      "chm_snippet": "删除新创建图形对象 DeltetNewObj 函数 DeltetNewObj 函数 删除新创建图形对象。 DeltetNewObj ( ) 参数 说明 执行该函数， 将删当前新创建对象。如果已执行AddNewObjToSaveObjList函数，则不能执行该函数。 下面示例添加新对象到数据库： SSProcess.PushUndoMark SSProcess.CreateNewObj 0 SSProcess.SetNewObjValue \"SSObj_Code\", \"3521\" SSProcess.SetNewObjValue \"SSObj_LayerName\", \"工矿建筑物及其它设施\" SSProcess.SetNewObjValue \"SSObj_Color\", \"RGB(255,0,0)\" SSProcess.SetNewObjValue \"SSObj_LineType\", \"0\" SSProcess.AddNewObjPoint 1000.01, 1020.34, 23.45, 0, \"\" SSProcess. DeltetNewObj 请参阅"
+    },
+    {
+      "name": "SetChangeSelectionParameter",
+      "signature": "SetChangeSelectionParameter(matchConditions,updateSetAttrs )",
+      "chm_snippet": "设置选择集修改参数 SetChangeSelectionObjParameter 函数 SetChangeSelectionObjParameter 函数 设置选择集修改参数。 SetChangeSelectionObjParameter (matchConditions,updateSetAttrs ) 参数 matchConditions 选择集修改条件，参数格式\"属性字段1=值1,属性字段2=值2,...\"，属性字段请参看SetSelectCondition函数说明 updateSetAttrs 修改选择内容，参数格式\"属性字段1=值1,属性字段2=值2,...\"，属性字段请参看ChangeSelectionObjAttr函数说明 说明 该函数执行一次，设定一条选择集修改记录，函数允许连续多次执行，以设定多个修改记录。 执行该函数，不进行实际的修改处理，只有执行ChangeSelection函数后，才会真正开始修改选择集内容。 ChangeSelectionObjAttr函数一次只能修改一个属性字段，而 ChangeSelection函数则可以一次执行多个属性字段的修改，执行效率要高于 ChangeSelectionObjAttr函数。 下面示例把选择集中 [结构]=11,[层数]=12的对象的颜色改为3号颜色，把[结构]=10,[层数]=11的对象的颜色改为2号颜色，把[结"
+    },
+    {
+      "name": "ExplodeSelectionObj",
+      "signature": "ExplodeSelectionObj(explodeWay, delSrcObj, callbackFunctionName)",
+      "chm_snippet": "打散选择集内的所有对象 ExplodeSelectionObj 函数 ExplodeSelectionObj 函数 打散选择集内的所有对象。 ExplodeSelectionObj ( explodeWay, delSrcObj, callbackFunctionName) 参数 explodeWay 打散方式，0（按图形打散）、1（按编码表设置进行打散） delSrcObj 是否删除原地物 0（不删除）、1（删除） callbackFunctionName 地物执行打散后，自动执行的回调函数名称，如果不需回调处理，该参数可以为空值 说明 执行该函数， 将打散选择集内的所有对象。 下面示例打散编码等于4410并且点数少于2个点的对象： SSProcess. PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Code\", \"==\", \"4410\" SSProcess.SetSelectCondition \"SSObj_PointCount\", \"<\", \"2\" SSProcess.SelectFilter SSProcess. ExplodeSelectionObj 1，0, \"\" ' 下面示例 将注记节点数大于1的打散处理，"
+    },
+    {
+      "name": "FilterSelectionObjVertex",
+      "signature": "FilterSelectionObjVertex(miniDistV, miniDistH ,saveHeightMark, saveSurveyPoint, saveTurnPoint, saveFramePoint)",
+      "chm_snippet": "选择集内对象节点抽稀 FilterSelectionObjVertex 函数 FilterSelectionObjVertex 函数 选择集内对象节点抽稀。 FilterSelectionObjVertex( miniDistV, miniDistH ,saveHeightMark, saveSurveyPoint, saveTurnPoint, saveFramePoint) 参数 miniDistV 垂距,米为单位 delSrcObj 弦距,米为单位 saveHeightMark 保留高程注记点 0(不保留) 1(保留) saveSurveyPoint保留实测点 0(不保留) 1(保留) saveTurnPoint 保留转向点 0(不保留) 1(保留) saveFramePoint 保留特征点 0(不保留) 1(保留) 说明 执行该函数， 将对选择集内的所有对象进行节点抽稀处理。 下面示例对编码等于4410对象进行抽稀处理： SSProcess. PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Code\", \"==\", \"4410\" SSProcess.SelectFilter SSProcess. FilterSel"
+    },
+    {
+      "name": "LockGeoPointsInMemory",
+      "signature": "LockGeoPointsInMemory(解锁)",
+      "chm_snippet": "锁定(解锁)空间点列到内存 LockGeoPointsInMemory 函数 LockGeoPointsInMemory 函数 锁定(解锁)空间点列到内存。 LockGeoPointsInMemory ( nLockStatus ) 参数 nLockStatus 锁定或解锁状态 0 解锁内存点列 1 锁定内存点列 说明 执行该函数， 将解锁或者锁定所有对象的点列到内存,以提高对图形的编辑效率。 锁定和解锁需配对执行,一旦设置了锁定状态,在编辑结束后,必须执行一次解锁. 请参阅"
+    }
+  ],
+  "extra_from_helpdir": [
+    "DeltetNewObj",
+    "SetChangeSelectionParameter",
+    "ExplodeSelectionObj",
+    "FilterSelectionObjVertex",
+    "LockGeoPointsInMemory"
+  ]
+}

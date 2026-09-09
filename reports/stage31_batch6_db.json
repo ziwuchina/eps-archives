@@ -1,0 +1,199 @@
+{
+  "task": "阶段3.1 batch6_db：数据库操作",
+  "date": "2026-09-09",
+  "count": 24,
+  "functions": [
+    {
+      "name": "AccessIsEOF",
+      "signature": "AccessIsEOF(mdbName,sql )",
+      "desc": "执行该函数，获取 是否是记录集的尾部,是返回1, 否返回0 。",
+      "snippet": "是否是记录集的尾部 AccessIsEOF函数 AccessIsEOF函数 是否是记录集的尾部。 AccessIsEOF( mdbName,sql ) 参数 mdbName 数据库文件名称 sql 记录集查询语句 说明 执行该函数，获取 是否是记录集的尾部,是返回1, 否返回0 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "AccessMoveFirst",
+      "signature": "AccessMoveFirst(mdbName,sql )",
+      "desc": "执行该函数， 将把记录集指针移到记录头部 。",
+      "snippet": "移到记录集头部 AccessMoveFirst函数 AccessMoveFirst函数 移到记录集头部。 AccessMoveFirst( mdbName,sql ) 参数 mdbName 数据库文件名称 sql 记录集查询语句 说明 执行该函数， 将把记录集指针移到记录头部 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "AccessMoveLast",
+      "signature": "AccessMoveLast(mdbName,sql )",
+      "desc": "执行该函数， 将把记录集指针 移到记录集尾部 。",
+      "snippet": "移到记录集尾部 AccessMoveLast函数 AccessMoveLast函数 移到记录集尾部。 AccessMoveLast( mdbName,sql ) 参数 mdbName 数据库文件名称 sql 记录集查询语句 说明 执行该函数， 将把记录集指针 移到记录集尾部 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "AccessMoveNext",
+      "signature": "AccessMoveNext(mdbName,sql )",
+      "desc": "执行该函数， 将把记录集指针移到记录集 下一个 。",
+      "snippet": "移到记录集下一个 AccessMoveNext函数 AccessMoveNext函数 移到记录集下一个。 AccessMoveNext( mdbName,sql ) 参数 mdbName 数据库文件名称 sql 记录集查询语句 说明 执行该函数， 将把记录集指针移到记录集 下一个 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "AccessMovePrev",
+      "signature": "AccessMovePrev(mdbName,sql )",
+      "desc": "执行该函数， 将把记录集指针 移到记录集上一个 。",
+      "snippet": "移到记录集上一个 AccessMovePrev函数 AccessMovePrev函数 移到记录集上一个。 AccessMovePrev( mdbName,sql ) 参数 mdbName 数据库文件名称 sql 记录集查询语句 说明 执行该函数， 将把记录集指针 移到记录集上一个 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "AccessMove",
+      "signature": "AccessMove(mdbName,sql,lRows )",
+      "desc": "执行该函数， 将把记录集指针 移到记录集指定位置 。",
+      "snippet": "移到记录集指定位置 AccessMove函数 AccessMove函数 移到记录集指定位置。 AccessMove( mdbName,sql,lRows ) 参数 mdbName 数据库文件名称 sql 记录集查询语句 lRows 记录集指针要移动到的行号 说明 执行该函数， 将把记录集指针 移到记录集指定位置 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "AddAccessRecord",
+      "signature": "AddAccessRecord(mdbName,sql,fields,values)",
+      "desc": "执行该函数， 将往记录集 中添加数据记录 。",
+      "snippet": "添加表记录 AddAccessRecord函数 AddAccessRecord函数 添加表记录。 AddAccessRecord( mdbName,sql,fields,values) 参数 mdbName 数据库文件名称 sql 记录集查询语句 fields 添加数据的字段名称列表,字段间用逗号分隔 values 添加数据的字段值列表,值间用逗号分隔 说明 执行该函数， 将往记录集 中添加数据记录 。 示例 '属性代码相关变量 Dim dwNames(500), dwCodes(500), dwCount Dim roadNames1(500), roadCodes1(500), roadCount1 Dim roadNames2(500), roadCodes2(500), roadCount2 '层名与管线类型名称变量 Dim gxLayerNames(500), gxLayerTypeNames(500), gxLayerCount '当前层的管点物探号与XYZ的对照 Dim gxLayerWTNOs(10000), gxLayerXs(10000), gxLayerYs(10000), gxLayerZs(10000), gxLayerPointCount '分解字符串 Function ScanString(ByVal str, ByVal sep, ByRef str",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "CloseAccessMdb",
+      "signature": "CloseAccessMdb(mdbName )",
+      "desc": "执行该函数，将 关闭指定数据库文件。 请参阅",
+      "snippet": "关闭Access Mdb数据库文件 CloseAccessMdb函数 CloseAccessMdb函数 关闭Access Mdb数据库文件。 CloseAccessMdb( mdbName ) 参数 mdbName 要关闭的数据库文件名称 说明 执行该函数，将 关闭指定数据库文件。 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "CloseAccessRecordset",
+      "signature": "CloseAccessRecordset(mdbName,sql )",
+      "desc": "执行该函数，将关闭指定sql语句的记录集 。",
+      "snippet": "关闭数据表记录集 CloseAccessRecordset函数 CloseAccessRecordset函数 关闭数据表记录集。 CloseAccessRecordset( mdbName,sql ) 参数 mdbName 数据库文件名称 sql 数据表名 说明 执行该函数，将关闭指定sql语句的记录集 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "CreateAccessMdb",
+      "signature": "CreateAccessMdb(templateName, mdbName )",
+      "desc": "执行该函数，将 根据 指定的模板,创建新数据库文件,如果模板文件为空,则创建空数据库。 请参阅",
+      "snippet": "创建Access MDB文件 CreateAccessMdb函数 CreateAccessMdb函数 创建Access Mdb数据库文件。 CreateAccessMdb( templateName, mdbName ) 参数 templateName 模板数据库文件名称,允许为空 mdbName 要创建的数据库文件名称 说明 执行该函数，将 根据 指定的模板,创建新数据库文件,如果模板文件为空,则创建空数据库。 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "CreateAccessTable1",
+      "signature": "CreateAccessTable1(mdbName,layerName, objecType)",
+      "desc": "执行该函数，将根据数据 转换脚本中设定的属性表对照关系,创建指定图层和类型所对应的属性表 。",
+      "snippet": "创建指定图层和类型的属性表 CreateAccessTable1函数 CreateAccessTable1函数 创建指定图层和类型的属性表。 CreateAccessTable1( mdbName,layerName, objecType) 参数 mdbName 数据库文件名称 layerName 图层名 objecType 图层对象类型 0 点 1 线 2 面 3 注记 说明 执行该函数，将根据数据 转换脚本中设定的属性表对照关系,创建指定图层和类型所对应的属性表 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "CreateAccessTable",
+      "signature": "CreateAccessTable(mdbName,createTabSql)",
+      "desc": "执行该函数，将根据指定Sql语句创建数据表 。",
+      "snippet": "根据SQL语句创建数据表 CreateAccessTable函数 CreateAccessTable函数 根据SQL语句创建数据表。 CreateAccessTable( mdbName,createTabSql) 参数 mdbName 数据库文件名称 createTabSql 创建表Sql语句 说明 执行该函数，将根据指定Sql语句创建数据表 。 示例 '创建管线点表字段描述 Function CreatePointFieldStruct() Dim strFields strFields = \"\" strFields = strFields + \"[ID] autoincrement,\" strFields = strFields + \"[Exp_No] varchar(9) NULL,\" '物探点号 strFields = strFields + \"[Map_No] varchar(5) NULL,\" '500图上点号 strFields = strFields + \"[Map_No2k] varchar(6) NULL,\" '2000图上点号 strFields = strFields + \"[S_Code] short,\" '点符号代码 strFields = strFields + \"[X] float,\" 'X坐标 strFields = strFields + \"[",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "DelAccessRecord",
+      "signature": "DelAccessRecord(mdbName,sql )",
+      "desc": "执行该函数， 将删除记录集的当前记录 。",
+      "snippet": "修改表记录 DelAccessRecord函数 DelAccessRecord函数 删除表记录。 DelAccessRecord( mdbName,sql ) 参数 mdbName 数据库文件名称 sql 记录集查询语句 说明 执行该函数， 将删除记录集的当前记录 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "ExecuteAccessSql",
+      "signature": "ExecuteAccessSql(mdbName,sql )",
+      "desc": "执行该函数， 将 在指定数据库中执行指定的sql语句 。",
+      "snippet": "执行Sql语句 ExecuteAccessSql函数 ExecuteAccessSql函数 执行Sql语句。 ExecuteAccessSql( mdbName,sql ) 参数 mdbName 数据库文件名称 sql sql查询语句 说明 执行该函数， 将 在指定数据库中执行指定的sql语句 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "ExportSelectionToAccessTable",
+      "signature": "ExportSelectionToAccessTable(mdbName,layerName, objecType)",
+      "desc": "执行该函数，将 输出指定图层和类型的属性数据到相对应的数据表,数据表需先用函数CreateAccessTable1创建 。",
+      "snippet": "输出选择集中指定图层和类型的属性数据 ExportSelectionToAccessTable函数 ExportSelectionToAccessTable函数 输出选择集中指定图层和类型的属性数据。 ExportSelectionToAccessTable( mdbName,layerName, objecType) 参数 mdbName 数据库文件名称 layerName 图层名 objecType 图层对象类型 0 点 1 线 2 面 3 注记 说明 执行该函数，将 输出指定图层和类型的属性数据到相对应的数据表,数据表需先用函数CreateAccessTable1创建 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "GetAccessFieldInfo1",
+      "signature": "GetAccessFieldInfo1(mdbName,tableName,fieldName,fieldInfo )",
+      "desc": "执行该函数，将返回 指定表 指定字段的结构信息 。",
+      "snippet": "获取数据库表指定字段结构信息 GetAccessFieldInfo1函数 GetAccessFieldInfo1函数 获取数据库表指定字段结构信息。 GetAccessFieldInfo1( mdbName,tableName,fieldName,fieldInfo ) 参数 mdbName 数据库文件名称 tableName 数据表名 fieldName 字段名称 fieldInfo 返回的字段信息列表,字段内信息用逗号分隔 字段的信息内容包括: 字段名称,数据类型,字段大小,字段属性,字段序号,是否必须字段,是否允许为空,排序比较方式,字段别名,源字段名,源表名,字段规则,字段规则内容,缺省值 说明 执行该函数，将返回 指定表 指定字段的结构信息 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "GetAccessFieldInfo",
+      "signature": "GetAccessFieldInfo(mdbName,tableName,fieldInfos )",
+      "desc": "执行该函数，将返回 指定表 的所有字段结构信息 。",
+      "snippet": "获取数据库表字段结构信息 GetAccessFieldInfo函数 GetAccessFieldInfo函数 获取数据库表字段结构信息。 GetAccessFieldInfo( mdbName,tableName,fieldInfos ) 参数 mdbName 数据库文件名称 tableName 数据表名 fieldInfos 返回的字段信息列表,字段信息间用分号分隔,字段内信息用逗号分隔 一个字段的信息内容包括: 字段名称,数据类型,字段大小,字段属性,字段序号,是否必须字段,是否允许为空,排序比较方式,字段别名,源字段名,源表名,字段规则,字段规则内容,缺省值 说明 执行该函数，将返回 指定表 的所有字段结构信息 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "GetAccessRecordCount",
+      "signature": "GetAccessRecordCount(mdbName,sql )",
+      "desc": "执行该函数，将 返回记录集内的记录个数 。",
+      "snippet": "获取表记录集记录个数 GetAccessRecordCount 函数 GetAccessRecordCount函数 获取表记录集记录个数。 GetAccessRecordCount( mdbName,sql ) 参数 mdbName 数据库文件名称 sql 记录集查询语句 说明 执行该函数，将 返回记录集内的记录个数 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "GetAccessRecord",
+      "signature": "GetAccessRecord(mdbName,sql,fields,values)",
+      "desc": "执行该函数， 将获取当前记录集 的当前记录字段值列表 。",
+      "snippet": "获取表记录 GetAccessRecord 函数 GetAccessRecord函数 获取表记录。 GetAccessRecord( mdbName,sql,fields,values) 参数 mdbName 数据库文件名称 sql 记录集查询语句 fields 获取数据的字段名称列表,字段间用逗号分隔 values 获取数据的字段值列表,值间用逗号分隔 说明 执行该函数， 将获取当前记录集 的当前记录字段值列表 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "GetAccessTableNames",
+      "signature": "GetAccessTableNames(mdbName,tableNames)",
+      "desc": "执行该函数，将返回 指定数据库文件中的所有数据表名, 返回值为表的个数 。",
+      "snippet": "获取数据库表名列表 GetAccessTableNames函数 GetAccessTableNames函数 获取数据库表名列表。 GetAccessTableNames( mdbName,tableNames) 参数 mdbName 数据库文件名称 tableNames 返回的表名列表,有多个时,用逗号分隔 说明 执行该函数，将返回 指定数据库文件中的所有数据表名, 返回值为表的个数 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "IsExistentTable",
+      "signature": "IsExistentTable(mdbName,tableName )",
+      "desc": "执行该函数，将判断指定的数据表是否存在,如果存在返回 1, 不存在则返回 0 。 请参阅",
+      "snippet": "判断指定表是否存在 IsExistentTable函数 IsExistentTable函数 判断指定表是否存在。 IsExistentTable( mdbName,tableName ) 参数 mdbName 要表所在的数据库文件名称 tableName 要判断的表名称 说明 执行该函数，将判断指定的数据表是否存在,如果存在返回 1, 不存在则返回 0 。 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "ModifyAccessRecord",
+      "signature": "ModifyAccessRecord(mdbName,sql,fields,values)",
+      "desc": "执行该函数， 将修改当前记录集 的当前记录为指定的字段值 。",
+      "snippet": "修改表记录 ModifyAccessRecord 函数 ModifyAccessRecord函数 修改表记录。 ModifyAccessRecord( mdbName,sql,fields,values) 参数 mdbName 数据库文件名称 sql 记录集查询语句 fields 修改数据的字段名称列表,字段间用逗号分隔 values 修改数据的字段值列表,值间用逗号分隔 说明 执行该函数， 将修改当前记录集 的当前记录为指定的字段值 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "OpenAccessMdb",
+      "signature": "OpenAccessMdb(mdbName )",
+      "desc": "执行该函数，将 打开指定数据库文件, 使用完成后需执行CloseAccessMdb关闭数据。 请参阅",
+      "snippet": "打开Access Mdb数据库文件 OpenAccessMdb函数 OpenAccessMdb函数 打开Access Mdb数据库文件。 OpenAccessMdb( mdbName ) 参数 mdbName 要打开的数据库文件名称 说明 执行该函数，将 打开指定数据库文件, 使用完成后需执行CloseAccessMdb关闭数据。 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    },
+    {
+      "name": "OpenAccessRecordset",
+      "signature": "OpenAccessRecordset(mdbName,sql )",
+      "desc": "执行该函数，将打开指定sql语句的记录集 。",
+      "snippet": "打开数据表记录集 OpenAccessRecordset 函数 OpenAccessRecordset函数 打开数据表记录集。 OpenAccessRecordset( mdbName,sql ) 参数 mdbName 数据库文件名称 sql 数据表名 说明 执行该函数，将打开指定sql语句的记录集 。 示例 请参阅",
+      "class": "SSProcess",
+      "section": "数据库操作"
+    }
+  ]
+}

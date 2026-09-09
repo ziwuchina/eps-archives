@@ -1,0 +1,248 @@
+{
+  "task": "阶段3.1 第一批：SSFunc 对象类 26 函数分析摘要 + 模块切片",
+  "date": "2026-09-09",
+  "method": "eps_api_catalog.csv（CHM 611 页解析产物）+ chm_extract 原文回读",
+  "batch": "SSFunc（26 个，函数执行机制类，与 SDL 命令链路最近）",
+  "count": 26,
+  "next_batches": [
+    "SSProject(26)",
+    "SSView(14)+SSArray(10)+SSParameter(4)",
+    "SSProcess 分批(336)"
+  ],
+  "functions": [
+    {
+      "page": 540,
+      "name": "atof",
+      "class": "SSFunc",
+      "signature": "SSFunc.atof (str)",
+      "title": "字符转双精度型，自动处理非法数据",
+      "desc": "str 需转换的字符",
+      "chm_snippet": " ַת˫ͣԶǷ Online Help ַת˫ͣԶǷ atof atof ַת˫͡ SSFunc.atof (str) str תַ ˵ úַת˫ͣԶǷݡ ʾ Sub OnClick() str= 10.1 str_dbl=SSFunc. atof (str) Msgbox str+ str Msgbox str_dbl+str_dbl End Sub "
+    },
+    {
+      "page": 541,
+      "name": "atol",
+      "class": "SSFunc",
+      "signature": "SSFunc.atol (str)",
+      "title": "字符转整型，自动处理非法数据",
+      "desc": "str 字符串",
+      "chm_snippet": " ַתͣԶǷ Online Help ַתͣԶǷ atol atol ַתͣԶǷݡ SSFunc.atol (str) str ַ ˵ úַתͣԶǷݡ ʾ Sub OnClick() strEmpty = \"NULL\" iEmpty = SSFunc.atol(strEmpty ) ' ַת Msgbox \"strEmpty =\" &strEmpty&chr( 13 )& \"iEmpty =\" &iEmpty , 64 , \" Ϣ \" End Sub "
+    },
+    {
+      "page": 543,
+      "name": "CloseLogFile",
+      "class": "SSFunc",
+      "signature": "SSFunc.CloseLogFile(strFile, strPostfix, nShowLogFile)",
+      "title": "关闭LOG文件",
+      "desc": "strFile",
+      "chm_snippet": " رLOGļ Online Help ر LOG ļ CloseLogFile CloseLogFile ر LOG ļ SSFunc.CloseLogFile(strFile, strPostfix, nShowLogFile) strFile LOG ļ· strPostfix LOG ļĺ׺ nShowLogFile Ƿʾ LOG ļȡֵΪ 0 1 0 Ϊʾ 1 Ϊʾ ˵ ִиúر LOG ־ļ ʾ Sub OnClick() loglines= \" Ϣ EXCEL \" & \"^\" &chr( 13 )&chr( 10 )& \"^\" & \"**************** *****\" _ + \"^\" & \" _ óڰ _ óڰϢ .xlsx\" & \"^\" & \"**************\" _+ \"^\" &chr( 13 )& \"^\" & \"------------ ¼ ---------------\" & \"^\" & \" ···\"_ +\"^\" &\"-----------\" Dim lineArray( 10000 ) edbName =SSProcess.GetProjectFileName SSFunc.OpenLogFile GetParent (edbName)& \"error.txt\" , \".log\" SSFunc.ScanString loglines , "
+    },
+    {
+      "page": 544,
+      "name": "CreateLegend",
+      "class": "SSFunc",
+      "signature": "SSFunc.CreateLegend(strSchemeName, dbX, dbY)",
+      "title": "根据选择集生成图例",
+      "desc": "strSchemeName",
+      "chm_snippet": " ѡͼ Online Help ѡͼ CreateLegend CreateLegend ѡͼ SSFunc.CreateLegend(strSchemeName, dbX, dbY) strSchemeName dbX ͼλõ X ֵӦ EPS е Y ֵ dbY ͼλõ Y ֵӦ EPS е X ֵ ˵ ʹô˺ѡڰĵָλͼ ʾ ѡָλͼ Sub OnClick() SSFunc. CreateLegend \" ͼ \", 182 , 705 End Sub "
+    },
+    {
+      "page": 547,
+      "name": "DeleteIsLand",
+      "class": "SSFunc",
+      "signature": "SSFunc.DeleteIsLand(hObj, bIsObjHander, strParameters)",
+      "title": "岛面删除",
+      "desc": "hObj <span",
+      "chm_snippet": " ɾ Online Help ɾ DeleteIsLand DeleteIsLand ɾ SSFunc.DeleteIsLand(hObj, bIsObjHander, strParameters) hObj ID bIsObjHander strParameters ˵ ִиúָеɾ ʾ Sub OnClick() SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Type\" , \"==\" , \"AREA\" SSProcess.SelectFilter objcount=SSProcess.GetSelGeoCount ' ȡѡ񼯵 If objcount= 0 Then Exit Sub For i= 0 To objcount- 1 hObj =SSProcess.GetSelGeoValue (i , \"SSObj_ID\" ) ' ȡ ID bIsObjHander = 0 strParameters = 0 SSFunc. DeleteIsLand hObj , bIsObjHander , strParameters ' ɾĵ Next End Sub "
+    },
+    {
+      "page": 548,
+      "name": "ExcelClose",
+      "class": "SSFunc",
+      "signature": "SSFunc.ExcelClose(strFile, strSheet)",
+      "title": "EXCEL操作，关闭EXCEL文件",
+      "desc": "strFile",
+      "chm_snippet": " EXCELرEXCELļ Online Help EXCEL ر EXCEL ļ ExcelClose ExcelClose EXCEL ر EXCEL ļ SSFunc.ExcelClose(strFile, strSheet) strFile Excel ļ· strSheet ˵ ִиúرմ򿪵 EXCLE ļ ʾ Sub OnClick() ' EXCLE Dim arFile( 20 ),nRecordCount,nxCount aa = SSFunc.ExcelSelectFile(arFile, nFileCount) If aa = 0 Then Exit Sub For nFile= 0 To nFileCount- 1 strFile = arFile(nFile) : strSheet = \" ͬϢ \" 'Sheet SSFunc.ExcelOpen strFile, strSheet ' ȡ EXCLE nTotal = SSFunc.ExcelGetTotalRow Redim aryKJSJ(nTotal) Redim aryBSM(nTotal) Redim aryr( 29 ) ' ȡÿһҪ SSFunc.ExcelGetRecord \" ũ , ؿ , , ȼ , , \", \" ^ \", aryKJSJ, nRecordCount ' ÿһавֳַ"
+    },
+    {
+      "page": 549,
+      "name": "ExcelSelectFile",
+      "class": "SSFunc",
+      "signature": "SSFunc.ExcelSelectFile(arFile, nFileCount)",
+      "title": "EXCEL操作，获取EXCEL记录",
+      "desc": "aa = 0 Then Exit",
+      "chm_snippet": " EXCELȡEXCEL¼ Online Help EXCEL ȡ EXCEL ¼ ExcelGetRecord ExcelGetRecord EXCEL ȡ EXCEL ¼ SSFunc.ExcelGetRecord(strFields, strSeparator, vArray, nRecordCount) strFields Ҫȡݵ֮Ķŷָ strSeparator ָõĶӦļ¼ֵһɷַָָʲôָָԼ vArray ȡÿһеļ¼ֵɵַݴ nRecordCount ʵݸ ˵ ִиúȡ EXCLE ӦӦÿһм¼ֵһַ顣 ʾ Sub OnClick() ' EXCLE Dim arFile( 20 ),nRecordCount,nxCount aa = SSFunc.ExcelSelectFile(arFile, nFileCount) If aa = 0 Then Exit Sub For nFile= 0 To nFileCount- 1 strFile = arFile(nFile) : strSheet = \" ͬϢ \" 'Sheet SSFunc.ExcelOpen strFile, strSheet ' ȡ EXCLE nTotal = SSFunc.ExcelGetTotalRow redim aryKJSJ(nTotal) redim aryBSM(nTotal) "
+    },
+    {
+      "page": 550,
+      "name": "ExcelGetTotalRow",
+      "class": "SSFunc",
+      "signature": "SSFunc.ExcelGetTotalRow()",
+      "title": "EXCEL操作，获取EXCEL总行数",
+      "desc": "EXCLE工作表的总行数",
+      "chm_snippet": " EXCELȡEXCEL Online Help EXCEL ȡ EXCEL ExcelGetTotalRow ExcelGetTotalRow EXCEL ȡ EXCEL SSFunc.ExcelGetTotalRow() ֵ EXCLE ˵ ִиúȡ EXCLE ʾ Sub OnClick() ' EXCLE Dim arFile( 20 ),nRecordCount,nxCount aa = SSFunc.ExcelSelectFile(arFile, nFileCount) If aa = 0 Then Exit Sub For nFile= 0 To nFileCount- 1 strFile = arFile(nFile) : strSheet = \" ͬϢ \" 'Sheet SSFunc.ExcelOpen strFile, strSheet ' ȡ EXCLE nTotal = SSFunc. ExcelGetTotalRow Redim aryKJSJ(nTotal) Redim aryBSM(nTotal) Redim aryr( 29 ) ' ȡÿһҪ SSFunc.ExcelGetRecord \" ũ , ؿ , , ȼ , , \" , \"^\" , aryKJSJ, nRecordCount ' ÿһавֳַ For i= 1 To nRecordCount"
+    },
+    {
+      "page": 551,
+      "name": "ExcelOpen",
+      "class": "SSFunc",
+      "signature": "SSFunc.ExcelOpen(strFile, strSheet)",
+      "title": "EXCEL操作，打开EXCEL文件",
+      "desc": "strFile",
+      "chm_snippet": " EXCELEXCELļ Online Help EXCEL EXCEL ļ ExcelOpen ExcelOpen EXCEL EXCEL ļ SSFunc.ExcelOpen(strFile, strSheet) strFile Excel ļ· strSheet ˵ ִиúָ Excel ļеĹ ʾ Sub OnClick() ' EXCLE Dim arFile( 20 ),nRecordCount,nxCount aa = SSFunc.ExcelSelectFile(arFile, nFileCount) If aa = 0 Then Exit Sub For nFile= 0 To nFileCount- 1 strFile = arFile(nFile) : strSheet = \" ͬϢ \" 'Sheet SSFunc. ExcelOpen strFile, strSheet ' ȡ EXCLE nTotal = SSFunc.ExcelGetTotalRow Redim aryKJSJ(nTotal) Redim aryBSM(nTotal) Redim aryr( 29 ) ' ȡÿһҪ SSFunc.ExcelGetRecord \" ũ , ؿ , , ȼ , , \" , \"^\" , aryKJSJ, nRecordCount ' ÿһавֳַ For i="
+    },
+    {
+      "page": 552,
+      "name": "ExcelSelectFile",
+      "class": "SSFunc",
+      "signature": "SSFunc.ExcelSelectFile(strFile)",
+      "title": "EXCEL操作，选择EXCEL文件",
+      "desc": "arFile <span",
+      "chm_snippet": " EXCELѡEXCELļ Online Help EXCEL ѡ EXCEL ļ ExcelSelectFile ExcelSelectFile EXCEL ѡ EXCEL ļ SSFunc.ExcelSelectFile(strFile) arFile ļ飬¼ûѡĶ Excel ļ nFileCount ļ¼ûѡļĿ ֵ 0 ûѡȡκļ 1 ѡȡļ ˵ ִиúɵѡ Excel ļԻ򣬹ûѡ Excel ļѡļ arFile , nFileCount ¼ļĿ ʾ Sub OnClick() ' EXCLE Dim arFile( 20 ),nRecordCount,nxCount aa = SSFunc. ExcelSelectFile (arFile, nFileCount) If aa = 0 Then Exit Sub For nFile= 0 To nFileCount- 1 strFile = arFile(nFile) : strSheet = \" ͬϢ \" 'Sheet SSFunc.ExcelOpen strFile, strSheet ' ȡ EXCLE nTotal = SSFunc.ExcelGetTotalRow Redim aryKJSJ(nTotal) Redim aryBSM(nTotal) Redim aryr( 29 ) ' ȡÿһҪ SSFunc"
+    },
+    {
+      "page": 553,
+      "name": "GetAverageWidth",
+      "class": "SSFunc",
+      "signature": "SSFunc.GetAverageWidth(hObj, bIsObjHander, dbReturnLength)",
+      "title": "点列中是否有指定标记的点",
+      "desc": "hObj",
+      "chm_snippet": " Ƿָǵĵ Online Help Ƿָǵĵ GetAverageWidth GetAverageWidth Ƿָǵĵ㡣 SSFunc.GetAverageWidth(hObj, bIsObjHander, dbReturnLength) hObj bIsObjHander dbReturnLength ˵ "
+    },
+    {
+      "page": 554,
+      "name": "GetBinaryBitValue",
+      "class": "SSFunc",
+      "signature": "SSFunc.GetBinaryBitValue(nData, nBit)",
+      "title": "获取二进制位的值",
+      "desc": "nData",
+      "chm_snippet": " ȡλֵ Online Help ȡλֵ GetBinaryBitValue GetBinaryBitValue ȡλֵ SSFunc.GetBinaryBitValue(nData, nBit) nData nBit ˵ ȡλֵ "
+    },
+    {
+      "page": 555,
+      "name": "GetChineseDigit",
+      "class": "SSFunc",
+      "signature": "SSFunc.GetChineseDigit(nDigit)",
+      "title": "获取汉字数字",
+      "desc": "nDigit 要获取汉字的数字",
+      "chm_snippet": " ȡ Online Help ȡ GetChineseDigit GetChineseDigit ȡ֡ SSFunc.GetChineseDigit(nDigit) nDigit Ҫȡֵ ( ȡֵΧΪ 0-999) ˵ ʹô˺ȡֵĺ֡ ʾ ʹô˺ȡֵĺ֣ȡ 100 ĺһ١ Sub OnClick () nDigit = 100 A = SSFunc. GetChineseDigit ( nDigit ) Msgbox A End Sub "
+    },
+    {
+      "page": 556,
+      "name": "GetCodeByObjectName",
+      "class": "SSFunc",
+      "signature": "SSFunc.GetCodeByObjectName(strObjectName, strLayerName)",
+      "title": "通过ObjectName获取编码",
+      "desc": "strObjectName <span lang=ZH-CN",
+      "chm_snippet": " ͨObjectNameȡ Online Help ͨ ObjectName ȡ GetCodeByObjectName GetCodeByObjectName ͨ ObjectName ȡ롣 SSFunc.GetCodeByObjectName(strObjectName, strLayerName) strObjectName strLayerName ˵ ˺Ϊͨ ObjectName ȡ롣 ʾ ȡ ObjectName Ϊǵ㡱ĵ ID Sub OnClick() Dim myIds( 1000 ) myObjName = \" ǵ \" CheckObjByName myObjName ,myIds, myIdscnt ids = \"\" For i = 0 To myIdscnt - 1 If ids = \"\" Then ids = myIds( i) Else ids = ids& \",\" & myIds(i) End If Next Msgbox \"myIdscnt = \" &myIdscnt&chr( 13 )& \"ids = \" &ids, 64 , \" Ϣ \" End Sub Function CheckObjByName(name , byref ids(), byref idscnt) code =SSFunc. GetCodeByObjectName ( name"
+    },
+    {
+      "page": 560,
+      "name": "GetStripNumber",
+      "class": "SSFunc",
+      "signature": "SSFunc.GetStripNumber()",
+      "title": "获取带号",
+      "desc": "执行该函数，将返回当前图幅带号。",
+      "chm_snippet": " ȡ Online Help ȡ GetStripNumber GetStripNumber ȡš SSFunc.GetStripNumber() ˵ ִиúصǰͼš ʾ ȶԵǰͼŽ趨Ϊ 40 ٶлȡ Sub OnClick() nStripNumber = 40 SSFunc.SetStripNumber nStripNumber a =SSFunc. GetStripNumber Msgbox a End Sub "
+    },
+    {
+      "page": 561,
+      "name": "HasPointMark",
+      "class": "SSFunc",
+      "signature": "SSFunc.HasPointMark(hObj, nBitValue, bIsObjHander)",
+      "title": "点列中是否有指定标记的点",
+      "desc": "hObj",
+      "chm_snippet": " Ƿָǵĵ Online Help Ƿָǵĵ HasPointMark HasPointMark Ƿָǵĵ㡣 SSFunc.HasPointMark(hObj, nBitValue, bIsObjHander) hObj nBitValue bIsObjHander ˵ "
+    },
+    {
+      "page": 562,
+      "name": "LineCrack",
+      "class": "SSFunc",
+      "signature": "SSFunc.LineCrack()",
+      "title": "多义线（折线）分解",
+      "desc": "clear=all style='page-break-before:auto'>",
+      "chm_snippet": " ߣߣֽ Online Help ߣߣֽ LineCrack LineCrack ߣߣֽ⡣ SSFunc.LineCrack() "
+    },
+    {
+      "page": 564,
+      "name": "OpenLogFile",
+      "class": "SSFunc",
+      "signature": "SSFunc.OpenLogFile(strFile, strPostfix)",
+      "title": "打开LOG文件",
+      "desc": "strFile",
+      "chm_snippet": " LOGļ Online Help LOG ļ OpenLogFile OpenLogFile LOG ļ SSFunc.OpenLogFile(strFile, strPostfix) strFile LOG ļ· strPostfix LOG ļĺ׺ ˵ ִиú LOG ־ļ ʾ Sub OnClick() loglines= \" Ϣ EXCEL \" & \"^\" &chr( 13 )&chr( 10 )& \"^\" & \"********\" _ + \"^\" & \" _ óڰ _ óڰϢ .xlsx\" & \"^\" & \"********\" _+ \"^\" &chr( 13 )& \"^\" & \"----- ¼ -----------\" & \"^\" & \" ···\" _ + \"^\" & \"-------------\" Dim lineArray( 10000 ) edbName =SSProcess.GetProjectFileName SSFunc. OpenLogFile GetParent (edbName)& \"error.txt\" , \".log\" SSFunc.ScanString loglines , \"^\" , lineArray, lineCount For i = 0 To lineCount- 1 SSFunc.WriteLogFile lineArray (i) "
+    },
+    {
+      "page": 566,
+      "name": "ScanString",
+      "class": "SSFunc",
+      "signature": "SSFunc.ScanString(str, strSeparator, vArray, nCount)",
+      "title": "分解字符串，返回分解后的数组及数组元素个数",
+      "desc": "str <span",
+      "chm_snippet": " ַֽطֽ鼰Ԫظ Online Help ַֽطֽ鼰Ԫظ ScanString ScanString ַֽطֽ鼰Ԫظ SSFunc.ScanString(str, strSeparator, vArray, nCount) str Ҫַֽ strSeparator ֽ vArray ֽ nCount ֽĸ ˵ ʹô˺ַָзֽ⡣ ʾ ָķַֽзֽ⣬鼰 Sub Onclick() Dim arID ( 1000 ),idCount ids=\"1;a;ab;1fd\" SSFunc. ScanString ids, \";\" , arID, idCount End Sub "
+    },
+    {
+      "page": 567,
+      "name": "SelectGradeAttr",
+      "class": "SSFunc",
+      "signature": "SSFunc.SelectGradeAttr(strTable, strFields, strTitle)",
+      "title": "选择分级属性",
+      "desc": "strTable",
+      "chm_snippet": " ѡּ Online Help ѡּ SelectGradeAttr SelectGradeAttr ѡּԡ SSFunc.SelectGradeAttr(strTable, strFields, strTitle) strTable Ա strFields ֶ strTitle ͼ ˵ ִиúѻ strFields ֶεֵͼ ֵ : 1 ѡĳ 0 ûѡ ʾ ' ȡڡ NHDM ֶεԷּͼ Sub OnClick() b = SSFunc. SelectGradeAttr ( \"RLCM_ аӪȨؿԱ \" , \"NHDM\" , \" ѡȨ \" If b= 0 Then Exit Sub End Sub "
+    },
+    {
+      "page": 568,
+      "name": "SetBinaryBitValue",
+      "class": "SSFunc",
+      "signature": "SSFunc.SetBinaryBitValue(nData, nBit)",
+      "title": "设置二进制位的值",
+      "desc": "clear=all style='page-break-before:auto'>",
+      "chm_snippet": " öλֵ Online Help öλֵ SetBinaryBitValue SetBinaryBitValue öλֵ SSFunc.SetBinaryBitValue(nData, nBit) "
+    },
+    {
+      "page": 569,
+      "name": "SetClipboardData",
+      "class": "SSFunc",
+      "signature": "SSFunc.SetClipboardData(strData)",
+      "title": "设置文本数据到剪切板",
+      "desc": "clear=all style='page-break-before:auto'>",
+      "chm_snippet": " ıݵа Online Help ıݵа SetClipboardData SetClipboardData ıݵа塣 SSFunc.SetClipboardData(strData) "
+    },
+    {
+      "page": 570,
+      "name": "SetStripNumber",
+      "class": "SSFunc",
+      "signature": "SSFunc.SetStripNumber(nStripNumber)",
+      "title": "设置带号",
+      "desc": "nStripNumber 带号",
+      "chm_snippet": " ô Online Help ô SetStripNumber SetStripNumber ôš SSFunc.SetStripNumber(nStripNumber) nStripNumber ˵ ִиúָţõǰ̵ͶӰš ʾ Sub OnClick() nStripNumber = 38 SSFunc.SetStripNumber nStripNumber End Sub ִǰЧ 39 ִкЧ 38 "
+    },
+    {
+      "page": 571,
+      "name": "SortArray",
+      "class": "SSFunc",
+      "signature": "SSFunc.SortArray(vArray, nCount, nType)",
+      "title": "排序",
+      "desc": "vArray <span",
+      "chm_snippet": " Online Help SortArray SortArray SSFunc.SortArray(vArray, nCount, nType) vArray nCount nType nType=0 ʱ磺 1,2,11,a2,a11,aa1,b3,b12nType=1 ʱ ascii ֵ ˵ ʹô˺ָ ʾ Sub OnClick() Dim vArray( 3 ) nCount= 3 vArray(0)= \"b\" vArray(1)= \"a\" vArray(2)= 132 nType= 0 SSFunc. SortArray vArray, nCount, nType End Sub "
+    },
+    {
+      "page": 574,
+      "name": "TransHZ2PY",
+      "class": "SSFunc",
+      "signature": "SSFunc.TransHZ2PY(strHZ, nMakeUpper)",
+      "title": "汉字转拼音",
+      "desc": "strHZ <span",
+      "chm_snippet": " תƴ Online Help תƴ TransHZ2PY TransHZ2PY תƴ SSFunc.TransHZ2PY(strHZ, nMakeUpper) strHZ ĺ nMakeUpper ˵ ʹô˺תƴ ʾ עתƴעǵչԱעֶС Sub OnClick() ' עй SSProcess.PushUndoMark SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Type\" , \"=\" , \"NOTE\" SSProcess.SelectFilter ' ѭעǶȡע NoteCount = SSProcess.GetSelNoteCount IF NoteCount > 0 Then For i = 0 To NoteCount - 1 ID = SSProcess.GetSelNoteValue(i, \"SSObj_ID\" ) fontString = SSProcess.GetSelNoteValue(i, \"SSObj_FontString\" ) spellString = SSFunc. TransHZ2PY (fontString, nMakeUpper ) SSProcess.SetObjectAttr ID, \"[Note]\" "
+    },
+    {
+      "page": 575,
+      "name": "WriteLogFile",
+      "class": "SSFunc",
+      "signature": "SSFunc.WriteLogFile(strText)",
+      "title": "写LOG文件",
+      "desc": "strText 需要写入LOG<span",
+      "chm_snippet": " дLOGļ Online Help д LOG ļ WriteLogFile WriteLogFile д LOG ļ SSFunc.WriteLogFile(strText) strText Ҫд LOG ļַ ˵ ִиúַд LOG ־ļС ʾ Sub OnClick() loglines= \" Ϣ EXCEL \" & \"^\" &chr( 13 )&chr( 10 )& \"^\" & \"********\" _ + \"^\" & \" _ óڰ _ óڰϢ .xlsx\" & \"^\" & \"********\" _+ \"^\" &chr( 13 )& \"^\" & \"----- ¼ -----------\" & \"^\" & \" ···\" _ + \"^\" & \"-------------\" Dim lineArray( 10000 ) edbName =SSProcess.GetProjectFileName SSFunc.OpenLogFile GetParent (edbName)& \"error.txt\" , \".log\" SSFunc.ScanString loglines , \"^\" , lineArray, lineCount For i = 0 To lineCount- 1 SSFunc. WriteLogFile lineArray (i) Next SSFunc.Close"
+    }
+  ]
+}

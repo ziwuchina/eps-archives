@@ -1,0 +1,260 @@
+{
+  "task": "阶段3.1 第三批：SSView+SSArray+SSParameter 28 函数分析摘要",
+  "date": "2026-09-09",
+  "batch": "SSView(14)+SSArray(10)+SSParameter(4)",
+  "count": 28,
+  "functions": [
+    {
+      "page": 495,
+      "name": "DrawObj",
+      "class": "SSView",
+      "signature": "SSView.DrawObj(pDc, handle)",
+      "title": "绘指定对象",
+      "desc": "窗口标识（使用时无需修改默认即可）",
+      "chm_snippet": " ָ Online Help ָ DrawObj DrawObj ָ SSView.DrawObj(pDc, handle) pDc ڱʶʹʱ޸Ĭϼɣ handle ˵ úΪĻͼĻϻָ "
+    },
+    {
+      "page": 496,
+      "name": "DrawPoint",
+      "class": "SSView",
+      "signature": "SSView.DrawPoint(pDc, x, y, color, width)",
+      "title": "画点",
+      "desc": "pDc <span",
+      "chm_snippet": " Online Help DrawPoint DrawPoint 㡣 SSView.DrawPoint(pDc, x, y, color, width) pDc ڱʶʹʱ޸Ĭϼɣ x ĺ꣨Ļ꣩ y ꣨Ļ꣩ color ߵɫֵ RGB ֵ width ĴС ˵ úΪĻͼĻϻƵ㡣 ʾ Dim arX( 10000 ), arY( 10000 ), arX0( 10000 ), arY0( 10000 ), arXYCount Sub OnInitScript() mode = 0 =0 ޲Ի =1 вԻ SSProcess.SetCursorStatus 0 SSProcess.ClearSysSelection SSProcess.ClearInputParameter title= \" Ļͼ \" SSProcess.ShowScriptDlg mode ,title End Sub Function OnLButtonDown(x , y, spx , spy, flags) arX(arXYCount)=spx :arY(arXYCount )= spy arXYCount=arXYCount+ 1 End Function Function OnMouseMove(x , y, spx , spy, flags) SSView.GetClientArea minX , minY"
+    },
+    {
+      "page": 501,
+      "name": "GetClientArea",
+      "class": "SSView",
+      "signature": "SSView.GetClientArea(minX, minY, maxX, maxY)",
+      "title": "获取图形窗口实地范围",
+      "desc": "minX <span",
+      "chm_snippet": " ȡͼδʵطΧ Online Help ȡͼδʵطΧ GetClientArea GetClientArea ȡͼδʵطΧ SSView.GetClientArea(minX, minY, maxX, maxY) minX ͼδС X minY ͼδС Y maxX ͼδ X maxY ͼδ Y minX minY maxX maxY ΪȡĴĻСꡣ ˵ ˺ΪȡͼδڵʵطΧꡣ ʾ Sub OnClick() SSProcess. GetClientArea minX, minY, maxX, maxY Msgbox minX& \",\" &minY& \",\" &maxX& \",\" &maxY End Sub "
+    },
+    {
+      "page": 502,
+      "name": "GetClientRect",
+      "class": "SSView",
+      "signature": "SSView.GetClientRect(l, t, r, b)",
+      "title": "获取图形窗口屏幕范围",
+      "desc": "l <span lang=ZH-CN style='font-family:",
+      "chm_snippet": " ȡͼδĻΧ Online Help ȡͼδĻΧ GetClientRect GetClientRect ȡͼδĻΧ SSView.GetClientRect(l, t, r, b) l lift ڷΧ : Ļʾߴ磬ֵͨΪ 0 t top ڷΧ : Ļʾߴ磬ֵͨΪ 0 r right ڷΧ : Ļʾߴ磬Ҳֵ൱ڴڿȣ洰ڱ仯 b bottom ڷΧ : Ļʾߴ磬ײֵ൱ڴڸ߶ȣ洰ڱ仯 ڴĻΧԴĻϽǶԵģϽΪ 0 0 ˵ ˺ΪȡĻΧꡣĻָĻϽǺ½ǣڴĻԴĻϽǶԵģϽΪ 0 0 ʾ Sub OnInitScript() title= \"GetClientRect\" ' SSProcess.ClearInputParameter SSProcess.AddInputParameter \" < ȷ > ȡͼδĻΧ \" , \"\" , 1 , \"\" , \"\" SSProcess.AddInputParameter \" ĻϽ \" , \"\" , 0 , \"\" , \"\" SSProcess.AddInputParameter \" Ļ½ \" , \"\" , 0 , \"\" , \"\" dlgWidth=220:dlgHeight=150:colCount=1:titleWidth=100:valueWidth=90 SSProcess.ShowScriptUserDefDlg title ,\"GetClientR"
+    },
+    {
+      "page": 503,
+      "name": "GetKeyState",
+      "class": "SSView",
+      "signature": "SSView.GetKeyState(virtKey)",
+      "title": "获取按键状态",
+      "desc": "virtKey 键盘键值",
+      "chm_snippet": " ȡ״̬ Online Help ȡ״̬ GetKeyState GetKeyState ȡ״̬ SSView.GetKeyState(virtKey) virtKey ֵ̼ ˵ ȡ״̬Ҫ 16 ͨת 10 ʾ F1 112 Sub OnClick() ' ȡ״̬ ss =SSView. GetKeyState ( 112 ) Msgbox ss End Sub "
+    },
+    {
+      "page": 504,
+      "name": "GetMCtoCC",
+      "class": "SSView",
+      "signature": "SSView.GetMCtoCC()",
+      "title": "图纸上0.1毫米代表的屏幕上的像素",
+      "desc": "Sub OnClick()",
+      "chm_snippet": " ͼֽ0.1״Ļϵ Online Help ͼֽ 0.1 ״Ļϵ GetMCtoCC GetMCtoCC дⲿ֮ǰ SSView.GetMCtoCC() ˵ ʾ Sub OnClick() ' ͼֽ 0.1 ״Ļϵ cc =SSView. GetMCtoCC () Msgbox cc End Sub "
+    },
+    {
+      "page": 505,
+      "name": "GetMMtoME",
+      "class": "SSView",
+      "signature": "SSView.GetMMtoME()",
+      "title": "获取当前屏幕每毫米对应实地米数",
+      "desc": "Sub OnClick()",
+      "chm_snippet": " ȡǰĻÿ׶Ӧʵ Online Help ȡǰĻÿ׶Ӧʵ GetMMtoME GetMMtoME ȡǰĻÿ׶Ӧʵ SSView.GetMMtoME() ˵ ʾ Sub OnClick() ' ȡǰĻÿ׶Ӧʵ mm =SSView. GetMMtoME () Msgbox mm End Sub "
+    },
+    {
+      "page": 506,
+      "name": "MakeBackgroundImage",
+      "class": "SSView",
+      "signature": "SSView.MakeBackgroundImage()",
+      "title": "复制当前屏幕到剪切板",
+      "desc": "该函数用于复制当前屏幕到剪粘板。",
+      "chm_snippet": " ƵǰĻа Online Help ƵǰĻа MakeBackgroundImage MakeBackgroundImage ƵǰĻа塣 SSView.MakeBackgroundImage() ˵ úڸƵǰĻճ塣 "
+    },
+    {
+      "page": 507,
+      "name": "MoveScreenByPoint",
+      "class": "SSView",
+      "signature": "SSView.MoveScreenByPoint(x, y, redraw)",
+      "title": "移动屏幕到指定位置",
+      "desc": "x <span",
+      "chm_snippet": " ƶĻָλ Online Help ƶĻָλ MoveScreenByPoint MoveScreenByPoint ƶĻָλá SSView.MoveScreenByPoint(x, y, redraw) x ƶĻָλõ X y ƶĻָλõ Y redraw ǷػĻ ˵ úƶĻָλá ʾ Sub OnClick() SSView. MoveScreenByPoint 55555 , 5555 , redraw End Sub "
+    },
+    {
+      "page": 508,
+      "name": "PasteBackgroundImage",
+      "class": "SSView",
+      "signature": "SSView.PasteBackgroundImage()",
+      "title": "拷贝剪切板内容到当前屏幕",
+      "desc": "该函数用于拷贝剪粘板内容到当前屏幕。",
+      "chm_snippet": " аݵǰĻ Online Help аݵǰĻ PasteBackgroundImage PasteBackgroundImage аݵǰĻ SSView.PasteBackgroundImage() ˵ úڿճݵǰĻ "
+    },
+    {
+      "page": 509,
+      "name": "SetPenWidth",
+      "class": "SSView",
+      "signature": "SSView.SetPenWidth(dWidth)",
+      "title": "设置线笔宽",
+      "desc": "dWidth <span lang=ZH-CN style='font-family:",
+      "chm_snippet": " ߱ʿ Online Help ߱ʿ SetPenWidth SetPenWidth дⲿ֮ǰ SSView.SetPenWidth(dWidth) dWidth Ļʱ߱ʿ ˵ úĻʱ߱ʿȡ ʾ Dim arX( 10000 ),arY( 10000 ), arX0( 10000 ),arY0( 10000 ),arXYCount Sub OnInitScript() mode = 0 =0 ޲Ի =1 вԻ SSProcess.SetCursorStatus 0 SSProcess.ClearSysSelection SSProcess.ClearInputParameter title= \" Ļͼ \" SSProcess.ShowScriptDlg mode,title End Sub SSProject.SetActiveMap mapHandle Function OnLButtonDown(x, y, spx, spy, flags) arX(arXYCount) =spx:arY(arXYCount) = spy arXYCount=arXYCount+ 1 End Function Function OnMouseMove(x, y, spx, spy, flags) SSView.MoveScreenByPoint spx,spy, 1 SSView.GetClie"
+    },
+    {
+      "page": 510,
+      "name": "SetPointSize",
+      "class": "SSView",
+      "signature": "SSView.SetPointSize(dSize)",
+      "title": "设置点笔宽",
+      "desc": "dSize 点笔宽像素",
+      "chm_snippet": " õʿ Online Help õʿ SetPointSize SetPointSize õʿ SSView.SetPointSize(dSize) dSize ʿ ˵ ʹô˺ָƵĴС ʾ õʿ Sub OnClick() SSView. SetPointSize 10 SSView.DrawPoint pDc, 10 , 30 , RGB( 255,0,0 ), 300 End Sub "
+    },
+    {
+      "page": 511,
+      "name": "SetROP2",
+      "class": "SSView",
+      "signature": "SSView.SetROP2(nLogicop)",
+      "title": "设置绘图异或方式",
+      "desc": "nLogicop",
+      "chm_snippet": " ûͼʽ Online Help ûͼʽ SetROP2 SetROP2 ûͼʽ SSView.SetROP2(nLogicop) nLogicop ˵ ú趨ǰͼǰɫĻģʽ ʾ scroll = 1 Sub OnInitScript() mode = 0 =0 ޲Ի =1 вԻ title= \" Ŀų齱 \" SSProcess.ShowScriptDlg mode,title scroll = 1 SSView.ZoomExtend 0 , 0 , 50 , 50 , 1 SSProcess.SetTimer 128801 , 2 End Sub Sub OnExitScript() End Sub Sub OnOK() End Sub Sub OnCanel() SSProcess.KillTimer 128801 End Sub Function OnLButtonUp(x , y, spx , spy, flags) If scroll = 1 Then scroll = 0 Else scroll = 1 End If End Function Function Draw( pDc ) SSView.GetClientArea minX, minY, maxX , maxY x = (minX + maxX)/ 2.0 y = (minY + maxY)/ 2.0 text"
+    },
+    {
+      "page": 512,
+      "name": "ZoomExtend",
+      "class": "SSView",
+      "signature": "SSView.ZoomExtend(xMin,yMin,xMax ,yMax, redraw)",
+      "title": "缩放屏幕到指定范围",
+      "desc": "xMin <span",
+      "chm_snippet": " ĻָΧ Online Help ĻָΧ ZoomExtend ZoomExtend ĻָΧ SSView.ZoomExtend(xMin,yMin,xMax ,yMax, redraw) xMin С X yMin С Y xMax X yMax Y redraw ز ˵ ú趨ĻʾΧ ʾ Sub OnClick() xMin= 500 yMin= 500 xMax= 990 yMax= 690 SSView. ZoomExtend xMin,yMin,xMax ,yMax, redraw SSProcess.RefreshView End Sub "
+    },
+    {
+      "page": 515,
+      "name": "Append",
+      "class": "SSArray",
+      "signature": "SSArray.Append(hArrayDest, hArraySrc)",
+      "title": "追加数组元素",
+      "desc": "hArrayDest",
+      "chm_snippet": " ׷Ԫ Online Help ׷Ԫ Append Append ׷Ԫء SSArray.Append(hArrayDest, hArraySrc) hArrayDest hArraySrc ˵ "
+    },
+    {
+      "page": 516,
+      "name": "Close",
+      "class": "SSArray",
+      "signature": "SSArray.Close (arrayType)",
+      "title": "删除数组",
+      "desc": "arrayType 数值类型",
+      "chm_snippet": " ɾ Online Help ɾ Close Close ɾ顣 SSArray.Close (arrayType) arrayType ֵ ˵ ʾ Function OnDraw( pDc ) gxPoints = SSArray.Create( \"CGeObjList\" , \"\" ) SSView.GetClientArea minX , minY, maxX, maxY rect = minX & \",\" & minY & \",\" & maxX & \",\" & maxY strTextInfo = \"<SSObj_PointName>\" SSProcess.SetSelectConditionGroup \"condition1\" , \"SSObj_ModifyTime\" , \">\" , g_SwitchTime1 SSProcess.SetSelectConditionGroup \"condition1\" , \"SSObj_ModifyTime\" , \"<\" , g_SwitchTime2 SSProcess.SearchRect rect , 0 , \"condition1\" , gxPoints SSView.DrawRuntimeObjAttrInfo pDc , gxPoints, 10 , 0 , strTextInfo, \"\" , -000255000 SSProc"
+    },
+    {
+      "page": 517,
+      "name": "Copy",
+      "class": "SSArray",
+      "signature": "SSArray.Copy (hArrayDest, hArraySrc)",
+      "title": "拷贝数组元素",
+      "desc": "hArrayDest",
+      "chm_snippet": " Ԫ Online Help Ԫ Copy Copy Ԫء SSArray.Copy (hArrayDest, hArraySrc) hArrayDest hArraySrc ˵ "
+    },
+    {
+      "page": 518,
+      "name": "Create",
+      "class": "SSArray",
+      "signature": "SSArray.Create (arrayType, arrayName)",
+      "title": "创建数组元素",
+      "desc": "arrayType <span lang=ZH-CN",
+      "chm_snippet": " Ԫ Online Help Ԫ Create Create 顣 SSArray.Create (arrayType, arrayName) arrayType ֵ arrayName ˵ "
+    },
+    {
+      "page": 519,
+      "name": "GetHandle",
+      "class": "SSArray",
+      "signature": "SSArray.GetHandle(arrayType, arrayName)",
+      "title": "根据类型与名称获取数组句柄",
+      "desc": "arrayType <span",
+      "chm_snippet": " ƻȡ Online Help ƻȡ GetHandle GetHandle ȡ SSArray.GetHandle(arrayType, arrayName) arrayType arrayName ˵ "
+    },
+    {
+      "page": 520,
+      "name": "GetSize",
+      "class": "SSArray",
+      "signature": "SSArray.GetSize(hArray)",
+      "title": "获取数组中元素数量",
+      "desc": "hArray",
+      "chm_snippet": " ȡԪ Online Help ȡԪ GetSize GetSize ȡԪ SSArray.GetSize(hArray) hArray ˵ "
+    },
+    {
+      "page": 521,
+      "name": "Order",
+      "class": "SSArray",
+      "signature": "SSArray.Order(hArray, bIncrease)",
+      "title": "数组排序",
+      "desc": "hArray",
+      "chm_snippet": " Online Help Order Order SSArray.Order(hArray, bIncrease) hArray bIncrease ˵ "
+    },
+    {
+      "page": 522,
+      "name": "Reverse",
+      "class": "SSArray",
+      "signature": "SSArray.Reverse(hArray)",
+      "title": "数组元素反序",
+      "desc": "hArray",
+      "chm_snippet": " Ԫط Online Help Ԫط Reverse Reverse Ԫط SSArray.Reverse(hArray) hArray ˵ "
+    },
+    {
+      "page": 523,
+      "name": "SetSize",
+      "class": "SSArray",
+      "signature": "SSArray.SetSize(hArray, nSize, nGrow)",
+      "title": "设置数组中元素数量",
+      "desc": "hArray 数组名",
+      "chm_snippet": " Ԫ Online Help Ԫ SetSize SetSize Ԫ SSArray.SetSize(hArray, nSize, nGrow) hArray nSize nGrow ˵ "
+    },
+    {
+      "page": 524,
+      "name": "SortByValue",
+      "class": "SSArray",
+      "signature": "SSArray.SortByValue(hArrayValues, hArrayKeys, bIncrease)",
+      "title": "数组按值排序",
+      "desc": "hArrayValues",
+      "chm_snippet": " 鰴ֵ Online Help 鰴ֵ SortByValue SortByValue 鰴ֵ SSArray.SortByValue(hArrayValues, hArrayKeys, bIncrease) hArrayValues hArrayKeys bIncrease ˵ "
+    },
+    {
+      "page": 532,
+      "name": "RemoveParameter",
+      "class": "SSParameter",
+      "signature": "SSParameter.RemoveParameter(strSection, strKeyName)",
+      "title": "删除参数",
+      "desc": "strSection <span",
+      "chm_snippet": " ɾ Online Help ɾ RemoveParameter RemoveParameter ɾ SSParameter.RemoveParameter(strSection, strKeyName) strSection strKeyName ԼĹؼ ˵ ִиú ɾָָؼλõĲֵ "
+    },
+    {
+      "page": 534,
+      "name": "SetParameterDBL",
+      "class": "SSParameter",
+      "signature": "SSParameter.SetParameterDBL(strSection, strKeyName, keyValue)",
+      "title": "设置浮点型参数",
+      "desc": "strSection <span lang=ZH-CN",
+      "chm_snippet": " øͲ Online Help øͲ SetParameterDBL SetParameterDBL øͲ SSParameter.SetParameterDBL(strSection, strKeyName, keyValue) strSection strKeyName keyValue ֵ ˵ ʹô˺ʹΪͣԴ洢͵ֵ ʾ Sub OnClick () SSParameter.GetParameterSTR \"PrintInfo\" , \"PaperName\" , \"\" , PaperName ' ֽų SSParameter.GetParameterINT \"PrintInfo\" , \"SIZEX\" , 0 , PapersizeX SSParameter.GetParameterINT \"PrintInfo\" , \"SIZEY\" , 0 , PapersizeY ' ҳ߾ SSParameter.GetParameterINT \"PrintInfo\" , \"EdgeRectLeft\" , 0 , EdgeRectleft SSParameter.GetParameterINT \"PrintInfo\" , \"EdgeRectRight\" , 0 , EdgeRectright SSParameter.GetParameterINT \"PrintInfo\" , \"EdgeRectT"
+    },
+    {
+      "page": 535,
+      "name": "SetParameterINT",
+      "class": "SSParameter",
+      "signature": "SSParameter.SetParameterINT(strSection, strKeyName, keyValue)",
+      "title": "设置整型参数",
+      "desc": "strSection <span",
+      "chm_snippet": " Ͳ Online Help Ͳ SetParameterINT SetParameterINT Ͳ SSParameter.SetParameterINT(strSection, strKeyName, keyValue) strSection strKeyName keyValue õֵ ˵ ִиúͲ ʾ Sub OnClick() Dim valueList( 100 ),fieldCount edbname= SSProcess.GetProjectFileName SSProcess.OpenAccessMdbedbname sql= \"Select ID,[ ʵʲ ],[ ¥ ] From [ Ա ] WHERE [ ʵʲ ] <>'*' Order By CDBL([ ʵʲ ])\" SSProcess.OpenAccessRecordsetedbname,sql count= SSProcess.GetAccessRecordCount(edbname ,sql) ' дؼ¼ SSParameter. SetParameterINT \"FeatureListQuery\" , \"RecordCount\" , count ' дֶ SSParameter. SetParameterINT \"FeatureListQuery\" , \"FieldCount\" , 3 SSPr"
+    },
+    {
+      "page": 536,
+      "name": "SetParameterSTR",
+      "class": "SSParameter",
+      "signature": "SSParameter.SetParameterSTR(strSection, strKeyName, keyValue)",
+      "title": "设置字符型参数",
+      "desc": "strSection <span",
+      "chm_snippet": " ַͲ Online Help ַͲ SetParameterSTR SetParameterSTR ַͲ SSParameter.SetParameterSTR(strSection, strKeyName, keyValue) strSection strKeyName keyValue õֵ ˵ ִиúַͲ ʾ Sub OnClick() SSParameter. SetParameterSTR \" \" , \" ȡͼַ \" , \"\" SSParameter.GetParameterSTR \" \" , \" ȡͼŵ ID\" , \"\" , keyValue1 End Sub "
+    }
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "summary": {
+    "task": "步骤2.4 调用链闭环（静态反汇编 ExecuteSDLCommand + 官方文档对照）",
+    "date": "2026-09-09",
+    "method": "pefile(PE解析) + capstone(x86反汇编) + CHM官方文档对照 + PE ASLR特征判定",
+    "chain": "ExecuteSDLCommand(0x1004D5B6) -> ExecuteFunction(CString,CString)(0x1004CF51)/ExecuteFunction(CString,I)(0x1004CE0B) -> [IsRegisterCmd(0x1005F6C8) -> vtable[0x40] 派发 | CallBackFunction(0x1002C6B1) | LoadModule(0x1004B529)] -> SScript.dll 脚本引擎",
+    "doc_align": "静态命令入口与官方 SSProcess.ExecuteSDLFunction(\"$SDL.模块.命令\") 一一对应；'.' 分隔符/模块名(GetModulName)/注册表(IsRegisterCmd)均与 $SDL.SSProject.View.Extend 格式吻合",
+    "dynamic_status": "frida attach 13008/19604 被拒（VirtualAllocEx ACCESS_DENIED，用户环境原有进程，未提权）；动态断点命中未实跑。对齐由无 ASLR 静态证明闭合（RVA 恒等于动态偏移）",
+    "old_chain_note": "旧验收链 sub_420F8C→sub_4231F5→ssExcuteFunction→RunScript 为早期私有符号（命令框注入路径，已废弃）；本次以官方导出符号链替代并验证"
+  },
+  "functions": [
+    {
+      "symbol": "?ExecuteSDLCommand@CSSView@@QAEHVCString@@@Z",
+      "rva": 316854,
+      "va": 268752310,
+      "ord": 429,
+      "role": "SDL 命令入口（SSProcess.ExecuteSDLFunction 内部实现）"
+    },
+    {
+      "symbol": "?ExecuteFunction@CSSView@@QAEPAXVCString@@0@Z",
+      "rva": 315217,
+      "va": 268750673,
+      "ord": 427,
+      "role": "SDL 命令分发（双 CString 参数版，含 '(' ')' 参数提取）"
+    },
+    {
+      "symbol": "?ExecuteFunction@CSSView@@QAEPAXVCString@@I@Z",
+      "rva": 314891,
+      "va": 268750347,
+      "ord": 428,
+      "role": "SDL 命令分发（命令ID版：OnCommProcess 预检 + IsRegisterCmd 匹配 + vtable[0x40] 派发）"
+    },
+    {
+      "symbol": "?CallBackFunction@CSSView@@QAEHJPAXH@Z",
+      "rva": 181937,
+      "va": 268617393,
+      "ord": null,
+      "role": "命令回调（SDL 模块结果回传）"
+    },
+    {
+      "symbol": "?LoadModule@CSSView@@QAEHVCString@@0I0@Z",
+      "rva": 308521,
+      "va": 268743977,
+      "ord": null,
+      "role": "加载外部 SDL/DLL 模块"
+    },
+    {
+      "symbol": "?IsRegisterCmd@CSDLInterface@@QAEHVCString@@@Z",
+      "rva": 390856,
+      "va": 268826312,
+      "ord": 769,
+      "role": "SDL 命令注册表匹配（遍历 [esi+0x194] 接口数组）"
+    },
+    {
+      "symbol": "?GetModulName@CSDLInterface@@QAE?AVCString@@XZ",
+      "rva": 144540,
+      "va": 268579996,
+      "ord": 615,
+      "role": "取模块名（$SDL.模块.命令 的模块段匹配）"
+    },
+    {
+      "symbol": "?SDLFunctionExecute@@YAPAXVCString@@I@Z",
+      "rva": 389448,
+      "va": 268824904,
+      "ord": 1036,
+      "role": "SDL 函数执行器（全局，含 '(' ')' 参数解析）"
+    },
+    {
+      "symbol": "?OnCommProcess@CSSView@@AAEHI@Z",
+      "rva": 191036,
+      "va": 268626492,
+      "ord": null,
+      "role": "命令预检（ExecuteFunction(CString,I) 首步）"
+    },
+    {
+      "symbol": "?OnNewDlgBase@CSSView@@AAEHAAPAVCDlgBase@@IVCString@@@Z",
+      "rva": 291221,
+      "va": 268726677,
+      "ord": null,
+      "role": "未注册命令 → 命令对话框"
+    },
+    {
+      "symbol": "?OnCommandMsg@CSSView@@IAEJIJ@Z",
+      "rva": 308378,
+      "va": 268743834,
+      "ord": 819,
+      "role": "UI 命令消息入口（旧链路起点，2026-09-05 已定位）"
+    },
+    {
+      "symbol": "?RunScript@CSScriptHandleBase@@UAAHVCString@@PBEZZ",
+      "rva": 173306,
+      "va": 268608762,
+      "ord": 1033,
+      "role": "脚本执行（CSScriptHandleBase，SScript.dll 引擎入口）"
+    }
+  ],
+  "edges": [
+    [
+      "ExecuteSDLCommand",
+      "ExecuteFunction(CString,CString)",
+      317745,
+      "分发（多分支）"
+    ],
+    [
+      "ExecuteSDLCommand",
+      "ExecuteFunction(CString,CString)",
+      317825,
+      "分发"
+    ],
+    [
+      "ExecuteSDLCommand",
+      "ExecuteFunction(CString,CString)",
+      318007,
+      "分发"
+    ],
+    [
+      "ExecuteSDLCommand",
+      "ExecuteFunction(CString,CString)",
+      318283,
+      "分发"
+    ],
+    [
+      "ExecuteSDLCommand",
+      "ExecuteFunction(CString,CString)",
+      318599,
+      "分发"
+    ],
+    [
+      "ExecuteSDLCommand",
+      "ExecuteFunction(CString,CString)",
+      318718,
+      "分发"
+    ],
+    [
+      "ExecuteSDLCommand",
+      "ExecuteFunction(CString,CString)",
+      319649,
+      "分发"
+    ],
+    [
+      "ExecuteSDLCommand",
+      "ExecuteFunction(CString,I)",
+      319586,
+      "命令ID分发"
+    ],
+    [
+      "ExecuteSDLCommand",
+      "CallBackFunction",
+      317912,
+      "回调"
+    ],
+    [
+      "ExecuteSDLCommand",
+      "CallBackFunction",
+      318405,
+      "回调"
+    ],
+    [
+      "ExecuteSDLCommand",
+      "LoadModule",
+      319243,
+      "模块加载"
+    ],
+    [
+      "ExecuteSDLCommand",
+      "GetModulName",
+      319057,
+      "模块名匹配"
+    ],
+    [
+      "ExecuteFunction(CString,I)",
+      "OnCommProcess",
+      314917,
+      "预检"
+    ],
+    [
+      "ExecuteFunction(CString,I)",
+      "IsRegisterCmd",
+      315021,
+      "注册表匹配"
+    ],
+    [
+      "ExecuteFunction(CString,I)",
+      "CSDLInterface.vtable[0x40]",
+      315139,
+      "虚调用派发（命中）"
+    ],
+    [
+      "ExecuteFunction(CString,I)",
+      "OnNewDlgBase",
+      315166,
+      "对话框（未命中）"
+    ]
+  ],
+  "constants": [
+    {
+      "rva": 797580,
+      "text": "SCRIPT:",
+      "role": "脚本前缀"
+    },
+    {
+      "rva": 770616,
+      "text": "ExcuteScript",
+      "role": "脚本执行命令名"
+    },
+    {
+      "rva": 770604,
+      "text": "SScript.dll",
+      "role": "脚本引擎 DLL"
+    },
+    {
+      "rva": 796232,
+      "text": ".",
+      "role": "$SDL.模块.命令 分隔符"
+    },
+    {
+      "rva": 797748,
+      "text": "SSWorkSpace",
+      "role": "工作空间对象"
+    },
+    {
+      "rva": 797732,
+      "text": "insertouterds",
+      "role": "命令"
+    },
+    {
+      "rva": 792168,
+      "text": "InsertOuterDs",
+      "role": "命令"
+    },
+    {
+      "rva": 798104,
+      "text": "ExecuteSDLCommand_CmdMsg",
+      "role": "命令广播消息名"
+    },
+    {
+      "rva": 798076,
+      "text": "ExecuteSDLCommand_Return",
+      "role": "命令返回消息名"
+    },
+    {
+      "rva": 798056,
+      "text": "ExecuteSDLCommand",
+      "role": "命令名"
+    },
+    {
+      "rva": 781924,
+      "text": "SysMessage",
+      "role": "系统消息"
+    }
+  ],
+  "doc_references": [
+    {
+      "src": "chm_extract/296.htm",
+      "api": "SSProcess.ExecuteSDLFunction(SDLCommandInfo, Reason)",
+      "desc": "执行SDL命令",
+      "example": "SSProcess.ExecuteSDLFunction \"$SDL.SSProject.View.Extend\", 0"
+    },
+    {
+      "src": "eps_script_help/.../外部函数/ExecuteCommand函数.htm",
+      "api": "ExecuteCommand(libFileName, procName, commandDescription, transSelection)",
+      "desc": "外部模块函数调用",
+      "example": "SSProcess.ExecuteCommand \"MyFunction.DLL\", \"ChangeSelectionObjColor\", \"...\", 1",
+      "signature": "extern \"C\" BOOL proc(CStringArray*, CGeObjList*, CProgressCtrl*)"
+    },
+    {
+      "src": "eps_api_catalog.csv:296",
+      "api": "ExecuteSDLFunction",
+      "desc": "执行SDL命令"
+    },
+    {
+      "src": "eps_api_catalog.csv:487",
+      "api": "RunScript(language, scriptGroup, scriptName)",
+      "desc": "运行外部脚本"
+    }
+  ],
+  "aslr_align": {
+    "dll": "SSProject.dll",
+    "image_base": 268435456,
+    "dll_characteristics": 0,
+    "aslr_enabled": false,
+    "conclusion": "无 ASLR → 加载基址恒为 0x10000000，RVA 即动态偏移（VA = 0x10000000 + RVA 恒定），静态地址可直接作为运行时断点地址重放。",
+    "chain_va": {
+      "?ExecuteSDLCommand@CSSView@@QAEHVCString@@@Z": 268752310,
+      "?ExecuteFunction@CSSView@@QAEPAXVCString@@0@Z": 268750673,
+      "?ExecuteFunction@CSSView@@QAEPAXVCString@@I@Z": 268750347,
+      "?CallBackFunction@CSSView@@QAEHJPAXH@Z": 268617393,
+      "?LoadModule@CSSView@@QAEHVCString@@0I0@Z": 268743977,
+      "?IsRegisterCmd@CSDLInterface@@QAEHVCString@@@Z": 268826312,
+      "?GetModulName@CSDLInterface@@QAE?AVCString@@XZ": 268579996,
+      "?SDLFunctionExecute@@YAPAXVCString@@I@Z": 268824904,
+      "?OnCommProcess@CSSView@@AAEHI@Z": 268626492,
+      "?OnNewDlgBase@CSSView@@AAEHAAPAVCDlgBase@@IVCString@@@Z": 268726677,
+      "?OnCommandMsg@CSSView@@IAEJIJ@Z": 268743834,
+      "?RunScript@CSScriptHandleBase@@UAAHVCString@@PBEZZ": 268608762
+    }
+  }
+}

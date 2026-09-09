@@ -1,0 +1,242 @@
+{
+  "task": "阶段3.1 第二批：SSProject 对象类 26 函数分析摘要",
+  "date": "2026-09-09",
+  "batch": "SSProject（26 个，工程/项目级操作类）",
+  "count": 26,
+  "functions": [
+    {
+      "page": 578,
+      "name": "CloseDataSource",
+      "class": "SSProject",
+      "signature": "SSProject.CloseDataSource(mapHandle, datasourceHandle)",
+      "title": "关闭数据源",
+      "desc": "mapHandle <span",
+      "chm_snippet": " رԴ Online Help رԴ CloseDataSource CloseDataSource رԴ SSProject.CloseDataSource(mapHandle, datasourceHandle) mapHandle ͼ datasourceHandle Դ ˵ ˺ΪرԴ ʾ Sub OnClick () mapHandle = SSProject.GetActiveMap datasourceHandle0 = SSProject.GetDataSource (mapHandle, 1 ) datasourceHandle1 = SSProject.GetDataSource (mapHandle, 0 ) SSProject.SetActiveDatasource mapHandle , datasourceHandle1 SSProcess.ClearSelection SSProcess.ClearSelectCondition SSProcess.SetSelectCondition \"SSObj_Code\" , \"<>\" , updateRegionCode SSProcess.SelectFilter SSProcess.DeleteSelectionObj SSProject.SetActiveDatasource mapHandle , dat"
+    },
+    {
+      "page": 579,
+      "name": "CloseMap",
+      "class": "SSProject",
+      "signature": "SSProject.CloseMap(mapHandle)",
+      "title": "关闭地图",
+      "desc": "mapHandle <span lang=ZH-CN style='font-family:",
+      "chm_snippet": " رյͼ Online Help رյͼ CloseMap CloseMap رյͼ SSProject.CloseMap(mapHandle) mapHandle ͼ ˵ ʾ Sub OnClick () mapHandle = SSProject.GetActiveMap SSProject. CloseMap mapHandle End Sub "
+    },
+    {
+      "page": 581,
+      "name": "CreateLayer",
+      "class": "SSProject",
+      "signature": "SSProject.CreateLayer(layerHandle, layerName)",
+      "title": "创建图层",
+      "desc": "layerHandle <span lang=ZH-CN style='font-family:",
+      "chm_snippet": " ͼ Online Help ͼ CreateLayer CreateLayer ͼ㡣 SSProject.CreateLayer(layerHandle, layerName) layerHandle ͼ layerName ˵ "
+    },
+    {
+      "page": 582,
+      "name": "CreateMap",
+      "class": "SSProject",
+      "signature": "SSProject.CreateMap(templateName, mapName)",
+      "title": "创建地图",
+      "desc": "templateName <span",
+      "chm_snippet": " ͼ Online Help ͼ CreateMap CreateMap ͼ SSProject.CreateMap(templateName, mapName) templateName ģ mapName ͼ ˵ "
+    },
+    {
+      "page": 584,
+      "name": "GetActiveDatasource",
+      "class": "SSProject",
+      "signature": "SSProject.GetActiveDatasource(mapHandle)",
+      "title": "获取活动数据源句柄",
+      "desc": "mapHandle <span lang=ZH-CN",
+      "chm_snippet": " ȡԴ Online Help ȡԴ GetActiveDatasource GetActiveDatasource ȡԴ SSProject.GetActiveDatasource(mapHandle) mapHandle Դ ˵ ִиúػԴ ʾ Sub OnClick () Msgbox SSProject. GetActiveDatasource ( mapHandle ) End Sub "
+    },
+    {
+      "page": 585,
+      "name": "GetActiveMap",
+      "class": "SSProject",
+      "signature": "SSProject.GetActiveMap()",
+      "title": "获取活动地图句柄",
+      "desc": "执行该函数，将返回当前活动工程的句柄。",
+      "chm_snippet": " ȡͼ Online Help ȡͼ GetActiveMap GetActiveMap ȡͼ SSProject.GetActiveMap() ˵ ִиúصǰ̵ľ ʾ Sub OnClick() Msgbox SSProject. GetActiveMap () End Sub "
+    },
+    {
+      "page": 586,
+      "name": "GetActiveProject",
+      "class": "SSProject",
+      "signature": "SSProject.GetActiveProject()",
+      "title": "获取活动工程句柄",
+      "desc": "直接返回当前活动工程句柄。",
+      "chm_snippet": " ȡ̾ Online Help ȡ̾ GetActiveProject GetActiveProject ȡ̾ SSProject.GetActiveProject() ˵ ֱӷصǰ̾ ʾ Sub OnClick() Msgbox SSProject. GetActiveProject () End Sub "
+    },
+    {
+      "page": 587,
+      "name": "GetDataSource",
+      "class": "SSProject",
+      "signature": "SSProject.GetDataSource(mapHandle, index)",
+      "title": "获取数据源句柄",
+      "desc": "mapHandle <span",
+      "chm_snippet": " ȡԴ Online Help ȡԴ GetDataSource GetDataSource ȡԴ SSProject.GetDataSource(mapHandle, index) mapHandle ͼ index ˵ ʾ Sub OnClick() keyName= \"mapScale\" mapHandle=SSProject.GetMap( 0 ) Msgbox SSProject. GetDataSource (mapHandle, 0 ) End Sub "
+    },
+    {
+      "page": 588,
+      "name": "GetDataSourceByname",
+      "class": "SSProject",
+      "signature": "SSProject.GetDataSourceByname(mapHandle, datasourceName)",
+      "title": "根据数据源名称获取数据源句柄",
+      "desc": "mapHandle <span",
+      "chm_snippet": " ԴƻȡԴ Online Help ԴƻȡԴ GetDataSourceByname GetDataSourceByname ԴƻȡԴ SSProject.GetDataSourceByname(mapHandle, datasourceName) mapHandle ͼ datasourceName Դ ˵ úԴƻȡԴ "
+    },
+    {
+      "page": 589,
+      "name": "GetDataSourceInfo",
+      "class": "SSProject",
+      "signature": "SSProject.GetDataSourceInfo(datasourceHandle, keyName)",
+      "title": "获取数据源信息",
+      "desc": "datasourceHandle <span",
+      "chm_snippet": " ȡԴϢ Online Help ȡԴϢ GetDataSourceInfo GetDataSourceInfo ȡԴϢ SSProject.GetDataSourceInfo(datasourceHandle, keyName) datasourceHandle Դ keyName ؼ ˵ "
+    },
+    {
+      "page": 590,
+      "name": "GetDataSourceLayer",
+      "class": "SSProject",
+      "signature": "SSProject.GetDataSourceLayer(datasourceHandle, index)",
+      "title": "获取数据源的图层句柄",
+      "desc": "datasourceHandle<span",
+      "chm_snippet": " ȡԴͼ Online Help ȡԴͼ GetDataSourceLayer GetDataSourceLayer ȡԴͼ SSProject.GetDataSourceLayer(datasourceHandle, index) datasourceHandle Դ index ˵ ִиúȡԴͼ "
+    },
+    {
+      "page": 591,
+      "name": "GetDataSourceLayerByname",
+      "class": "SSProject",
+      "signature": "SSProject.GetDataSourceLayerByname(datasourceHandle, layerName)",
+      "title": "根据层名获取数据源的图层句柄",
+      "desc": "datasourceHandle<span",
+      "chm_snippet": " ݲȡԴͼ Online Help ݲȡԴͼ GetDataSourceLayerByname GetDataSourceLayerByname ݲȡԴͼ SSProject.GetDataSourceLayerByname(datasourceHandle, layerName) datasourceHandle Դ layerName ˵ ִиúݲȡԴͼ ʾ Sub OnClick() covName= layerHandle= SSProject. GetDataSourceLayerByname (datasourceHandle ,covName) End Sub "
+    },
+    {
+      "page": 592,
+      "name": "GetDataSourceLayerCount",
+      "class": "SSProject",
+      "signature": "SSProject.GetDataSourceLayerCount(datasourceHandle)",
+      "title": "获取数据源的图层数",
+      "desc": "datasourceHandle <span lang=ZH-CN style='font-family:",
+      "chm_snippet": " ȡԴͼ Online Help ȡԴͼ GetDataSourceLayerCount GetDataSourceLayerCount ȡԴͼ SSProject.GetDataSourceLayerCount(datasourceHandle) datasourceHandle Դ ˵ ʾ Sub OnClick() mapHandle=SSProject.GetActiveMap datasourceHandle = SSProject.GetActiveDatasource(mapHandle) Msgbox SSProject. GetDataSourceLayerCount (datasourceHandle) End Sub "
+    },
+    {
+      "page": 593,
+      "name": "GetLayerInfo",
+      "class": "SSProject",
+      "signature": "SSProject.GetLayerInfo(layerHandle, keyName)",
+      "title": "获取图层信息",
+      "desc": "layerHandle <span lang=ZH-CN",
+      "chm_snippet": " ȡͼϢ Online Help ȡͼϢ GetLayerInfo GetLayerInfo ȡͼϢ SSProject.GetLayerInfo(layerHandle, keyName) layerHandle ͼ keyName ؼ ˵ ʾ Sub OnClick() mapHandle=SSProject.GetActiveMap datasourceHandle = SSProject.GetActiveDatasource(mapHandle) layerHandle = SSProject.GetDataSourceLayer(datasourceHandle, 0 ) Msgbox layerHandle keyName= \"layerName\" Msgbox SSProject. GetLayerInfo (layerHandle, keyName) End Sub "
+    },
+    {
+      "page": 594,
+      "name": "GetMap",
+      "class": "SSProject",
+      "signature": "SSProject.GetMap(index)",
+      "title": "获取地图句柄",
+      "desc": "index 地图的索引号,<span",
+      "chm_snippet": " ȡͼ Online Help ȡͼ GetMap GetMap ȡͼ SSProject.GetMap(index) index ͼ , 0 ʼ ˵ ִиúȡָͼľ ʾ Sub OnClick() SSProject. GetMap ( 0 ) End Sub "
+    },
+    {
+      "page": 595,
+      "name": "GetMapCount",
+      "class": "SSProject",
+      "signature": "SSProject.GetMapCount()",
+      "title": "获取地图个数",
+      "desc": "执行该函数，可以获取当前工程地图的个数<span",
+      "chm_snippet": " ȡͼ Online Help ȡͼ GetMapCount GetMapCount ȡͼ SSProject.GetMapCount() ˵ ִиúԻȡǰ̵ͼĸ ʾ Sub OnClick () MapCount = SSProject. GetMapCount () ȡǰ̵ͼ Msgbox MapCount End Sub "
+    },
+    {
+      "page": 596,
+      "name": "GetMapDataSourceCount",
+      "class": "SSProject",
+      "signature": "SSProject.GetMapDataSourceCount(mapHandle)",
+      "title": "获取地图数据源个数",
+      "desc": "Sub Click()",
+      "chm_snippet": " ȡͼԴ Online Help ȡͼԴ GetMapDataSourceCount GetMapDataSourceCount ȡͼԴ SSProject.GetMapDataSourceCount(mapHandle) ˵ ʾ Sub Click() mapHandle = SSProject.GetActiveMap datasourceCount = SSProject. GetMapDataSourceCount (mapHandle) If datasourceCount<> 2 Then Msgbox \" Աͼ \" : Exit Sub End If End Sub "
+    },
+    {
+      "page": 597,
+      "name": "GetMapInfo",
+      "class": "SSProject",
+      "signature": "SSProject.GetMapInfo(mapHandle, keyName)",
+      "title": "获取地图信息",
+      "desc": "mapHandle <span",
+      "chm_snippet": " ȡͼϢ Online Help ȡͼϢ GetMapInfo GetMapInfo ȡͼϢ SSProject.GetMapInfo(mapHandle, keyName) mapHandle ͼ keyName ҪȡϢ ˵ ʾ Sub OnClick() keyName= \"mapScale\" mapHandle=SSProject.GetMap(0) Msgbox SSProject. GetMapInfo (mapHandle, keyName) End Sub "
+    },
+    {
+      "page": 598,
+      "name": "GetProject",
+      "class": "SSProject",
+      "signature": "SSProject.GetProject(index)",
+      "title": "获取工程句柄",
+      "desc": "index 工程序号",
+      "chm_snippet": " ȡ̾ Online Help ȡ̾ GetProject GetProject ȡ̾ SSProject.GetProject(index) index ֱӷش򿪵ĵ index ̵Ĺ̾ ˵ ִиúȡϵͳصӦضֵͣ ʾ Sub OnClick () prjCount = SSProject.GetProjectCount ' ȡ̸ curProjectHandle = SSProject.GetActiveProject ' ȡǰĹ̾ For i = 0 To prjCount - 1 projectHandle = SSProject. GetProject ( i ) ' ȡ i ̾ If projectHandle <> curProjectHandle Then SSProject.SetActiveProject projectHandle ' û̾ SSProcess.UpdateCurMap projectHandle ' µǰͼ End If Next End Sub "
+    },
+    {
+      "page": 599,
+      "name": "GetProjectCount",
+      "class": "SSProject",
+      "signature": "SSProject.GetProjectCount()",
+      "title": "获取工程个数",
+      "desc": "Sub OnClick()",
+      "chm_snippet": " ȡ̸ Online Help ȡ̸ GetProjectCount GetProjectCount ȡ̸ SSProject.GetProjectCount() ˵ ʾ Sub OnClick () prjCount = SSProject. GetProjectCount ' ȡ̸ curProjectHandle = SSProject.GetActiveProject ' ȡǰĹ̾ For i = 0 To prjCount - 1 projectHandle = SSProject.GetProject ( i ) ' ȡ i ̾ If projectHandle <> curProjectHandle Then SSProject.SetActiveProject projectHandle ' û̾ SSProcess.UpdateCurMap projectHandle ' µǰͼ End If Next End Sub "
+    },
+    {
+      "page": 601,
+      "name": "OpenMap",
+      "class": "SSProject",
+      "signature": "SSProject.OpenMap(mapName)",
+      "title": "打开地图",
+      "desc": "mapName <span lang=ZH-CN style='font-family:",
+      "chm_snippet": " 򿪵ͼ Online Help 򿪵ͼ OpenMap OpenMap 򿪵ͼ SSProject.OpenMap(mapName) mapName Ҫ򿪵ĵͼ ˵ һļһֻһͼҵ緿ͼؼڵͼͻһ̴ڶŵͼ˺Щжŵͼ EDB "
+    },
+    {
+      "page": 602,
+      "name": "RefreshWorkspace",
+      "class": "SSProject",
+      "signature": "SSProject.RefreshWorkspace()",
+      "title": "刷新工作空间窗口",
+      "desc": "执行该函数可以刷新工作空间窗口，该函数不单独使用，EPS<span",
+      "chm_snippet": " ˢ¹ռ䴰 Online Help ˢ¹ռ䴰 RefreshWorkspace RefreshWorkspace ˢ¹ռ䴰ڡ SSProject.RefreshWorkspace() ˵ ִиúˢ¹ռ䴰ڣúʹã EPS ģѾ˸úִл߹ʱ߾ͻԶˢ¹ռ䴰ڣ "
+    },
+    {
+      "page": 603,
+      "name": "SetActiveDatasource",
+      "class": "SSProject",
+      "signature": "SSProject.SetActiveDatasource(mapHandle, datasourceHandle)",
+      "title": "设置活动数据源",
+      "desc": "mapHandle <span",
+      "chm_snippet": " ûԴ Online Help ûԴ SetActiveDatasource SetActiveDatasource ûԴ SSProject.SetActiveDatasource(mapHandle, datasourceHandle) mapHandle ͼ datasourceHandle Դ ˵ ִиú datasourceName ΪԴ ʾ Sub OnClick() ' л mapHandle=SSProject.GetActiveMap datasourceHandle=SSProject. GetDataSourceByname (mapHandle, edbFile ) ' ûԴ SSProject.SetActiveDatasource mapHandle, datasourceHandle End Sub "
+    },
+    {
+      "page": 606,
+      "name": "SetActiveProject",
+      "class": "SSProject",
+      "signature": "SSProject.SetActiveProject(projectHandle)",
+      "title": "设置活动工程",
+      "desc": "projectHandle <span lang=ZH-CN",
+      "chm_snippet": " û Online Help û SetActiveProject SetActiveProject û̡ SSProject.SetActiveProject(projectHandle) projectHandle ̾ ˵ ִиúȡϵͳصӦضֵͣ ʾ лǰΪ򿪵Ḷ́ Sub OnClick() prjCount = SSProject.GetProjectCount ' ȡ̸ curProjectHandle = SSProject.GetActiveProject ' ȡǰĹ̾ For i= 0 To prjCount- 1 projectHandle = SSProject.GetProject(i) ' ȡ i ̾ If projectHandle <> curProjectHandle Then SSProject. SetActiveProject projectHandle ' û̾ SSProcess.UpdateCurMap projectHandle ' µǰͼ End If Next End Sub "
+    },
+    {
+      "page": 608,
+      "name": "SetLayerInfo",
+      "class": "SSProject",
+      "signature": "SSProject.SetLayerInfo(layerHandle, keyName, keyValue)",
+      "title": "设置图层信息",
+      "desc": "layerHandle <span",
+      "chm_snippet": " ͼϢ Online Help ͼϢ SetLayerInfo SetLayerInfo ͼϢ SSProject.SetLayerInfo(layerHandle, keyName, keyValue) layerHandle ͼ keyName ؼ keyValue ؼֵ ˵ "
+    },
+    {
+      "page": 609,
+      "name": "SetMapInfo",
+      "class": "SSProject",
+      "signature": "SSProject.SetMapInfo(mapHandle, keyName, keyValue)",
+      "title": "设置地图信息",
+      "desc": "mapHandle <span",
+      "chm_snippet": " õͼϢ Online Help õͼϢ SetMapInfo SetMapInfo õͼϢ SSProject.SetMapInfo(mapHandle, keyName, keyValue) mapHandle ͼ keyName ؼ keyValue ֵ ˵ "
+    }
+  ]
+}
